@@ -1,5 +1,4 @@
 import exceptions.LoginException;
-
 import java.util.Scanner;
 
 public class ConsoleApp extends App {
@@ -44,24 +43,20 @@ public class ConsoleApp extends App {
             System.out.println("Please enter a username");
             String username = sc.nextLine();
             System.out.println("Please enter a password");
-            String password = sc.nextLine();
+            String password = getHash(sc.nextLine());
             register(username, password);
         } else {
             System.out.println("Please enter your username");
             String username = sc.nextLine();
             System.out.println("Please enter your password");
-            String password = sc.nextLine();
+            String password = getHash(sc.nextLine());
             login(username, password);
         }
     }
 
-    private String hash(String hashText) {
-        // TODO: hash the text
-        return hashText;
-    }
-
     public void run() {
         try {
+            welcomeUser();
             welcomeUser();
         } catch (LoginException e) {
             System.out.println(e);
