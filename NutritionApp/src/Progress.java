@@ -13,12 +13,18 @@ public class Progress {
      * Constructs a Progress with the username and goal of the user
      * @param username Name of the user.
      * @param goal Goal of the user.
+     * @param initial_weight Initial weight of the user as they input it while creating an account.
+     * @param initial_height Initial height of the user as they input it while creating an account.
+     * @param nutrient_level Level of nutrients the user has initially.
      */
-    public Progress(String username, Goal goal){
+    public Progress(String username, Goal goal, double initial_weight, double initial_height, HashMap nutrient_level){
         this.username = username;
-        this.goal =goal;
-        /* I plan to initialise the current height and weight of the user based on what the user inputs initially when
-        * they start using the app. I will implement the rest of this once the User class is done. */
+        this.current_height = initial_height;
+        this.current_weight = initial_weight;
+        this.current_bmi = initial_weight/(Math.pow(initial_height, 2));
+        this.nutrient_level = nutrient_level;
+        this.goal = goal;
+
     }
 
 
