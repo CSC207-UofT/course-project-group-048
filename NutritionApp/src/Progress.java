@@ -24,7 +24,6 @@ public class Progress {
         this.currentBmi = initialWeight/(Math.pow(initialHeight, 2));
         this.nutrientLevel = nutrientLevel;
         this.goal = goal;
-
     }
 
 
@@ -34,7 +33,7 @@ public class Progress {
      * @param currentHeight Current height of the user.
      * @param nutrientLevel Level of nutrients the user has based on their food intake.
      */
-    public void change_parameters(double currentWeight, double currentHeight, HashMap nutrientLevel){
+    public void changeParameters(double currentWeight, double currentHeight, HashMap nutrientLevel){
         this.currentHeight = currentHeight;
         this.currentWeight = currentWeight;
         this.currentBmi = currentWeight/(Math.pow(currentHeight, 2));
