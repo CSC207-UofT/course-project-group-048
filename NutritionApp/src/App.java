@@ -11,6 +11,13 @@ public class App {
         system = new LoginSystem();
     }
 
+    public String getUserUsername() {
+        if (user == null) {
+            return null;
+        }
+        return user.getUsername();
+    }
+
     public void login(String username, String passwordHash) throws LoginException {
         user = system.logInUser(username, passwordHash);
     }

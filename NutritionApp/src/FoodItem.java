@@ -6,7 +6,7 @@ public class FoodItem {
      */
     String name;
     String type;
-    int amount; /* amount of food in grams or units*/
+    int amount; // amount of food in grams or units
 
 
     /**
