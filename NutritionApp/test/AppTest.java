@@ -1,7 +1,5 @@
 /*
  * This file contains JUnit test cases for ConsoleApp.java
- *
- * Complete the TODO in this file!
  */
 
 import org.junit.*;
