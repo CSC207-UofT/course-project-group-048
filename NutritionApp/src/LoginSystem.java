@@ -23,7 +23,7 @@ public class LoginSystem {
      * @return the corresponding User instance
      * @throws UsernameNotFoundException of the username is not in the system
      */
-    private User getUser(String username) throws UsernameNotFoundException {
+    public User getUser(String username) throws UsernameNotFoundException {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
@@ -39,7 +39,7 @@ public class LoginSystem {
      * @param username the username of the user
      * @return whether or not the username exists
      */
-    private boolean userExists(String username) {
+    public boolean userExists(String username) {
         try {
             User candidate = getUser(username);
             return true;

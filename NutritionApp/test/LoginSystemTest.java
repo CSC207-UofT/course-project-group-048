@@ -31,9 +31,6 @@ public class LoginSystemTest {
 
     @Test(timeout = 50)
     public void testGetUser() {
-        // TODO: write this test
-        // Create a new user using system.registerUser(username, password)
-        // Verify that the return value of system.getUser(username) is a User with username username.
         try {
             User result = system.getUser("test");
             String actual = result.getUsername();
