@@ -28,12 +28,12 @@ public class ConsoleApp extends App {
             double height = Utils.getDouble("Enter your height (in): ");
             int activityLevel = Utils.getInt("Enter your activity level from (1 - 100)", 1, 100);
             int age = Utils.getInt("Enter your age: ", 0, 140);
-            register(username, getHash(passwordText), weight, height, activityLevel, age);
+            register(username, Utils.getHash(passwordText), weight, height, activityLevel, age);
         } else {
             // get entered username and password and attempt login.
             String username = Utils.getString("Please enter your username");
             String passwordText = Utils.getString("Please enter your password");
-            login(username, getHash(passwordText));
+            login(username, Utils.getHash(passwordText));
         }
     }
 

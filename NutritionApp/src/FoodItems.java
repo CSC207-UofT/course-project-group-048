@@ -5,7 +5,6 @@
 public class FoodItems {
     final static FoodItem ORANGE = new FoodItem("orange", "fruit", 50);
     final static FoodItem APPLE = new FoodItem("apple", "fruit", 41);
-    // TODO: add more food items
     final static FoodItem BANANA = new FoodItem("banana", "fruit", 70);
     final static FoodItem EGG = new FoodItem("egg", "dairy", 30);
     final static FoodItem BROCCOLI = new FoodItem("broccoli", "vegetable", 50);

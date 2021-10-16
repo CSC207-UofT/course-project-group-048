@@ -12,20 +12,21 @@ public class LoginSystemTest {
     @Before
     public void setUp() {
         system = new LoginSystem();
+        try {
+            system.registerUser("test", "0x0");
+        } catch (exceptions.LoginException ignored) {}
     }
 
     @Test(timeout = 50)
     public void testUserExists() {
-        // TODO: write this test.
-        // Create a new user using system.registerUser(username, password)
-        // Check that user exists with assertEquals(actual, expected)
+        boolean result = system.userExists("test");
+        assertTrue(result);
     }
 
     @Test(timeout = 50)
     public void testUserDoesNotExist() {
-        // TODO: write this test.
-        // Create a new user using system.registerUser(username, password)
-        // Check that a different username does not exist with assertEquals(actual, expected)
+        boolean result = system.userExists("test2");
+        assertFalse(result);
     }
 
     @Test(timeout = 50)
@@ -33,6 +34,14 @@ public class LoginSystemTest {
         // TODO: write this test
         // Create a new user using system.registerUser(username, password)
         // Verify that the return value of system.getUser(username) is a User with username username.
+        try {
+            User result = system.getUser("test");
+            String actual = result.getUsername();
+            String expected = "test";
+            assertEquals(expected, actual);
+        } catch (exceptions.UsernameNotFoundException e) {
+            fail();
+        }
     }
 
 }
