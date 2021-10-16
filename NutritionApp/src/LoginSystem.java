@@ -94,12 +94,11 @@ public class LoginSystem {
      * @throws LoginException if the username already exists in the system.
      */
     public void registerUser(String username, String passwordHash) throws LoginException {
-        if (userExists(username)) {
+         if (userExists(username)) {
             throw new UserAlreadyRegisteredException("Username \"" + username + "\" is already registered.");
         } else {
             users.add(new User(username, passwordHash));
         }
     }
-
 }
 
