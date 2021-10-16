@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
-public class Nutrient {
+public interface Nutrient {
 
 }

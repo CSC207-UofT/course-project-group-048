@@ -1,65 +1,59 @@
 import exceptions.LoginException;
-import java.util.Scanner;
 
+/*
+    Runs the program through the console by asking
+    for user input with Scanner objects.
+ */
 public class ConsoleApp extends App {
     public ConsoleApp() {
         super();
     }
 
-    private static String arrayToString(String[] array) {
-        if (array == null) {
-            return "null";
-        }
+    /**
+     * Welcome a new or existing user to the app.
+     *
+     * @throws LoginException if an existing username is registered
+     * or a user logs in with invalid username/password.
+     */
+    public void signInUser() throws LoginException {
+        System.out.println("\nWelcome to Fitness 4 Life!");
+        String type = Utils.getString("Enter 'R' to register, 'L' to login ", "R", "L");
+        System.out.println();
 
-        StringBuilder arrString = new StringBuilder();
-
-        for (String s : array) {
-            arrString.append(s).append(" ");
-        }
-
-        return arrString.toString();
-    }
-
-    private String getInput(String message, String ... validInputs) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(message + " Options: " + arrayToString(validInputs));
-        String input = scanner.nextLine();
-        for (String validInput: validInputs) {
-            if (input.equals(validInput)) {
-                return input;
-            }
-        }
-
-        System.out.println("Invalid Input.");
-        return getInput(message, validInputs);
-    }
-
-    public void welcomeUser() throws LoginException {
-        System.out.println("Welcome to Fitness 4 Life");
-        Scanner sc = new Scanner(System.in);
-        String type = getInput("Are you a new or existing user? ", "new", "existing");
-
-        if (type.equals("new")) {
-            System.out.println("Please enter a username");
-            String username = sc.nextLine();
-            System.out.println("Please enter a password");
-            String password = getHash(sc.nextLine());
-            register(username, password);
+        if (type.equals("R")) {
+            // get username and password and create new user.
+            String username = Utils.getString("Enter a username: ");
+            String passwordText = Utils.getString("Please enter a password: ");
+            double weight = Utils.getDouble("Enter your weight (lbs): ");
+            double height = Utils.getDouble("Enter your height (in): ");
+            int activityLevel = Utils.getInt("Enter your activity level from (1 - 100)", 1, 100);
+            int age = Utils.getInt("Enter your age: ", 0, 140);
+            register(username, getHash(passwordText), weight, height, activityLevel, age);
         } else {
-            System.out.println("Please enter your username");
-            String username = sc.nextLine();
-            System.out.println("Please enter your password");
-            String password = getHash(sc.nextLine());
-            login(username, password);
+            // get entered username and password and attempt login.
+            String username = Utils.getString("Please enter your username");
+            String passwordText = Utils.getString("Please enter your password");
+            login(username, getHash(passwordText));
         }
     }
+
+    /**
+     * Perform tasks now that the user is logged in.
+     */
+    public void showDashboard() {
+        // TODO: main code for running the app goes here
+        System.out.printf("\nWelcome, %s. \n", user.getUsername());
+    }
+
 
     public void run() {
-        try {
-            welcomeUser();
-            welcomeUser();
-        } catch (LoginException e) {
-            System.out.println(e);
+        while(Utils.getString("\nSelect 'enter' or 'quit': ", "enter", "quit").equals("enter")) {
+            try {
+                signInUser();
+                showDashboard();
+            } catch (LoginException e) {
+                System.out.println("\nThe following error occurred during login: " + e.getMessage());
+            }
         }
     }
 }
