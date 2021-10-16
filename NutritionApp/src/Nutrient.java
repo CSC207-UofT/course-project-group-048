@@ -1,2 +1,3 @@
-public class Nutrient {
+public interface Nutrient {
+
 }
