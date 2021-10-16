@@ -3,7 +3,7 @@
    and its amount in grams or units.
  */
 
-public class FoodItem implements Nutrient {
+public class FoodItem extends Nutrient {
     String name;
     String type;
     int amount;
