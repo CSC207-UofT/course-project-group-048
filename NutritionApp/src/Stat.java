@@ -21,15 +21,30 @@ public class Stat {
     LocalDate endDate;
     List<FoodItem> foodItems;
 
+    /**
+     * Construct a new Stat object.
+     *
+     * @param user the user to store the stat for
+     */
     public Stat(User user) {
         this.user = user;
     }
 
+    /**
+     * Construct a new Stat object.
+     *
+     * @param user the user to store the stat for
+     * @param caloricIntake the number of calories taken in
+     * @param startDate the date the stat starts
+     * @param endDate the date the stat stops
+     * @param foodItems the items consumed by user
+     */
     public Stat(User user, int caloricIntake, LocalDate startDate,
                 LocalDate endDate, List<FoodItem> foodItems) {
         this.user = user;
         this.caloricIntake = caloricIntake;
         this.startDate = startDate;
+        this.endDate = endDate;
         this.foodItems = foodItems;
     }
 
