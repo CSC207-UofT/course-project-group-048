@@ -1,4 +1,4 @@
-import java.util.HashMap;
+
 
 public class FoodItem {
     /** FoodItem stores food name, type(fruit, vegetable, meat etc.),

@@ -40,5 +40,4 @@ public class AppTest {
         String expected = "7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069";
         assertEquals(expected, actual);
     }
-
 }
