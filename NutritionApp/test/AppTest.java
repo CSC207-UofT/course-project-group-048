@@ -6,8 +6,6 @@
 
 import org.junit.*;
 
-import javax.security.auth.login.LoginException;
-
 import static org.junit.Assert.*;
 
 public class AppTest {
@@ -24,17 +22,23 @@ public class AppTest {
             app.register("test", "0x0");
         } catch (exceptions.LoginException e) {
             // We will not enter this block
-            int i = 0;
         }
 
         try {
             app.login("test", "0x0");
         } catch (exceptions.LoginException e) {
             // We will not enter this block
-            int i = 0;
         }
 
         assertNotNull(app.getUserUsername());
+    }
+
+    @Test(timeout = 50)
+    public void testGetHash() {
+        String str = "Hello World!";
+        String actual = app.getHash(str);
+        String expected = "7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069";
+        assertEquals(expected, actual);
     }
 
 }
