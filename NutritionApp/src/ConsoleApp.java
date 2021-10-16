@@ -41,7 +41,7 @@ public class ConsoleApp extends App {
      * Perform tasks now that the user is logged in.
      */
     public void showDashboard() {
-        // TODO: main code for running the app goes here
+        // main code for running the app goes here
         System.out.printf("\nWelcome, %s. \n", user.getUsername());
     }
 
