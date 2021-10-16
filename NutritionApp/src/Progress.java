@@ -6,7 +6,7 @@ public class Progress {
     private double currentHeight; // stores the current height of the user in metres
     private double currentBmi; // stores the current BMI of the user in kg/m^2
     private HashMap nutrientLevel; // stores the level of various nutrients the user has based on their food intake.
-    private Goal goal; // stores the goal set by the user
+    private Goal goal;
 
 
     /**
