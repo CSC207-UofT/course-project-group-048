@@ -2,4 +2,4 @@
 
 ### Quick Start
 
-Clone the repo and run ``Main.java''.
+Clone the repo and run ``Main.java``.
