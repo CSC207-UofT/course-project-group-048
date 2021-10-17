@@ -12,7 +12,7 @@ We plan to add more classes in the future if required but currently we have impl
 
 A more comprehensive understanding of their working can be understood through the CRC cards we have prepared which we will briefly summarise here.
 
-The ``User`` class is one of the main classes of our program. It stores the user's inputted details such has their name, height, weight, BMI, age, password and activity level. Each of these parameters has an attribute that stores the corresponding values. This class works with \texttt{FoodItem} to keep track of the user's periodic intake.
+The ``User`` class is one of the main classes of our program. It stores the user's inputted details such has their name, height, weight, BMI, age, password and activity level. Each of these parameters has an attribute that stores the corresponding values. This class works with ``FoodItem`` to keep track of the user's periodic intake.
 
 The ``Stat`` class stores the user's daily statistics which include their caloric intake along with food items intake. It also records the start and end date of the tracking period. This class will have to store instances of ``FoodItem`` to keep record of the daily food intake of the user.
 
