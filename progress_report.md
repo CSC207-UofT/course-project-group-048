@@ -35,7 +35,7 @@ The ``App`` controls the program itself and is designed to be extended by a User
 ``ConsoleApp`` runs the program through the console by asking
 for user input with ``Scanner`` objects.
 
-### Each member's contribution and future plans
+### Member Contribution and Future Plans
 
 Aryamann helped with writing the specification, developing the CRC cards and writing the skeleton code for the ``Progress`` class. He also assisted in drafting the progress report for Phase 0 of the project. Now he plans on developing the \texttt{Progress} code that will enable the user to track their progress and also looks forward to working on methods that the app can interact with ``User`` and ``Goal`` to give live suggestions to the user based on their current progress compared to their end goal.
 
@@ -47,7 +47,16 @@ Will has been working on making a secure login system with password hashing in `
 
 Ram has worked on the specification, CRC model, Scenario walk through, and a few small fixes within the skeleton program. He looks forward to working on the web application development part of the program
 
-### Open questions
+### What Has Worked Well
+The ``LoginSystem`` and ``User`` classes have worked well in terms of design. It is intuitive and efficient to store a list of ``User`` in ``LoginSystem`` and compare the provided username upon login with each ``User``'s username. 
+
+### Open Questions
 There are still a lot of undecided features we might implement in our app. For example we had initially planned to have a Digital Recognition feature that would help the user to click photos of food items to get information on its nutritional value and whether that item could be incorporated into their food plan.
 
 Although it seems to be a promising feature we still haven't given enough thought on how we would implement this and whether or not it would be feasible in the given time frame.
+
+Our main questions are:
+1. What is the best way to store data for the app? The ``LoginSystem`` class must store credentials and data for each user that signs up for the app. ``FoodItems`` must store many instances of ``FoodItem``.
+2. Should ``Nutrient`` be a parent class of ``FoodItem`` or an interface? Each instance of ``FoodItem`` must have nutritional value that will be calculated and compared to with other instance of ``FoodItem``.
+3. How should we design the graphical user-interface for the app? Is a web application best? If so, what is the best approach to take?
+4. A ``LoginException`` may be thrown by ``LoginSystem.registerUser`` or ``LoginSystem.loginUser`` given an invalid username or password. Where should this exception be handled? In the controller? It is currently being handled in the ``ConsoleApp`` class.
