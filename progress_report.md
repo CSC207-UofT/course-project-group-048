@@ -41,11 +41,11 @@ Aryamann helped with writing the specification, developing the CRC cards and wri
 
 Harsh assisted in developing the original framework for the program, making the CRC cards and identifying the required classes and integrating them together into a functional program that a user could navigate through. He worked on the user class and helped formulate a command line interface for users. He looks forward to using APIs to enhance the functionality of the program and develop a useful meal generator.
 
-Paula has helped with making the CRC cards and has been working on the ``FoodItem`` and ``FoodItems`` classes that store information of the food items. She is planning to work on the Nutrient class and the interactions between FoodItem class, User class and Nutrient class in the future.
+Paula has helped with making the CRC cards and has been working on the ``FoodItem`` and ``FoodItems`` classes that store information of the food items. She is planning to work on the ``Nutrient`` class and the interactions between ``FoodItem`` class, ``User`` class and ``Nutrient`` class in the future.
 
-Will has been working on making a secure login system with password hashing in ``LoginSystem``, custom exceptions to handle invalid login credentials in the exceptions package, a parent class to represent a general controller class for our app in ``App``, a simple console version of our app in ``ConsoleApp``, and proper documentation on all classes. He plans to make a subclass of App to represent a graphical UI (web component), store the user login information in a database and access it with the ``LoginSystem`` class, and incorporate the Goal class with User.
+Will has been working on making a secure login system with password hashing in ``LoginSystem``, custom exceptions to handle invalid login credentials in the exceptions package, a parent class to represent a general controller class for our app in ``App``, a simple console version of our app in ``ConsoleApp``, and proper documentation for all classes. He plans to make a subclass of App to represent a graphical UI (web component), store the user login information in a database and access it with the ``LoginSystem`` class, and incorporate the ``Goal`` class in ``User``.
 
-Ram has worked on the specification, CRC model, Scenario walk through, and a few small fixes within the skeleton program. He looks forward to working on the web application development part of the program
+Ram has worked on the specification, CRC model, Scenario walk through, and a few small fixes within the skeleton program. He looks forward to working on the web application development part of the program.
 
 ### What Has Worked Well
 The ``LoginSystem`` and ``User`` classes have worked well in terms of design. It is intuitive and efficient to store a list of ``User`` in ``LoginSystem`` and compare the provided username upon login with each ``User``'s username. 
@@ -53,7 +53,7 @@ The ``LoginSystem`` and ``User`` classes have worked well in terms of design. It
 ### Open Questions
 There are still a lot of undecided features we might implement in our app. For example we had initially planned to have a Digital Recognition feature that would help the user to click photos of food items to get information on its nutritional value and whether that item could be incorporated into their food plan.
 
-Although it seems to be a promising feature we still haven't given enough thought on how we would implement this and whether or not it would be feasible in the given time frame.
+Although it seems to be a promising feature, we still haven't given enough thought on how we would implement this and whether or not it would be feasible in the given time frame.
 
 Our main questions are:
 1. What is the best way to store data for the app? The ``LoginSystem`` class must store credentials and data for each user that signs up for the app. ``FoodItems`` must store many instances of ``FoodItem``.
