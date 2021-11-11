@@ -20,15 +20,15 @@ Main.java
  Main
 ConsoleApp.java
  ConsoleApp
-FoodItems.java
- FoodItems
 Progress.java
  Progress
+FoodItems.java
+ FoodItems
 exceptions/UsernameNotFoundException.java
  exceptions.UsernameNotFoundException
-exceptions/InvalidPasswordException.java
- exceptions.InvalidPasswordException
 Nutrient.java
  Nutrient
+exceptions/InvalidPasswordException.java
+ exceptions.InvalidPasswordException
 Stat.java
  Stat
