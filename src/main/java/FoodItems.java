@@ -28,4 +28,8 @@ public class FoodItems {
     final static FoodItem COOKIES = new FoodItem("cookies", "dessert", 30, "snack");
     final static FoodItem NOODLES = new FoodItem("noodle", "grain", 180, "dinner");
     final static FoodItem LETTUCE = new FoodItem("lettuce", "vegetable", 30, "lunch");
+
+    public void main(String[] args) {
+        Field[] fooditems = FoodItems.class.getDeclaredFields();
+    }
 }

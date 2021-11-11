@@ -41,7 +41,7 @@ public class FoodItem{
     public String getClassification() {return classification;}
 
 
-    public void changeclassf(String newclassf){
+    public void setClassification(String newclassf){
         this.classification = newclassf;
     }
     }
