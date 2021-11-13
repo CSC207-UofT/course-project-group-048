@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void openHomePage() {
-        Intent openTheHomePage = new Intent(this, activity_homepage.class);
+        Intent openTheHomePage = new Intent(this, activity_home.class);
         startActivity(openTheHomePage);
     }
 }
