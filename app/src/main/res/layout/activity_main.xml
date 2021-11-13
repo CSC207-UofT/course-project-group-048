@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background">
+
+    <TextView
+        android:id="@+id/txtViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTxtUsername"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/password" />
+
+    <TextView
+        android:id="@+id/txtViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/username" />
+
+    <EditText
+        android:id="@+id/edtTxtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewUsername"
+        android:layout_marginStart="75dp"
+        android:autofillHints="@string/johndoe123"
+        android:ems="10"
+        android:hint="@string/johndoe123"
+        android:inputType="textPersonName" />
+
+    <ImageButton
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTxtPassword"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="#3F51B5"
+        android:contentDescription="@string/login_image"
+        android:rotation="180"
+        app:srcCompat="@drawable/abc_vector_test" />
+
+    <TextView
+        android:id="@+id/txtViewSignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtTxtPassword"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="85dp"
+        android:text="@string/sign_in"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtViewCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtViewSignin"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="155dp"
+        android:text="@string/don_t_have_an_account" />
+
+    <Button
+        android:id="@+id/buttonCreateAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="135dp"
+        android:backgroundTint="#3F51B5"
+        android:text="@string/create_one" />
+
+    <EditText
+        android:id="@+id/edtTxtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewPassword"
+        android:layout_marginStart="75dp"
+        android:autofillHints="@string/examplePassword"
+        android:ems="10"
+        android:hint="@string/examplePassword"
+        android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/ic_food_foreground" />
+
+</RelativeLayout>

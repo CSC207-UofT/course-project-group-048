@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Login page</string>
+    <string name="johndoe123">JohnDoe123</string>
+    <string name="login_image">login image</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="create_one">Create one!</string>
+    <string name="examplePassword">*********</string>
+    <string name="title_activity_home">activity_home</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="avatarimage">avatarImage</string>
+    <string name="full_name">Full Name</string>
+    <string name="height_cm">Height(cm)</string>
+    <string name="register">Register</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="weight_kg">Weight(kg)</string>
+    <string name="age">Age</string>
+</resources>
