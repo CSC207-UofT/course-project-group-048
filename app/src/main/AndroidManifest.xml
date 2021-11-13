@@ -10,12 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage" >
         <activity
-            android:name=".activity_homepage"
-            android:exported="false" />
+            android:name=".ui.activity_home2"
+            android:exported="false"
+            android:label="@string/title_activity_home2" />
         <activity
             android:name=".activity_home"
             android:exported="false"
             android:label="@string/title_activity_home" />
+        <activity
+            android:name=".activity_homepage"
+            android:exported="false" />
         <activity
             android:name=".activity_registration2"
             android:exported="false" />
