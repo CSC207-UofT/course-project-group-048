@@ -6,6 +6,9 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
+import nutrition.App;
+import nutrition.exceptions.LoginException;
+
 public class AppTest {
     App app;
 
@@ -18,13 +21,13 @@ public class AppTest {
     public void testLogin() {
         try {
             app.register("test", "0x0");
-        } catch (exceptions.LoginException e) {
+        } catch (LoginException e) {
             // We will not enter this block
         }
 
         try {
             app.login("test", "0x0");
-        } catch (exceptions.LoginException e) {
+        } catch (LoginException e) {
             // We will not enter this block
         }
 

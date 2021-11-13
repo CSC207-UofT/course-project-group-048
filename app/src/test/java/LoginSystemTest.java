@@ -6,6 +6,11 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
+import nutrition.LoginSystem;
+import nutrition.User;
+import nutrition.exceptions.LoginException;
+import nutrition.exceptions.UsernameNotFoundException;
+
 public class LoginSystemTest {
     LoginSystem system;
 
@@ -14,7 +19,7 @@ public class LoginSystemTest {
         system = new LoginSystem();
         try {
             system.registerUser("test", "0x0");
-        } catch (exceptions.LoginException ignored) {}
+        } catch (LoginException ignored) {}
     }
 
     @Test(timeout = 50)
@@ -36,7 +41,7 @@ public class LoginSystemTest {
             String actual = result.getUsername();
             String expected = "test";
             assertEquals(expected, actual);
-        } catch (exceptions.UsernameNotFoundException e) {
+        } catch (UsernameNotFoundException e) {
             fail();
         }
     }

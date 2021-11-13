@@ -1,3 +1,5 @@
+package nutrition;
+
 public class MealGenerator {
 
     String mealType;

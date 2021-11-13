@@ -1,7 +1,6 @@
-import exceptions.*;
+package nutrition;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
+import nutrition.exceptions.*;
 
 
 /*

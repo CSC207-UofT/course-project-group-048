@@ -1,4 +1,6 @@
-import exceptions.LoginException;
+package nutrition;
+
+import nutrition.exceptions.LoginException;
 
 /*
     Runs the program through the console by asking

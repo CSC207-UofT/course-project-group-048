@@ -1,4 +1,4 @@
-/*
+package nutrition;/*
     The main class to launch the app.
  */
 

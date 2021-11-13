@@ -2,6 +2,8 @@ import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
 
+import nutrition.Utils;
+
 public class UtilsTest {
 
     @Test(timeout = 50)

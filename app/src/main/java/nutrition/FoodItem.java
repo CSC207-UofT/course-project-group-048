@@ -1,4 +1,4 @@
-/*
+package nutrition;/*
    FoodItem stores food name, type (fruit, vegetable, meat etc.)
    and its amount in grams or units.
  */

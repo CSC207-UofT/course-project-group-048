@@ -1,7 +1,9 @@
-import exceptions.*;
+package nutrition;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import nutrition.exceptions.*;
 
 /*
     A system to store users of the app and their

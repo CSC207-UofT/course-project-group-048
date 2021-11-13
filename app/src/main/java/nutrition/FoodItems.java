@@ -1,4 +1,4 @@
-/*
+package nutrition;/*
     A database of food items.
  */
 

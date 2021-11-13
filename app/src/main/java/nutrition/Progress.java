@@ -1,3 +1,5 @@
+package nutrition;
+
 import java.util.HashMap;
 
 public class Progress {
