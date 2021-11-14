@@ -9,22 +9,26 @@ public class FoodItem{
     String name;
     String type;
     int amount;
-    String classification;
-    HashMap<String, Double> nutrients;
+    String mealtype;
+    String diettype;
+    String[] types;
 
 
     /**
      * @param name name of the food
      * @param type type of the food(fruit, veg, meat etc.)
      * @param amount amount of the food
-     * @param classification classification of the FoodItem(breakfast, lunch, dinner and snacks)
+     * @param mealtype type of meal(breakfast, lunch, dinner and snacks)
+     * @param diettype specific diet if it is applicable(vegan, vegetarian, none, or glutenfree)
 
      */
-    public FoodItem(String name, String type, int amount, String classification) {
+    public FoodItem(String name, String type, int amount, String mealtype, String diettype) {
         this.name = name;
         this.type = type;
         this.amount = amount;
-        this.classification = classification;
+        this.mealtype = mealtype;
+        this.diettype = diettype;
+        this.types = new String[] {this.type, this.diettype, this.mealtype};
 
 
 
@@ -38,10 +42,10 @@ public class FoodItem{
     public int getAmount() {
         return amount;
     }
-    public String getClassification() {return classification;}
+    public String getMealtype() {return mealtype;}
 
 
-    public void setClassification(String newclassf){
-        this.classification = newclassf;
+    public void setClassification(String newmealtype){
+        this.mealtype = newmealtype;
     }
     }
