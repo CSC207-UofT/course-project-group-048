@@ -5,6 +5,10 @@
 
 import java.lang.reflect.Field;
 
+/*
+    Dataset of FoodItem
+ */
+
 public class FoodItems {
     final static FoodItem ORANGE = new FoodItem("orange", 50, new String[]{"fruit","snack", "vegan"});
     final static FoodItem APPLE = new FoodItem("apple", 41, new String[] {"fruit", "snack", "vegan"});
@@ -36,6 +40,11 @@ public class FoodItems {
     final static FoodItem NOODLES = new FoodItem("noodle", 180, new String[] {"grain", "dinner", "vegetarian"});
     final static FoodItem LETTUCE = new FoodItem("lettuce", 30, new String[] {"vegetable", "lunch", "vegan"});
 
+
+    /*
+    made an array including all FoodItem in FoodItems class to that
+    they can be used in the MealGenerator class
+ */
     public void main(String[] args) {
         Field[] fooditems = FoodItems.class.getDeclaredFields();
     }
