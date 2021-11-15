@@ -7,28 +7,19 @@ import java.util.HashMap;
 
 public class FoodItem{
     String name;
-    String type;
     int amount;
-    String mealtype;
-    String diettype;
     String[] types;
 
 
     /**
      * @param name name of the food
-     * @param type type of the food(fruit, veg, meat etc.)
      * @param amount amount of the food
-     * @param mealtype type of meal(breakfast, lunch, dinner and snacks)
-     * @param diettype specific diet if it is applicable(vegan, vegetarian, none, or glutenfree)
-
+     * @param types type of the foo(food category, diet and meal type)
      */
-    public FoodItem(String name, String type, int amount, String mealtype, String diettype) {
+    public FoodItem(String name, int amount, String[] types) {
         this.name = name;
-        this.type = type;
         this.amount = amount;
-        this.mealtype = mealtype;
-        this.diettype = diettype;
-        this.types = new String[] {this.type, this.diettype, this.mealtype};
+        this.types = types;
 
 
 
@@ -36,16 +27,8 @@ public class FoodItem{
     public String getName() {
         return name;
     }
-    public String getType() {
-        return type;
-    }
     public int getAmount() {
         return amount;
     }
-    public String getMealtype() {return mealtype;}
 
-
-    public void setClassification(String newmealtype){
-        this.mealtype = newmealtype;
-    }
     }
