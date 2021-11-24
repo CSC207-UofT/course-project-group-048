@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText edtTxtUsername, edtTxtPassword;
 
+    // new code test
+
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.loginButton) {
