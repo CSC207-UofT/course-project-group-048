@@ -22,7 +22,7 @@ public class MealGenerator {
 
     /*
     private void customMeal(FoodItems fd) {
-        boolean possible = false
+        boolean possible = false EDIT
         for(int i = 0; i < len(fd); i++) {
              add conditions: enough items for a custom meal/*
             if conditions meet, change possible to true
