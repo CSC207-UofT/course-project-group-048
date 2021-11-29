@@ -10,10 +10,20 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import nutrition.LoginSystem;
+import nutrition.MyDBHandler;
+import nutrition.User;
+
 public class activity_registration2 extends AppCompatActivity implements View.OnClickListener {
+
+    String fullname, username, password, gender;
+    Double height, weight;
+    int age;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender;
+
+    MyDBHandler dbHandler;
 
     @Override
     public void onClick(View v) {
@@ -33,8 +43,34 @@ public class activity_registration2 extends AppCompatActivity implements View.On
             } else if (edtTxtAge.getText().toString().trim().length() == 0) {
                 Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Account Created! Please Enter Login Information", Toast.LENGTH_SHORT).show();
-                openLoginPage();
+                //Set private variables as per user inputted details.
+                fullname = edtTxtFullName.getText().toString();
+                username = edtTxtUser.getText().toString();
+                password = edtTxtPass.getText().toString();
+                height = Double.parseDouble(edtTxtHeight.getText().toString());
+                weight = Double.parseDouble(edtTxtWeight.getText().toString());
+                age = Integer.parseInt(edtTxtAge.getText().toString());
+
+                //Retrieve all usernames and corresponding passwords to store in loginsystem class.
+                LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
+
+                //Check whether username already exists. If it exists then ask the user to input a
+                //new one. If not, create account with given details.
+                if(loginSystem.GetUsernames().contains(username)){
+                    Toast.makeText(this, "This username is taken. Please try another one.",
+                            Toast.LENGTH_SHORT).show();
+                    edtTxtUser.setText("");
+                }
+                else {
+                    //Creates new user with the given details.
+                    User user = new User(fullname, username, password, gender, weight, height, age);
+
+                    // Inserts user into database and open login page.
+                    dbHandler.addUser(user);
+                    Toast.makeText(this, "Account Created! Please Enter Login Information",
+                            Toast.LENGTH_SHORT).show();
+                    openLoginPage();
+                }
             }
         }
     }
