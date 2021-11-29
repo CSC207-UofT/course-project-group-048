@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String username, password;
     MyDBHandler dbHandler;
 
+    // test assadwil branch
+
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.loginButton) {
