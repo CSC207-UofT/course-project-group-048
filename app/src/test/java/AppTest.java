@@ -6,7 +6,6 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
-import nutrition.App;
 import nutrition.exceptions.LoginException;
 
 public class AppTest {

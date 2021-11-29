@@ -9,13 +9,13 @@ import java.util.List;
     accessed by LoginSystem.
  */
 public class User {
+    private String name;
     private String username;
     private String passwordHash;
+    private String gender;
     private double weight;
     private double height;
-    private int activityLevel;
     private int age;
-    private List<Goal> goals;
 
     /**
      * Create a new User object.
@@ -24,28 +24,24 @@ public class User {
      * @param passwordHash the password SHA256 of the new user.
      * @param weight the weight of the new user.
      * @param height the height of the new user.
-     * @param activityLevel the level of activity of the new user.
      * @param age the age of the new user.
      */
-    public User(String username, String passwordHash, double weight, double height, int activityLevel, int age) {
+
+    //I have removed "activity levels" and "goals" variable from this constructor because we have
+    //not decided on their exact use yet. We can add them later.
+    public User(String name, String username, String passwordHash, String gender, double weight,
+                double height, int age) {
+        this.name = name;
         this.username = username;
         this.passwordHash = passwordHash;
+        this.gender = gender;
         this.weight = weight;
         this.height = height;
-        this.activityLevel = activityLevel;
         this.age = age;
-        this.goals = new ArrayList<>();
     }
 
-    /**
-     * Create a new User object.
-     *
-     * @param username the username of the new user.
-     * @param passwordHash the password SHA256 of the new user.
-     */
-    public User(String username, String passwordHash) {
-        this.username = username;
-        this.passwordHash = passwordHash;
+    public String getName() {
+        return name;
     }
 
     public String getUsername() {
@@ -56,6 +52,9 @@ public class User {
         return passwordHash;
     }
 
+    public String getGender() {
+        return gender;
+    }
 
     public double getWeight() {
         return weight;
@@ -65,19 +64,8 @@ public class User {
         return height;
     }
 
-    public int getActivityLevel() {
-        return activityLevel;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public List<Goal> getGoals() {
-        return goals;
-    }
-
-    public void addGoal(Goal goal) {
-        goals.add(goal);
-    }
 }

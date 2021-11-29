@@ -6,7 +6,6 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
-import nutrition.LoginSystem;
 import nutrition.User;
 import nutrition.exceptions.LoginException;
 import nutrition.exceptions.UsernameNotFoundException;
