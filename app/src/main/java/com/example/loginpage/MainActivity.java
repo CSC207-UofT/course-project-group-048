@@ -20,9 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
-    MyDBHandler dbHandler;
 
-    // test assadwil branch
+    MyDBHandler dbHandler;
 
     @Override
     public void onClick(View v) {
