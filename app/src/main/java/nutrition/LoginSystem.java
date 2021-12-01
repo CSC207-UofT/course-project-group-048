@@ -21,6 +21,7 @@ import java.util.Set;
 public class LoginSystem {
 
     private HashMap<String, String> logindata;
+    // private MyDBHandler ;
 
     public LoginSystem(HashMap<String, String> LoginData){
         this.logindata = LoginData;
@@ -42,7 +43,7 @@ public class LoginSystem {
      * @return True if password matches the true password of the given username and false otherwise.
      * Also returns false if username does not exist.
      */
-    public Boolean CheckUsernamePassword(String username, String password){
+    public boolean CheckUsernamePassword(String username, String password){
         if (logindata.containsKey(username)){
             return Objects.equals(logindata.get(username), password);
         }
