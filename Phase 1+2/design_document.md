@@ -6,7 +6,7 @@ Our design is consistent with the SOLID design principles. For some specific exa
 
 ### MainActivity
 
-This class is the main class of the program. Since it is the default activity, it launches the user login page. For that reason, it only has a hard dependency on the LoginSystem class (D). 
+This class is the main class of the program. Since it is the default activity, it launches the user login page. For that reason, it only has a hard dependency on the LoginSystem class (D). The class is responsible to only one actor-- the program designer (S).
 
 ``
 
