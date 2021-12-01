@@ -1,34 +1,34 @@
 package nutrition;/*
    FoodItem stores food name, type (fruit, vegetable, meat etc.)
-   and its amount in grams or units.
+   and its amount in grams and its corresponding nutritional values(carbohydrates, protein and fat)
  */
 
-public class FoodItem extends Nutrient {
+import java.util.HashMap;
+
+public class FoodItem{
     String name;
-    String type;
     int amount;
+    String[] types;
 
 
     /**
      * @param name name of the food
-     * @param type type of the food(fruit, veg, meat etc.)
      * @param amount amount of the food
+     * @param types type of the foo(food category, diet and meal type)
      */
-    public FoodItem(String name, String type, int amount) {
+    public FoodItem(String name, int amount, String[] types) {
         this.name = name;
-        this.type = type;
         this.amount = amount;
+        this.types = types;
+
+
 
     }
     public String getName() {
         return name;
     }
-    public String getType() {
-        return type;
-    }
     public int getAmount() {
         return amount;
     }
-
 
 }
