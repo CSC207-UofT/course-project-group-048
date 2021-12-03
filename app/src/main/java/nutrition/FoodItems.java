@@ -10,11 +10,16 @@ import java.lang.reflect.Field;
  */
 
 public class FoodItems {
-    final static FoodItem ORANGE = new FoodItem("orange", 50, new String[]{"fruit","snack", "vegan"});
-    final static FoodItem APPLE = new FoodItem("apple", 41, new String[] {"fruit", "snack", "vegan"});
-    final static FoodItem BANANA = new FoodItem("banana", 70, new String[]  {"fruit", "snack", "vegan"});
-    final static FoodItem EGG = new FoodItem("egg", 30, new String[] {"dairy", "breakfast", "vegetarian"});
-    final static FoodItem BROCCOLI = new FoodItem("broccoli", 50, new String[] {"vegetable","lunch","vegan"});
+    final static FoodItem ORANGE = new FoodItem("orange", 50,
+            new String[]{"fruit","snack", "vegan"}, new Integer[]{23, 4, 0, 0});
+    final static FoodItem APPLE = new FoodItem("apple", 182,
+            new String[] {"fruit", "snack", "vegan"}, new Integer[]{95, 25, 0, 0});
+    final static FoodItem BANANA = new FoodItem("banana", 118,
+            new String[]  {"fruit", "snack", "vegan"}, new Integer[]{105, 27, 0, 1});
+    final static FoodItem EGG = new FoodItem("egg", 70,
+            new String[] {"dairy", "breakfast", "vegetarian"}, new Integer[]{70, 0, 5, 6});
+    final static FoodItem BROCCOLI = new FoodItem("broccoli", 100,
+            new String[] {"vegetable","lunch","vegan"}, new Integer[]{34, 7, 0, 3});
     final static FoodItem WHITEBREAD = new FoodItem("white bread",
             60, new String[] {"grain", "vegetarian", "breakfast"});
     final static FoodItem CEREAL = new FoodItem("cereal", 30, new String[] {"grain", "breakfast", "vegetarian"});
