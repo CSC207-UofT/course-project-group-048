@@ -21,4 +21,16 @@
     <string name="weight_kg">Weight(kg)</string>
     <string name="age">Age</string>
     <string name="title_activity_home2">activity_home2</string>
+    <string name="nov_22_2021">Nov 22, 2021</string>
+    <string name="progress_report">Progress Report</string>
+    <string name="profile">PROFILE</string>
+    <string name="home">HOME</string>
+    <string name="meal">MEAL</string>
+    <string name="weight_kg_67_5">Weight(kg): 67.5</string>
+    <string name="height_cm_176">Height(cm): 176</string>
+    <string name="bmi_21_8">BMI: 21.8</string>
+    <string name="nov_23_2021">Nov 23, 2021</string>
+    <string name="weight_kg_67_6">Weight(kg): 67.6</string>
+    <string name="height_cm_176">Height(cm): 176</string>
+    <string name="bmi_21_8">BMI: 21.8</string>
 </resources>
