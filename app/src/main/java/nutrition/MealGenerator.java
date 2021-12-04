@@ -9,9 +9,9 @@ public class MealGenerator {
     /**
      * A goal set for a given User.
      *
-     * @param mealType the type of meal to be generated
-     * @param caloriesAim the target calories to be gained from the meal generated
-     * @param dietInfo dietary requirements (vegan, vegetarian, etc)
+     * @param mt the type of meal to be generated
+     * @param ca the target calories to be gained from the meal generated
+     * @param di dietary requirements (vegan, vegetarian, etc)
      */
 
     public void MealGenerator(String mt, int ca, String di) {

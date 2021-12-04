@@ -21,7 +21,7 @@ import java.util.Set;
 public class LoginSystem {
 
     private HashMap<String, String> logindata;
-    // private MyDBHandler ;
+    //private MyDBHandler handler;
 
     public LoginSystem(HashMap<String, String> LoginData){
         this.logindata = LoginData;
