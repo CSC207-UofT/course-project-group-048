@@ -10,4 +10,4 @@ This class is the main class of the program. Since it is the default activity, i
 
 ### RegisterActivity
 
-This Activity represents the actions of the Registration Page of our application. It contains a user registration form that a first-time user fills out. This form contains fields for information about the user that will be used in the MealGenerator API, but most importantly, it contains username and password fields. The method ``onClick`` 
+This Activity represents the actions of the Registration Page of our application. It contains a user registration form that a first-time user fills out. This form contains fields for information about the user that will be used in the MealGenerator API, but most importantly, it contains username and password fields. The method ``onClick`` checks if all fields have been entered and displays a message to the user if this is not the case. Otherwise, the user information is handled by the ``LoginSystem`` controller and a new account is created. Our original code for this, while correct, had several code smells.
