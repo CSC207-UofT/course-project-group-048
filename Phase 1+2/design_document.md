@@ -2,7 +2,7 @@
 
 ## SOLID Design Principles
 
-Our design is consistent with the SOLID design principles. For some specific example, consider the following classes. We will indicate which deign principle is being used in brackets with one letter. For example, (S) would refer to adherence to the Single-Responsibility Principle.
+Our design is consistent with the SOLID design principles. For some specific examples, consider the following classes. We will indicate which deign principle is being used in brackets with one letter. For example, (S) would refer to adherence to the Single-Responsibility Principle.
 
 ### MainActivity
 
