@@ -15,3 +15,6 @@ The only major code smell was a Bloater in the ``onClick`` method. This method c
 This Activity represents the actions of the Registration Page of our application. It contains a user registration form that a first-time user fills out. This form contains fields for information about the user that will be used in the MealGenerator API, but most importantly, it contains username and password fields. The method ``onClick`` checks if all fields have been entered and displays a message to the user if this is not the case. Otherwise, the user information is handled by the ``LoginSystem`` controller and a new account is created.
 
 ur original code for this class, while correct, had several code smells.
+
+### code smells (ram)
+inside MainActivity, there was previously a **bloated** onClick method, the implementation for which required the call for a for loop with numerous parameters to iterate through a **bloated** list containing the id's for the views that we instanciated. However, this was bad design as the method was not clear or easy to understand. To resolve this issue we removed the long list of parameters... 
