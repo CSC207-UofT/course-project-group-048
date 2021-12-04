@@ -8,10 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import nutrition.LoginSystem;
 import nutrition.MyDBHandler;
@@ -20,11 +17,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
-
     MyDBHandler dbHandler;
 
     @Override
     public void onClick(View v) {
+
         if(v.getId() == R.id.loginButton) {
             if (edtTxtUsername.getText().toString().trim().length() == 0) {
                 Toast.makeText(this, "Please enter Username", Toast.LENGTH_SHORT).show();
@@ -53,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,12 +69,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void openRegistrationForm() {
-        Intent intent = new Intent(this, activity_registration2.class);
+        Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
 
     public void openHomePage() {
-        Intent openTheHomePage = new Intent(this, activity_homepage.class);
+        Intent openTheHomePage = new Intent(this, HomePageActivity.class);
         startActivity(openTheHomePage);
     }
 

@@ -15,7 +15,7 @@ import nutrition.LoginSystem;
 import nutrition.MyDBHandler;
 import nutrition.User;
 
-public class activity_registration2 extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     String fullname, username, password, gender;
     Double height, weight;
