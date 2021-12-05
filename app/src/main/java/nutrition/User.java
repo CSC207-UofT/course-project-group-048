@@ -16,6 +16,7 @@ public class User {
     private double weight;
     private double height;
     private int age;
+    private boolean goal;
 
     /**
      * Create a new User object.
@@ -38,6 +39,7 @@ public class User {
         this.weight = weight;
         this.height = height;
         this.age = age;
+        this.goal = goal;
     }
 
     public String getName() {
@@ -67,5 +69,7 @@ public class User {
     public int getAge() {
         return age;
     }
+
+    public boolean getGoal() {return goal;}
 
 }
