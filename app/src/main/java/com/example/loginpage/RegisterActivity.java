@@ -97,12 +97,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         } else if (edtTxtAge.getText().toString().trim().length() == 0) {
             Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
         } else {
-            PerformSignUp();
+            performSignUp();
         }
 
     }
 
-    public void PerformSignUp(){
+    public void performSignUp(){
         if(loginSystem.checkUsernameExists(username)){
             Toast.makeText(this, "This username is taken. Please try another one.",
                     Toast.LENGTH_SHORT).show();
