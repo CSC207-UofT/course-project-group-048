@@ -14,7 +14,7 @@ import nutrition.LoginSystem;
 import nutrition.MyDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+// bs comment
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
     MyDBHandler dbHandler;
