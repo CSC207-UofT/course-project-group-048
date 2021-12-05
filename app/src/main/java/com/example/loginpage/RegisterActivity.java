@@ -19,12 +19,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     String fullname, username, password, gender;
     Double height, weight;
     int age;
+    boolean goal;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
     private RadioButton radioBtnMale, radioBtnFemale, radioBtnGain, radioBtnLose;
-
-    LoginSystem loginSystem;
 
     @Override
     public void onClick(View v) {
@@ -36,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             height = Double.parseDouble(edtTxtHeight.getText().toString().trim());
             weight = Double.parseDouble(edtTxtWeight.getText().toString().trim());
             age = Integer.parseInt(edtTxtAge.getText().toString().trim());
-            loginSystem = new LoginSystem(this);
 
             checkAllFieldsAndSignUp();
 
@@ -47,9 +45,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration2);
-
         Button registerBtn = findViewById(R.id.registerBtn);
         registerBtn.setOnClickListener(this);
+        setRadioButtons();
 
         edtTxtFullName = findViewById(R.id.edtTxtFullName);
         edtTxtUser = findViewById(R.id.edtTxtUser);
@@ -57,7 +55,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         edtTxtHeight = findViewById(R.id.edtTxtHeight);
         edtTxtWeight = findViewById(R.id.edtTxtWeight);
         edtTxtAge = findViewById(R.id.edtTxtAge);
+        radioGroupGender = findViewById(R.id.radioGroupGender);
+        radioGroupWeight = findViewById(R.id.radioGroupWeight);
+    }
 
+    public void setRadioButtons() {
+        setMaleButton();
+        setFemaleButton();
+        setGainWeightButton();
+        setLoseWeightButton();
+    }
+
+    public void setMaleButton() {
         radioBtnMale = findViewById(R.id.radioBtnMale);
         radioBtnMale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +74,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 gender = "male"; //Sets gender to male if male button is clicked.
             }
         });
+    }
 
+    public void setFemaleButton() {
         radioBtnFemale = findViewById(R.id.radioBtnFemale);
         radioBtnFemale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,26 +84,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 gender = "female"; //Sets gender to female if female button is clicked.
             }
         });
+    }
 
+    public void setGainWeightButton() {
         radioBtnGain = findViewById(R.id.radioBtnGain);
         radioBtnGain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                goal = true; // set goal to gain weight when gain weight button is clicked
+                goal = true; // set goal to gain weight when gain weight button is clicked
             }
         });
+    }
 
+    public void setLoseWeightButton() {
         radioBtnLose = findViewById(R.id.radioBtnLose);
         radioBtnLose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                goal = false; // set goal to lose weight when lose weight button is clicked
+                goal = false; // set goal to lose weight when lose weight button is clicked
             }
         });
-
-        radioGroupGender = findViewById(R.id.radioGroupGender);
-        radioGroupWeight = findViewById(R.id.radioGroupWeight);
     }
+
+
     public void openLoginPage(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -122,6 +136,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void performSignUp(){
+        LoginSystem loginSystem = new LoginSystem(this);
+
         if(loginSystem.checkUsernameExists(username)){
             Toast.makeText(this, "This username is taken. Please try another one.",
                     Toast.LENGTH_SHORT).show();
@@ -129,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         else {
             //Creates new user with the given details.
-            User user = new User(fullname, username, password, gender, weight, height, age);
+            User user = new User(fullname, username, password, gender, weight, height, age, goal);
 
             // Inserts user into database and open login page.
             loginSystem.RegisterUser(user);
