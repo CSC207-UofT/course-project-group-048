@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
-import nutrition.MyDBHandler;
 import nutrition.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {

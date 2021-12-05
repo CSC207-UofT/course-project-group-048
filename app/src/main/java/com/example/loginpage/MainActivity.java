@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
-import nutrition.MyDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 // bs comment
