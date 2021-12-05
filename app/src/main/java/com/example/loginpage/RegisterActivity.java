@@ -26,56 +26,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private RadioButton radioBtnMale, radioBtnFemale;
 
     MyDBHandler dbHandler;
+    LoginSystem loginSystem;
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.registerBtn) {
-            if(edtTxtFullName.getText().toString().trim().length() == 0){
-                Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtUser.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please Enter a Username", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtPass.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please Enter a Password", Toast.LENGTH_SHORT).show();
-            } else if(radioGroupGender.getCheckedRadioButtonId() == -1){ // no buttons are checked
-                Toast.makeText(this, "Please Select Your Gender", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtHeight.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please Enter Your Height in cm", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtWeight.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please Enter Your Weight in kg", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtAge.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
-            } else {
 
-                //Set private variables as per user inputted details.
-                fullname = edtTxtFullName.getText().toString();
-                username = edtTxtUser.getText().toString();
-                password = edtTxtPass.getText().toString();
-                height = Double.parseDouble(edtTxtHeight.getText().toString());
-                weight = Double.parseDouble(edtTxtWeight.getText().toString());
-                age = Integer.parseInt(edtTxtAge.getText().toString());
+            //Set private variables as per user inputted details.
+            fullname = edtTxtFullName.getText().toString().trim();
+            username = edtTxtUser.getText().toString().trim();
+            password = edtTxtPass.getText().toString().trim();
+            height = Double.parseDouble(edtTxtHeight.getText().toString().trim());
+            weight = Double.parseDouble(edtTxtWeight.getText().toString().trim());
+            age = Integer.parseInt(edtTxtAge.getText().toString().trim());
+            loginSystem = new LoginSystem(this);
 
-                //Retrieve all usernames and corresponding passwords to store in loginsystem class.
-                LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
+            CheckAllFieldsAndSignUp();
 
-                //Check whether username already exists. If it exists then ask the user to input a
-                //new one. If not, create account with given details.
-                if (loginSystem.GetUsernames().contains(username)){
-                    Toast.makeText(this, "This username is taken. Please try another one.",
-                            Toast.LENGTH_SHORT).show();
-                    edtTxtUser.setText("");
-                }
-                else {
-                    //Creates new user with the given details.
-                    User user = new User(fullname, username, password, gender, weight, height, age);
-
-                    // Inserts user into database and open login page.
-                    dbHandler.addUser(user);
-                    Toast.makeText(this, "Account Created! Please Enter Login Information",
-                            Toast.LENGTH_SHORT).show();
-                    openLoginPage();
-                }
-
-            }
         }
     }
 
@@ -118,5 +85,44 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void openLoginPage(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void CheckAllFieldsAndSignUp(){
+        if(edtTxtFullName.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
+        } else if (edtTxtUser.getText().toString().trim().length() == 0) {
+            Toast.makeText(this, "Please Enter a Username", Toast.LENGTH_SHORT).show();
+        } else if (edtTxtPass.getText().toString().trim().length() == 0) {
+            Toast.makeText(this, "Please Enter a Password", Toast.LENGTH_SHORT).show();
+        } else if(radioGroupGender.getCheckedRadioButtonId() == -1){ // no buttons are checked
+            Toast.makeText(this, "Please Select Your Gender", Toast.LENGTH_SHORT).show();
+        } else if (edtTxtHeight.getText().toString().trim().length() == 0) {
+            Toast.makeText(this, "Please Enter Your Height in cm", Toast.LENGTH_SHORT).show();
+        } else if (edtTxtWeight.getText().toString().trim().length() == 0) {
+            Toast.makeText(this, "Please Enter Your Weight in kg", Toast.LENGTH_SHORT).show();
+        } else if (edtTxtAge.getText().toString().trim().length() == 0) {
+            Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
+        } else {
+            PerformSignUp();
+        }
+
+    }
+
+    public void PerformSignUp(){
+        if(loginSystem.CheckUsernameExist(username)){
+            Toast.makeText(this, "This username is taken. Please try another one.",
+                    Toast.LENGTH_SHORT).show();
+            edtTxtUser.setText("");
+        }
+        else {
+            //Creates new user with the given details.
+            User user = new User(fullname, username, password, gender, weight, height, age);
+
+            // Inserts user into database and open login page.
+            dbHandler.addUser(user);
+            Toast.makeText(this, "Account Created! Please Enter Login Information",
+                    Toast.LENGTH_SHORT).show();
+            openLoginPage();
+        }
     }
 }
