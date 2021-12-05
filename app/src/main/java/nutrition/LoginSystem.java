@@ -49,6 +49,7 @@ public class LoginSystem {
      * Also returns false if username does not exist.
      */
     public boolean CheckUsernamePassword(String username, String password){
+        System.out.println(logindata);
         if (logindata.containsKey(username)){
             return Objects.equals(logindata.get(username), password);
         }
