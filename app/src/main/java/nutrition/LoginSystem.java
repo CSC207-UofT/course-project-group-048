@@ -36,7 +36,7 @@ public class LoginSystem {
      * Retrieves the usernames of all the users in the app.
      * @return a set containing all usernames of the app users.
      */
-    public boolean CheckUsernameExist(String username){
+    public boolean checkUsernameExists(String username){
         return logindata.containsKey(username);
     }
 

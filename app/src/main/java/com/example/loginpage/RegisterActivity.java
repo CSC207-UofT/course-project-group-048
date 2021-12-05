@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
-import nutrition.MyDBHandler;
 import nutrition.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,7 +29,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.registerBtn) {
-
             //Set private variables as per user inputted details.
             fullname = edtTxtFullName.getText().toString().trim();
             username = edtTxtUser.getText().toString().trim();
@@ -40,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             age = Integer.parseInt(edtTxtAge.getText().toString().trim());
             loginSystem = new LoginSystem(this);
 
-            CheckAllFieldsAndSignUp();
+            checkAllFieldsAndSignUp();
 
         }
     }
@@ -83,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         startActivity(intent);
     }
 
-    public void CheckAllFieldsAndSignUp(){
+    public void checkAllFieldsAndSignUp(){
         if(edtTxtFullName.getText().toString().trim().length() == 0){
             Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
         } else if (edtTxtUser.getText().toString().trim().length() == 0) {
@@ -105,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void PerformSignUp(){
-        if(loginSystem.CheckUsernameExist(username)){
+        if(loginSystem.checkUsernameExists(username)){
             Toast.makeText(this, "This username is taken. Please try another one.",
                     Toast.LENGTH_SHORT).show();
             edtTxtUser.setText("");
