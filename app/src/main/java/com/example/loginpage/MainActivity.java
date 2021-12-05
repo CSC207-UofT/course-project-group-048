@@ -11,13 +11,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
-import nutrition.MyDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 // bs comment
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
-    MyDBHandler dbHandler;
 
     @Override
     public void onClick(View v) {
@@ -76,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
 
-        dbHandler = new MyDBHandler(this, null, null, 1);
     }
 
     public void openRegistrationForm() {
