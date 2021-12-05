@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                 //Check whether username already exists. If it exists then ask the user to input a
                 //new one. If not, create account with given details.
-                if(loginSystem.GetUsernames().contains(username)){
+                if (loginSystem.GetUsernames().contains(username)){
                     Toast.makeText(this, "This username is taken. Please try another one.",
                             Toast.LENGTH_SHORT).show();
                     edtTxtUser.setText("");
