@@ -11,13 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage">
         <activity
-            android:name=".activity_progress"
-            android:exported="false" />
-        <activity
-            android:name=".activity_homepage"
+            android:name=".HomePageActivity"
             android:exported="false"></activity>
         <activity
-            android:name=".activity_registration2"
+            android:name=".RegisterActivity"
             android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
