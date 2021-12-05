@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        String enteredUsername = edtTxtUsername.getText().toString();
-        String enteredPassword = edtTxtPassword.getText().toString();
+        username = edtTxtUsername.getText().toString();
+        password = edtTxtPassword.getText().toString();
 
         if(v.getId() == R.id.loginButton) {
-            checkFields(enteredUsername, enteredPassword);
+            checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",
                     Toast.LENGTH_LONG).show();
@@ -34,17 +34,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void checkFields(String enteredUsername, String enteredPassword) {
-        if (enteredUsername.trim().length() == 0) {
+    public void checkFields() {
+        if (username.trim().length() == 0) {
             Toast.makeText(this, "Please enter Username", Toast.LENGTH_SHORT).show();
-        } else if (enteredPassword.trim().length() == 0) {
+        } else if (password.trim().length() == 0) {
             Toast.makeText(this, "Please enter Password", Toast.LENGTH_SHORT).show();
         } else {
-            handleLogin(enteredUsername, enteredPassword);
+            handleLogin();
         }
     }
 
-    public void handleLogin(String enteredUsername, String enteredPassword) {
+    public void handleLogin() {
         // Check whether inputted username and password exist in the database of existing
         // users. If yes, then log in the user. If not, then display "incorrect details" message.
         LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
