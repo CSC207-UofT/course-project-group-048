@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
 
-    <ImageView
-        android:id="@+id/imageAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="142dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/avatarimage" />
-
     <EditText
         android:id="@+id/edtTxtFullName"
         android:layout_width="wrap_content"
@@ -31,7 +18,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageAvatar"
+        app:layout_constraintTop_toTopOf="parent"
         android:autofillHints="Full Name" />
 
     <EditText
@@ -87,7 +74,7 @@
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtAge" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupWeight" />
 
     <RadioGroup
         android:id="@+id/radioGroupGender"
@@ -96,6 +83,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtPass">
 
         <RadioButton
@@ -144,5 +132,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight"
         android:autofillHints="Age" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Goal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:id="@+id/txtViewGoal"-->
+<!--        android:layout_marginEnd="300dp"-->
+<!--        android:textSize="18sp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/edtTxtAge" />-->
+
+    <RadioGroup
+        android:id="@+id/radioGroupWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtAge">
+
+        <RadioButton
+            android:id="@+id/radioBtnGain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="Gain Weight"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnLose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lose Weight"
+            android:textSize="16sp" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

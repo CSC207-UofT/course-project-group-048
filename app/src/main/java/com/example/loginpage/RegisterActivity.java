@@ -22,8 +22,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     int age;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
-    private RadioGroup radioGroupGender;
-    private RadioButton radioBtnMale, radioBtnFemale;
+    private RadioGroup radioGroupGender, radioGroupWeight;
+    private RadioButton radioBtnMale, radioBtnFemale, radioBtnGain, radioBtnLose;
 
     MyDBHandler dbHandler;
 
@@ -44,6 +44,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(this, "Please Enter Your Weight in kg", Toast.LENGTH_SHORT).show();
             } else if (edtTxtAge.getText().toString().trim().length() == 0) {
                 Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
+            } else if (radioGroupWeight.getCheckedRadioButtonId() == -1) { // no buttons are checked
+                Toast.makeText(this, "Please Select Your Goal", Toast.LENGTH_SHORT).show();
             } else {
 
                 //Set private variables as per user inputted details.
@@ -110,10 +112,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
+        radioBtnGain = findViewById(R.id.radioBtnGain);
+        radioBtnGain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                goal = "gain weight"; // set goal to gain weight when gain weight button is clicked
+            }
+        });
+
+        radioBtnLose = findViewById(R.id.radioBtnLose);
+        radioBtnLose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                goal = "lose weight"; // set goal to lose weight when lose weight button is clicked
+            }
+        });
+
         //Create database variable.
         dbHandler = new MyDBHandler(this, null, null, 1);
 
         radioGroupGender = findViewById(R.id.radioGroupGender);
+        radioGroupWeight = findViewById(R.id.radioGroupWeight);
     }
     public void openLoginPage(){
         Intent intent = new Intent(this, MainActivity.class);
