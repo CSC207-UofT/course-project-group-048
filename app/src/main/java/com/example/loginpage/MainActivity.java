@@ -13,7 +13,6 @@ import android.widget.Toast;
 import nutrition.LoginSystem;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-// bs comment
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
 
