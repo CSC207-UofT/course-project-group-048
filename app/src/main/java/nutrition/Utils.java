@@ -7,6 +7,8 @@ import java.util.Scanner;
 /*
     This class contains methods that are useful
     in getting input in the console.
+
+    Here is a test comment!
  */
 public class Utils {
 

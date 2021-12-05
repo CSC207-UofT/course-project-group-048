@@ -21,34 +21,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        username = edtTxtUsername.getText().toString();
+        password = edtTxtPassword.getText().toString();
 
         if(v.getId() == R.id.loginButton) {
-            if (edtTxtUsername.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please enter Username", Toast.LENGTH_SHORT).show();
-            } else if (edtTxtPassword.getText().toString().trim().length() == 0) {
-                Toast.makeText(this, "Please enter Password", Toast.LENGTH_SHORT).show();
-            } else {
-                username = edtTxtUsername.getText().toString();
-                password = edtTxtPassword.getText().toString();
-
-                //Check whether inputted username and password exist in the database of existing
-                //users. If yes then log in the user. If not then display incorrect details message.
-                LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
-                if (loginSystem.CheckUsernamePassword(username, password)){
-                    Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
-                    openHomePage();
-                }
-                else {
-                    Toast.makeText(this, "Incorrect username or password...", Toast.LENGTH_SHORT).show();
-                    edtTxtUsername.setText("");
-                    edtTxtPassword.setText("");
-                }
-            }
+            checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
-            Toast.makeText(this, "Please Enter All Information", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please Enter All Information",
+                    Toast.LENGTH_LONG).show();
             openRegistrationForm();
         }
     }
+
+
+    public void checkFields() {
+        if (username.trim().length() == 0) {
+            Toast.makeText(this, "Please enter Username", Toast.LENGTH_SHORT).show();
+        } else if (password.trim().length() == 0) {
+            Toast.makeText(this, "Please enter Password", Toast.LENGTH_SHORT).show();
+        } else {
+            handleLogin();
+        }
+    }
+
+    public void handleLogin() {
+        // Check whether inputted username and password exist in the database of existing
+        // users. If yes, then log in the user. If not, then display "incorrect details" message.
+        LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
+        if (loginSystem.CheckUsernamePassword(username, password)){
+            Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
+            openHomePage();
+        }
+        else {
+            Toast.makeText(this, "Incorrect username or password...",
+                    Toast.LENGTH_SHORT).show();
+            edtTxtUsername.setText("");
+            edtTxtPassword.setText("");
+        }
+    }
+
 
 
     @Override
