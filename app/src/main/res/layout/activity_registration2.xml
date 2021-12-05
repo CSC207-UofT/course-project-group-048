@@ -144,5 +144,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight"
         android:autofillHints="Age" />
+    <RadioGroup
+        android:id="@+id/radioGroupWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtAge">
 
+        <RadioButton
+            android:id="@+id/radioBtnGain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="Gain"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnLose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lose"
+            android:textSize="16sp" />
+
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
