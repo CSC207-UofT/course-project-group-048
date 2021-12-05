@@ -16,6 +16,7 @@ public class User {
     private double weight;
     private double height;
     private int age;
+    private boolean goal;
 
     /**
      * Create a new User object.
@@ -30,7 +31,7 @@ public class User {
     //I have removed "activity levels" and "goals" variable from this constructor because we have
     //not decided on their exact use yet. We can add them later.
     public User(String name, String username, String passwordHash, String gender, double weight,
-                double height, int age) {
+                double height, int age, boolean goal) {
         this.name = name;
         this.username = username;
         this.passwordHash = passwordHash;
@@ -38,6 +39,7 @@ public class User {
         this.weight = weight;
         this.height = height;
         this.age = age;
+        this.goal = goal;
     }
 
     public String getName() {
@@ -67,5 +69,7 @@ public class User {
     public int getAge() {
         return age;
     }
+
+    public boolean getGoal() {return goal;}
 
 }

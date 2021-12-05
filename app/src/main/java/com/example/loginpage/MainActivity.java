@@ -11,13 +11,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
-import nutrition.MyDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
-    MyDBHandler dbHandler;
 
     @Override
     public void onClick(View v) {
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void handleLogin() {
         // Check whether inputted username and password exist in the database of existing
         // users. If yes, then log in the user. If not, then display "incorrect details" message.
-        LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());
+        LoginSystem loginSystem = new LoginSystem(this);
         if (loginSystem.CheckUsernamePassword(username, password)){
             Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
             openHomePage();
@@ -76,7 +73,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
 
-        dbHandler = new MyDBHandler(this, null, null, 1);
     }
 
     public void openRegistrationForm() {

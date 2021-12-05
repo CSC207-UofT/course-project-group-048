@@ -1,5 +1,9 @@
 package nutrition;
 
+import android.content.Context;
+
+import com.example.loginpage.RegisterActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,18 +25,19 @@ import java.util.Set;
 public class LoginSystem {
 
     private HashMap<String, String> logindata;
-    //private MyDBHandler handler;
+    MyDBHandler dbHandler;
 
-    public LoginSystem(HashMap<String, String> LoginData){
-        this.logindata = LoginData;
+    public LoginSystem(Context context){
+        dbHandler = new MyDBHandler(context, null, null, 1);
+        this.logindata = this.dbHandler.GetLoginData();
     }
 
     /**
      * Retrieves the usernames of all the users in the app.
      * @return a set containing all usernames of the app users.
      */
-    public Set<String> GetUsernames(){
-        return logindata.keySet();
+    public boolean checkUsernameExists(String username){
+        return logindata.containsKey(username);
     }
 
     /**
@@ -44,10 +49,15 @@ public class LoginSystem {
      * Also returns false if username does not exist.
      */
     public boolean CheckUsernamePassword(String username, String password){
+        System.out.println(logindata);
         if (logindata.containsKey(username)){
             return Objects.equals(logindata.get(username), password);
         }
         return false;
+    }
+
+    public void RegisterUser(User user){
+        dbHandler.addUser(user);
     }
 
 
