@@ -22,6 +22,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public static final String COLUMN_HEIGHT = "height";
     public static final String COLUMN_WEIGHT = "weight";
     public static final String COLUMN_AGE = "age";
+    public static final String COLUMN_GOAL = "goal";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -37,7 +38,8 @@ public class MyDBHandler extends SQLiteOpenHelper{
                 COLUMN_GENDER + " TEXT, " +
                 COLUMN_HEIGHT + " DOUBLE, " +
                 COLUMN_WEIGHT + " DOUBLE, " +
-                COLUMN_AGE + " INTEGER " +
+                COLUMN_AGE + " INTEGER, " +
+                COLUMN_GOAL + " BOOLEAN " +
                 ");";
         db.execSQL(query);
 
@@ -60,6 +62,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         values.put(COLUMN_HEIGHT, user.getHeight());
         values.put(COLUMN_WEIGHT, user.getWeight());
         values.put(COLUMN_AGE, user.getAge());
+        values.put(COLUMN_GOAL, user.getGoal());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
     }
