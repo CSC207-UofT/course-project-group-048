@@ -55,6 +55,10 @@ public class LoginSystem {
         return false;
     }
 
+    public void RegisterUser(User user){
+        dbHandler.addUser(user);
+    }
+
 
 
 }

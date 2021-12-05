@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private RadioGroup radioGroupGender;
     private RadioButton radioBtnMale, radioBtnFemale;
 
-    MyDBHandler dbHandler;
     LoginSystem loginSystem;
 
     @Override
@@ -77,9 +76,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        //Create database variable.
-        dbHandler = new MyDBHandler(this, null, null, 1);
-
         radioGroupGender = findViewById(R.id.radioGroupGender);
     }
     public void openLoginPage(){
@@ -119,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             User user = new User(fullname, username, password, gender, weight, height, age);
 
             // Inserts user into database and open login page.
-            dbHandler.addUser(user);
+            loginSystem.RegisterUser(user);
             Toast.makeText(this, "Account Created! Please Enter Login Information",
                     Toast.LENGTH_SHORT).show();
             openLoginPage();
