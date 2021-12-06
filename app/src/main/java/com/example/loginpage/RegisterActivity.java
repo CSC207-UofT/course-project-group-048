@@ -143,6 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         else {
             //Creates new user with the given details.
+            password = nutrition.Utils.getHash(password);
             weight = Integer.parseInt(weightString);
             height = Integer.parseInt(heightString);
             age = Integer.parseInt(ageString);
