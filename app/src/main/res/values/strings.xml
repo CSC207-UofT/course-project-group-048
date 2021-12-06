@@ -21,4 +21,5 @@
     <string name="weight_kg">Weight(kg)</string>
     <string name="age">Age</string>
     <string name="title_activity_home2">activity_home2</string>
+    <string name="hello_welcome_string">Hello, Welcome!</string>
 </resources>

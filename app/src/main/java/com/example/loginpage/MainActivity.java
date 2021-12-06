@@ -11,18 +11,19 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import nutrition.LoginSystem;
+import nutrition.User;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-// bs comment
     private EditText edtTxtUsername, edtTxtPassword;
     String username, password;
+    User user;
 
     @Override
     public void onClick(View v) {
         username = edtTxtUsername.getText().toString();
         password = edtTxtPassword.getText().toString();
 
-        if(v.getId() == R.id.loginButton) {
+        if (v.getId() == R.id.loginButton) {
             checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",
@@ -46,8 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Check whether inputted username and password exist in the database of existing
         // users. If yes, then log in the user. If not, then display "incorrect details" message.
         LoginSystem loginSystem = new LoginSystem(this);
-        if (loginSystem.CheckUsernamePassword(username, password)){
+        if (loginSystem.checkUsernamePassword(username, password)){
             Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
+            user = loginSystem.getUser(username);
             openHomePage();
         }
         else {
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void openHomePage() {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
+        openTheHomePage.putExtra("user", user);
         startActivity(openTheHomePage);
     }
 

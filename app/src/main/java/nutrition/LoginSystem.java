@@ -2,21 +2,14 @@ package nutrition;
 
 import android.content.Context;
 
-import com.example.loginpage.RegisterActivity;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /*
     A system to store users of the app and their
     information. Gives access to a particular user.
  */
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /*
     A system to store usernames and corresponding passwords of the users of the app.
@@ -24,20 +17,21 @@ import java.util.Set;
 
 public class LoginSystem {
 
-    private HashMap<String, String> logindata;
+    private HashMap<String, User> loginData;
     MyDBHandler dbHandler;
 
     public LoginSystem(Context context){
         dbHandler = new MyDBHandler(context, null, null, 1);
-        this.logindata = this.dbHandler.GetLoginData();
+        // dbHandler.resetDatabase();
+        this.loginData = this.dbHandler.getLoginData();
     }
 
     /**
      * Retrieves the usernames of all the users in the app.
      * @return a set containing all usernames of the app users.
      */
-    public boolean CheckUsernameExist(String username){
-        return logindata.containsKey(username);
+    public boolean checkUsernameExists(String username){
+        return loginData.containsKey(username);
     }
 
     /**
@@ -48,14 +42,20 @@ public class LoginSystem {
      * @return True if password matches the true password of the given username and false otherwise.
      * Also returns false if username does not exist.
      */
-    public boolean CheckUsernamePassword(String username, String password){
-        if (logindata.containsKey(username)){
-            return Objects.equals(logindata.get(username), password);
+    public boolean checkUsernamePassword(String username, String password){
+        if (loginData.containsKey(username)){
+            String actualPassword = loginData.get(username).getPasswordHash();
+            String enteredPassword = nutrition.Utils.getHash(password);
+            return actualPassword.equals(enteredPassword);
         }
         return false;
     }
 
-    public void RegisterUser(User user){
+    public User getUser(String username) {
+        return loginData.get(username);
+    }
+
+    public void registerUser(User user){
         dbHandler.addUser(user);
     }
 
