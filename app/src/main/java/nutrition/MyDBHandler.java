@@ -81,31 +81,37 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     //Return a hashmap of usernames and passwords stored in the database. Each username key maps to
     //its corresponding password value.
-    public HashMap<String, String> GetLoginData(){
-        HashMap<String, String> LoginData = new HashMap<>();
+    public HashMap<String, User> getLoginData(){
+        HashMap<String, User> loginData = new HashMap<>();
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";
 
-        //Cursor point to location in results.
+        // Cursor point to location in results.
         Cursor c = db.rawQuery(query, null);
-        //Move to first row in results.
+        // Move to first row in results.
         c.moveToFirst();
+        User user;
 
-        //Read the database for usernames and their corresponding passwords.
+        // Read the database for usernames and their corresponding passwords.
         while (!c.isAfterLast()){
+            String name = c.getString(c.getColumnIndexOrThrow("name"));
             String username = c.getString(c.getColumnIndexOrThrow("username"));
             String password = c.getString(c.getColumnIndexOrThrow("password"));
+            String gender = c.getString(c.getColumnIndexOrThrow("gender"));
+            int height = c.getInt(c.getColumnIndexOrThrow("height"));
+            int weight = c.getInt(c.getColumnIndexOrThrow("weight"));
+            int age = c.getInt(c.getColumnIndexOrThrow("age"));
+            String goal = c.getString(c.getColumnIndexOrThrow("goal"));
+            user = new User(name, username, password, gender, weight, height, age, goal);
+
             if(username!=null && password != null){
-                LoginData.put(username, password);
+                loginData.put(username, user);
             }
             c.moveToNext();
         }
         db.close();
-        return LoginData;
+        return loginData;
     }
-
-    //Print database as string. (We won't be needing this for the final app. I just added this to
-    //see whether my code works. We will keep it for now and remove it in the end.)
 
     public String databaseToString(){
         String dbString = "";
