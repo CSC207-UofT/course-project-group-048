@@ -1,15 +1,16 @@
-package nutrition;/*
-    A database of food items.
- */
+package nutrition;
 
-
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-/*
-    Dataset of FoodItem
- */
 
 public class FoodItems {
+
+    public static final ArrayList<FoodItem> foodList = new ArrayList<>();
+    public static final HashMap<Integer, ArrayList<FoodItem>> meals = new HashMap<Integer, ArrayList<FoodItem> >();
+
     final static FoodItem ORANGE = new FoodItem("orange", 50,
             new String[]{"fruit","snack", "vegan"}, new Integer[]{23, 4, 0, 0});
     final static FoodItem APPLE = new FoodItem("apple", 182,
@@ -52,13 +53,33 @@ public class FoodItems {
             new String[] {"grain", "dinner", "vegetarian"}, new Integer[]{200, 41, 1, 7});
     final static FoodItem LETTUCE = new FoodItem("lettuce", 50,
             new String[] {"vegetable", "lunch", "vegan"}, new Integer[]{4, 2, 0, 0});
+    final static FoodItem GRAPES = new FoodItem("grapes", 100,
+            new String[]{"fruit","snack", "vegan"}, new Integer[]{23, 4, 0, 0});
+    final static FoodItem STRAWBERRIES = new FoodItem("strawberries", 50,
+            new String[]{"fruit","snack", "vegan"}, new Integer[]{23, 4, 0, 0});
 
 
-    /*
-    made an array including all FoodItem in FoodItems class to that
-    they can be used in the MealGenerator class
- */
-    public void main(String[] args) {
-        Field[] fooditems = FoodItems.class.getDeclaredFields();
+    public FoodItems() {
+        foodList.add(ORANGE);
+        foodList.add(APPLE);
+        foodList.add(BANANA);
+        foodList.add(EGG);
+        foodList.add(BROCCOLI);
+        foodList.add(WHITEBREAD);
+        foodList.add(CEREAL);
+        foodList.add(CHICKENBREAST);
+        foodList.add(WHITERICE);
+        foodList.add(PASTA);
+        foodList.add(ICECREAM);
+        foodList.add(CHOCOLATE);
+        foodList.add(FRENCHFRIES);
+        foodList.add(CHICKPEAS);
+        foodList.add(OATS);
+        foodList.add(STEAK);
+        foodList.add(TOMATO);
+        foodList.add(PEANUTS);
+        foodList.add(COOKIES);
+        foodList.add(LETTUCE);
+        foodList.add(NOODLES);
     }
 }
