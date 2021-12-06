@@ -16,10 +16,9 @@ import nutrition.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String fullname, username, password, gender;
+    String fullname, username, password, gender, goal, heightString, weightString, ageString;
     int height, weight;
     int age;
-    String goal;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
@@ -32,12 +31,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             fullname = edtTxtFullName.getText().toString().trim();
             username = edtTxtUser.getText().toString().trim();
             password = edtTxtPass.getText().toString().trim();
-            height = Integer.parseInt(edtTxtHeight.getText().toString().trim());
-            weight = Integer.parseInt(edtTxtWeight.getText().toString().trim());
-            age = Integer.parseInt(edtTxtAge.getText().toString().trim());
+            heightString = edtTxtHeight.getText().toString().trim();
+            weightString = edtTxtWeight.getText().toString().trim();
+            ageString = edtTxtAge.getText().toString().trim();
 
             checkAllFieldsAndSignUp();
-
         }
     }
 
@@ -113,19 +111,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void checkAllFieldsAndSignUp(){
-        if(edtTxtFullName.getText().toString().trim().length() == 0){
+        if (fullname.length() == 0){
             Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
-        } else if (edtTxtUser.getText().toString().trim().length() == 0) {
+        } else if (username.length() == 0) {
             Toast.makeText(this, "Please Enter a Username", Toast.LENGTH_SHORT).show();
-        } else if (edtTxtPass.getText().toString().trim().length() == 0) {
+        } else if (password.length() == 0) {
             Toast.makeText(this, "Please Enter a Password", Toast.LENGTH_SHORT).show();
-        } else if(radioGroupGender.getCheckedRadioButtonId() == -1){ // no buttons are checked
+        } else if (radioGroupGender.getCheckedRadioButtonId() == -1){ // no buttons are checked
             Toast.makeText(this, "Please Select Your Gender", Toast.LENGTH_SHORT).show();
-        } else if (edtTxtHeight.getText().toString().trim().length() == 0) {
+        } else if (heightString.length() == 0) {
             Toast.makeText(this, "Please Enter Your Height in cm", Toast.LENGTH_SHORT).show();
-        } else if (edtTxtWeight.getText().toString().trim().length() == 0) {
+        } else if (weightString.length() == 0) {
             Toast.makeText(this, "Please Enter Your Weight in kg", Toast.LENGTH_SHORT).show();
-        } else if (edtTxtAge.getText().toString().trim().length() == 0) {
+        } else if (ageString.length() == 0) {
             Toast.makeText(this, "Please Enter Your Age", Toast.LENGTH_SHORT).show();
         } else if (radioGroupWeight.getCheckedRadioButtonId() == -1) { // no buttons are checked
             Toast.makeText(this, "Please Select Your Goal", Toast.LENGTH_SHORT).show();
@@ -145,6 +143,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         else {
             //Creates new user with the given details.
+            weight = Integer.parseInt(weightString);
+            height = Integer.parseInt(heightString);
+            age = Integer.parseInt(ageString);
             User user = new User(fullname, username, password, gender, weight, height, age, goal);
 
             // Inserts user into database and open login page.
