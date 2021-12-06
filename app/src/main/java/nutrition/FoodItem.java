@@ -3,11 +3,16 @@ package nutrition;/*
    and its amount in grams and its corresponding nutritional values(carbohydrates, protein and fat)
  */
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 public class FoodItem {
 
     public String name;
     public int calories;
     public String[] types;
+    public Integer[] nutrients;
 
     /**
      * A class representing a FoodItem object.
@@ -15,12 +20,14 @@ public class FoodItem {
      * @param name name of the food
      * @param cals amount of the food
      * @param types type of the food (food category, diet and meal type)
+     * @param nutrients nutrients of the food item
      */
 
-    public FoodItem(String name, int cals, String[] types) {
+    public FoodItem(String name, int cals, String[] types, Integer[] nutrients) {
         this.name = name;
         this.calories = cals;
         this.types = types;
+        this.nutrients = nutrients;
     }
     public FoodItem() {}
 
@@ -45,9 +52,23 @@ public class FoodItem {
         StringBuilder s = new StringBuilder();
         for (String value : types) {
             String type = value.replaceAll("\\s+", "");
-            s.append(type).append(" ");
+            s.append(type).append(", ");
         }
         return s.toString().trim();
+    }
+
+
+    public static String[] getTypesFromString(String s) {
+        return s.split(",");
+    }
+
+    public static Integer[] getNutsFromString(String s) {
+        String[] n = s.split(",");
+        Integer[] nutrients = new Integer[n.length];
+        for (int i = 0; i < n.length; i++) {
+            nutrients[i] = Integer.valueOf(n[i]);
+        }
+        return nutrients;
     }
 
     public void setName(String name) {
@@ -60,5 +81,23 @@ public class FoodItem {
 
     public void setTypes(String[] types) {
         this.types = types;
+    }
+
+    public Integer[] getNutrients() {
+        return nutrients;
+    }
+
+    public void setNutrients(Integer[] nutrients) {
+        this.nutrients = nutrients;
+    }
+
+    public String getStringNutrition () {
+        StringBuilder s = new StringBuilder();
+        for (int value : nutrients) {
+            String amount = String.valueOf(value);
+            s.append(amount).append(", ");
+        }
+        return s.toString().trim();
+
     }
 }
