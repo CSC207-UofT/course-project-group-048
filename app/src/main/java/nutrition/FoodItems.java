@@ -39,13 +39,21 @@ public class FoodItems {
     final static FoodItem COOKIES = new FoodItem("cookies", 30, new String[] {"dessert", "snack", "vegetarian"});
     final static FoodItem NOODLES = new FoodItem("noodle", 180, new String[] {"grain", "dinner", "vegetarian"});
     final static FoodItem LETTUCE = new FoodItem("lettuce", 30, new String[] {"vegetable", "lunch", "vegan"});
-
+    private FoodItem[] foods;
 
     /*
     made an array including all FoodItem in FoodItems class to that
     they can be used in the MealGenerator class
  */
+    public FoodItems(){
+
+    }
+
     public void main(String[] args) {
         Field[] fooditems = FoodItems.class.getDeclaredFields();
     }
 }
+
+//FoodItems FI= new FoodItems();
+//addFood(FI.STEAK);
+//addFood(NOODLES);
