@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void openHomePage() {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("currentUser", user);
+        openTheHomePage.putExtra("user", user);
         startActivity(openTheHomePage);
     }
 
