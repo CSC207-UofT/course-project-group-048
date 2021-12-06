@@ -16,7 +16,7 @@ public class HomePageActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         TextView tv1 = (TextView)findViewById(R.id.txtViewHi);
-        User user = (User) extras.get("currentUser");
+        User user = (User) extras.get("user");
         String welcomeMessage = "Welcome, " + user.getName();
         tv1.setText(welcomeMessage);
     }
