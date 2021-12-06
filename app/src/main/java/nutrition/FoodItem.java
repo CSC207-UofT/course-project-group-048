@@ -8,6 +8,7 @@ public class FoodItem {
     public String name;
     public int calories;
     public String[] types;
+    public Integer[] nutrients;
 
     /**
      * A class representing a FoodItem object.
@@ -17,12 +18,12 @@ public class FoodItem {
      * @param types type of the food (food category, diet and meal type)
      */
 
-    public FoodItem(String name, int cals, String[] types) {
+    public FoodItem(String name, int cals, String[] types, Integer[] nutrients) {
         this.name = name;
         this.calories = cals;
         this.types = types;
+        this.nutrients = nutrients;
     }
-    public FoodItem() {}
 
     public String[] getTypes() {
         return types;
