@@ -205,7 +205,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="openHomePage"
-                        app:srcCompat="@drawable/bottom_btn1" />
+                        app:srcCompat="@drawable/bottom_btn1o" />
 
                     <TextView
                         android:id="@+id/textViewHome"
@@ -228,7 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
-                        app:srcCompat="@drawable/bottom_btn2" />
+                        app:srcCompat="@drawable/bottom_btn2g" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
@@ -252,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5" />
+                        app:srcCompat="@drawable/bottom_btn5g" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
