@@ -1,5 +1,6 @@
 package nutrition;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
     a unique access ID (username) and information that is
     accessed by LoginSystem.
  */
-public class User {
+public class User implements Serializable {
     private String name;
     private String username;
     private String passwordHash;
@@ -16,7 +17,7 @@ public class User {
     private double weight;
     private double height;
     private int age;
-    private boolean goal;
+    private String goal;
 
     /**
      * Create a new User object.
@@ -30,8 +31,8 @@ public class User {
 
     //I have removed "activity levels" and "goals" variable from this constructor because we have
     //not decided on their exact use yet. We can add them later.
-    public User(String name, String username, String passwordHash, String gender, double weight,
-                double height, int age, boolean goal) {
+    public User(String name, String username, String passwordHash, String gender, int weight,
+                int height, int age, String goal) {
         this.name = name;
         this.username = username;
         this.passwordHash = passwordHash;
@@ -70,6 +71,6 @@ public class User {
         return age;
     }
 
-    public boolean getGoal() {return goal;}
+    public String getGoal() {return goal;}
 
 }
