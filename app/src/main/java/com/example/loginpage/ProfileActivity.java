@@ -36,18 +36,20 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void checkAllFields() {
-        if (radioGroupGender.getCheckedRadioButtonId() == -1){
-            Toast.makeText(this, "Please Select New Gender", Toast.LENGTH_SHORT).show();
-        } else if (newHeightString.length() == 0) {
+        if (newHeightString.length() == 0) {
             Toast.makeText(this, "Please Enter New Height", Toast.LENGTH_SHORT).show();
         } else if (newWeightString.length() == 0) {
             Toast.makeText(this, "Please Enter New Weight", Toast.LENGTH_SHORT).show();
         } else if (newAgeString.length() == 0) {
             Toast.makeText(this, "Please Enter New Age", Toast.LENGTH_SHORT).show();
+        } else if (radioGroupGender.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this, "Please Select New Gender", Toast.LENGTH_SHORT).show();
         } else if (radioGroupWeight.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "Please Select New Goal", Toast.LENGTH_SHORT).show();
         } else {
+            Toast.makeText(this, "Information Updated!", Toast.LENGTH_SHORT).show();
             updateFields();
+//            openHomePage();
         }
     }
 
