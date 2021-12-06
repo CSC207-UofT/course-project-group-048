@@ -29,7 +29,6 @@ public class FoodItem {
         this.types = types;
         this.nutrients = nutrients;
     }
-    public FoodItem() {}
 
     public String[] getTypes() {
         return types;
