@@ -1,15 +1,15 @@
 package nutrition;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class FoodItems {
 
     public static final ArrayList<FoodItem> foodList = new ArrayList<>();
-    public static final HashMap<Integer, ArrayList<FoodItem>> meals = new HashMap<Integer, ArrayList<FoodItem> >();
+    public static HashMap<String, ArrayList<FoodItem>> meals = new HashMap<>();
 
     final static FoodItem ORANGE = new FoodItem("orange", 50,
             new String[]{"fruit","snack", "vegan"}, new Integer[]{23, 4, 0, 0});
@@ -81,5 +81,17 @@ public class FoodItems {
         foodList.add(COOKIES);
         foodList.add(LETTUCE);
         foodList.add(NOODLES);
+        // put values of meals in the hashmap, vegan 1, vegetarian (1 + 1 vegan), none: (1+2 veg),
+        // naming convention 1500veg, 2000vegan, and 2500all examples
+        ArrayList<FoodItem> meal1 = new ArrayList<>();
+        meal1.add(BANANA);
+        meal1.add(CHICKENBREAST);
+        meal1.add(EGG);
+        meal1.add(TOMATO);
+        meal1.add(STEAK);
+        meal1.add(PEANUTS);
+        meal1.add(COOKIES);
+        meals.put("1500all", meal1);
+
     }
 }

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class MealDBHandler extends SQLiteOpenHelper{
                 COLUMN_NUTRITION + " TEXT " +
                 ");";
         db.execSQL(query);
+        addStandardFoods();
     }
 
     @Override
@@ -50,6 +52,8 @@ public class MealDBHandler extends SQLiteOpenHelper{
         db.insert(TABLE_FOODITEMS, null, values);
         db.close();
     }
+
+
 
     public void deleteFood(String name){
         SQLiteDatabase db = getWritableDatabase();
@@ -81,6 +85,26 @@ public class MealDBHandler extends SQLiteOpenHelper{
 
     // implement meal plan algorithm in this class, for different meals and than maybe seperate later
     // or in meal generator using a list
+
+    public void addStandardFoods() {
+        SQLiteDatabase db = getWritableDatabase();
+        for (FoodItem food : FoodItems.foodList) {
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_NAME, food.getName());
+            values.put(COLUMN_CALORIES, food.getCalories());
+            values.put(COLUMN_TYPES, food.getStringTypes());
+            values.put(COLUMN_NUTRITION, food.getStringNutrition());
+            db.insert(TABLE_FOODITEMS, null, values);
+        }
+        db.close();
+    }
+
+    public FoodItem oneFood(String mt) {
+        // SQL QUERY BASE ON MT
+        return FoodItems.PEANUTS;
+
+
+    }
 
 
 }
