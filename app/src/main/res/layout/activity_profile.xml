@@ -225,10 +225,11 @@
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="openProfilePage"
                         app:srcCompat="@drawable/bottom_btn2" />
 
                     <TextView
@@ -247,18 +248,19 @@
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/bottom_btn3" />
+                        android:onClick="openMealGeneratorPage"
+                        app:srcCompat="@drawable/bottom_btn5" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Support"
+                        android:text="Meal Plan"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
