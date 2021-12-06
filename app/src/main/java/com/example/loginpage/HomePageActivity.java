@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import nutrition.MealGenerator;
 import nutrition.User;
 
 public class HomePageActivity extends AppCompatActivity {
@@ -30,5 +31,17 @@ public class HomePageActivity extends AppCompatActivity {
         Intent openTheProfilePage = new Intent(this, ProfileActivity.class);
         openTheProfilePage.putExtra("user", user);
         startActivity(openTheProfilePage);
+    }
+
+    public void openHomePage(View view) {
+        // refresh the page
+        finish();
+        startActivity(getIntent());
+    }
+
+    public void openMealGeneratorPage(View view) {
+        Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
+        openTheMealGeneratorPage.putExtra("user", user);
+        startActivity(openTheMealGeneratorPage);
     }
 }

@@ -49,7 +49,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             Toast.makeText(this, "Information Updated!", Toast.LENGTH_SHORT).show();
             updateFields();
-//            openHomePage();
+            openHomePage();
         }
     }
 
@@ -59,6 +59,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         newAge = Integer.parseInt(newAgeString);
 
         System.out.println(newAge);
+
+        // newHeight, newWeight, newAge, newGender, newGoal
+        // TODO: update information in database
+
     }
 
     @Override
@@ -137,9 +141,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
 
+    public void openHomePage() {
+        Intent openTheHomePage = new Intent(this, HomePageActivity.class);
+        openTheHomePage.putExtra("user", user);
+        startActivity(openTheHomePage);
+    }
+
     public void openHomePage(View view) {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
         openTheHomePage.putExtra("user", user);
         startActivity(openTheHomePage);
+    }
+
+    public void openProfilePage(View view) {
+        // refresh the page
+        finish();
+        startActivity(getIntent());
+    }
+
+    public void openMealGeneratorPage(View view) {
+        Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
+        openTheMealGeneratorPage.putExtra("user", user);
+        startActivity(openTheMealGeneratorPage);
     }
 }
