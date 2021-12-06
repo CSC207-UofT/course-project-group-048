@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         username = edtTxtUsername.getText().toString();
         password = edtTxtPassword.getText().toString();
 
-        if(v.getId() == R.id.loginButton) {
+        if (v.getId() == R.id.loginButton) {
             checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",

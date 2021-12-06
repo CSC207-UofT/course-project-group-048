@@ -222,10 +222,11 @@
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/imageViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:onClick="openProfilePage"
                         app:srcCompat="@drawable/bottom_btn2" />
 
                     <TextView
