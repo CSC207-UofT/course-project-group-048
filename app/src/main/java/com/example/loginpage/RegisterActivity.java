@@ -17,9 +17,9 @@ import nutrition.User;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     String fullname, username, password, gender;
-    Double height, weight;
+    int height, weight;
     int age;
-    boolean goal;
+    String goal;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
@@ -32,8 +32,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             fullname = edtTxtFullName.getText().toString().trim();
             username = edtTxtUser.getText().toString().trim();
             password = edtTxtPass.getText().toString().trim();
-            height = Double.parseDouble(edtTxtHeight.getText().toString().trim());
-            weight = Double.parseDouble(edtTxtWeight.getText().toString().trim());
+            height = Integer.parseInt(edtTxtHeight.getText().toString().trim());
+            weight = Integer.parseInt(edtTxtWeight.getText().toString().trim());
             age = Integer.parseInt(edtTxtAge.getText().toString().trim());
 
             checkAllFieldsAndSignUp();
@@ -91,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         radioBtnGain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goal = true; // set goal to gain weight when gain weight button is clicked
+                goal = "gain"; // set goal to gain weight when gain weight button is clicked
             }
         });
     }
@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         radioBtnLose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goal = false; // set goal to lose weight when lose weight button is clicked
+                goal = "lose"; // set goal to lose weight when lose weight button is clicked
             }
         });
     }
@@ -148,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             User user = new User(fullname, username, password, gender, weight, height, age, goal);
 
             // Inserts user into database and open login page.
-            loginSystem.RegisterUser(user);
+            loginSystem.registerUser(user);
             Toast.makeText(this, "Account Created! Please Enter Login Information",
                     Toast.LENGTH_SHORT).show();
             openLoginPage();

@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
-                    android:text="Hello, Welcome!"
+                    android:text="@string/hello_welcome_string"
                     android:textColor="#F86503"
                     android:textSize="20sp"
                     android:textStyle="bold"
