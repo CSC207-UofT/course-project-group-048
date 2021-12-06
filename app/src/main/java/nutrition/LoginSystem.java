@@ -44,7 +44,9 @@ public class LoginSystem {
      */
     public boolean checkUsernamePassword(String username, String password){
         if (loginData.containsKey(username)){
-            return Objects.equals(loginData.get(username).getPasswordHash(), password);
+            String actualPassword = loginData.get(username).getPasswordHash();
+            String enteredPassword = nutrition.Utils.getHash(password);
+            return actualPassword.equals(enteredPassword);
         }
         return false;
     }
