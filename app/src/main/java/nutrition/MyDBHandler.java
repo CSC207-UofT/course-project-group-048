@@ -9,7 +9,7 @@ import android.content.ContentValues;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MyDBHandler extends SQLiteOpenHelper{
+public class MyDBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "logininfo.db";
@@ -22,6 +22,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public static final String COLUMN_HEIGHT = "height";
     public static final String COLUMN_WEIGHT = "weight";
     public static final String COLUMN_AGE = "age";
+    public static final String COLUMN_GOAL = "goal";
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -37,7 +38,8 @@ public class MyDBHandler extends SQLiteOpenHelper{
                 COLUMN_GENDER + " TEXT, " +
                 COLUMN_HEIGHT + " DOUBLE, " +
                 COLUMN_WEIGHT + " DOUBLE, " +
-                COLUMN_AGE + " INTEGER " +
+                COLUMN_AGE + " INTEGER, " +
+                COLUMN_GOAL + " BOOLEAN " +
                 ");";
         db.execSQL(query);
 
@@ -47,7 +49,12 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
+    }
 
+    public void resetDatabase() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        onCreate(db);
     }
 
     //Add new user to database.
@@ -60,6 +67,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         values.put(COLUMN_HEIGHT, user.getHeight());
         values.put(COLUMN_WEIGHT, user.getWeight());
         values.put(COLUMN_AGE, user.getAge());
+        values.put(COLUMN_GOAL, user.getGoal());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
     }
@@ -73,31 +81,37 @@ public class MyDBHandler extends SQLiteOpenHelper{
 
     //Return a hashmap of usernames and passwords stored in the database. Each username key maps to
     //its corresponding password value.
-    public HashMap<String, String> GetLoginData(){
-        HashMap<String, String> LoginData = new HashMap<>();
+    public HashMap<String, User> getLoginData(){
+        HashMap<String, User> loginData = new HashMap<>();
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";
 
-        //Cursor point to location in results.
+        // Cursor point to location in results.
         Cursor c = db.rawQuery(query, null);
-        //Move to first row in results.
+        // Move to first row in results.
         c.moveToFirst();
+        User user;
 
-        //Read the database for usernames and their corresponding passwords.
+        // Read the database for usernames and their corresponding passwords.
         while (!c.isAfterLast()){
+            String name = c.getString(c.getColumnIndexOrThrow("name"));
             String username = c.getString(c.getColumnIndexOrThrow("username"));
             String password = c.getString(c.getColumnIndexOrThrow("password"));
+            String gender = c.getString(c.getColumnIndexOrThrow("gender"));
+            int height = c.getInt(c.getColumnIndexOrThrow("height"));
+            int weight = c.getInt(c.getColumnIndexOrThrow("weight"));
+            int age = c.getInt(c.getColumnIndexOrThrow("age"));
+            String goal = c.getString(c.getColumnIndexOrThrow("goal"));
+            user = new User(name, username, password, gender, weight, height, age, goal);
+
             if(username!=null && password != null){
-                LoginData.put(username, password);
+                loginData.put(username, user);
             }
             c.moveToNext();
         }
         db.close();
-        return LoginData;
+        return loginData;
     }
-
-    //Print database as string. (We won't be needing this for the final app. I just added this to
-    //see whether my code works. We will keep it for now and remove it in the end.)
 
     public String databaseToString(){
         String dbString = "";

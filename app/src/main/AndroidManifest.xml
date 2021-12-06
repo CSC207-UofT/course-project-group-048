@@ -11,11 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage">
         <activity
+            android:name=".MealGeneratorActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomePageActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

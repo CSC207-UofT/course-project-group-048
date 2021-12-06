@@ -1,18 +1,15 @@
 package nutrition;
 
-import java.util.ArrayList;
+import android.content.Context;
+
 import java.util.HashMap;
-import java.util.List;
 
 /*
     A system to store users of the app and their
     information. Gives access to a particular user.
  */
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /*
     A system to store usernames and corresponding passwords of the users of the app.
@@ -20,19 +17,21 @@ import java.util.Set;
 
 public class LoginSystem {
 
-    private HashMap<String, String> logindata;
-    //private MyDBHandler handler;
+    private HashMap<String, User> loginData;
+    MyDBHandler dbHandler;
 
-    public LoginSystem(HashMap<String, String> LoginData){
-        this.logindata = LoginData;
+    public LoginSystem(Context context){
+        dbHandler = new MyDBHandler(context, null, null, 1);
+        // dbHandler.resetDatabase();
+        this.loginData = this.dbHandler.getLoginData();
     }
 
     /**
      * Retrieves the usernames of all the users in the app.
      * @return a set containing all usernames of the app users.
      */
-    public Set<String> GetUsernames(){
-        return logindata.keySet();
+    public boolean checkUsernameExists(String username){
+        return loginData.containsKey(username);
     }
 
     /**
@@ -43,11 +42,19 @@ public class LoginSystem {
      * @return True if password matches the true password of the given username and false otherwise.
      * Also returns false if username does not exist.
      */
-    public boolean CheckUsernamePassword(String username, String password){
-        if (logindata.containsKey(username)){
-            return Objects.equals(logindata.get(username), password);
+    public boolean checkUsernamePassword(String username, String password){
+        if (loginData.containsKey(username)){
+            return Objects.equals(loginData.get(username).getPasswordHash(), password);
         }
         return false;
+    }
+
+    public User getUser(String username) {
+        return loginData.get(username);
+    }
+
+    public void registerUser(User user){
+        dbHandler.addUser(user);
     }
 
 
