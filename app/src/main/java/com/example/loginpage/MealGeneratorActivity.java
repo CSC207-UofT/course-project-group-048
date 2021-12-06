@@ -17,6 +17,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_generator);
         Bundle extras = getIntent().getExtras();
+        user = (User) extras.get("user");
     }
 
     public void openHomePage(View view) {
