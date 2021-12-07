@@ -14,7 +14,7 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import entities.User;
-import usecases.MealDBHandler;
+import usecases.MealDataHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTxtUsername, edtTxtPassword;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String username, password;
     User user;
 
-    MealDBHandler mealDBHandler;
+    MealDataHandler mealDatabase;
 
     @Override
     public void onClick(View v) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password = edtTxtPassword.getText().toString();
 
         if (v.getId() == R.id.loginButton) {
-            mealDBHandler = new MealDBHandler(this,null,null,1);
+            mealDatabase = new MealDataHandler(this,null);
             checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",

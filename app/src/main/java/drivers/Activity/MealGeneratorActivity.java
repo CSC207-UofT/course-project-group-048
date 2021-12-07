@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import com.example.loginpage.R;
 
+import java.util.List;
+
 import controllers.LoginSystem;
 import controllers.MealManager;
 import entities.FoodItem;
+import entities.Meal;
 import entities.User;
 
 public class MealGeneratorActivity extends AppCompatActivity {
@@ -29,11 +32,16 @@ public class MealGeneratorActivity extends AppCompatActivity {
         system = new LoginSystem(this);
         username = (String) extras.get("username");
         user = system.getUser(username);
+
         manager = new MealManager(user, -1, null, this);
 
+        List<Meal> meals = manager.generateAllMeals();
+
         // TEST CODE:
-        for (FoodItem foodItem : manager.getFoodItemList()) {
-            System.out.println(foodItem.toString());
+        for (Meal meal : meals) {
+            for (FoodItem foodItem : meal) {
+                System.out.println(foodItem.toString());
+            }
         }
 
         TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
@@ -41,7 +49,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
         tv1.setText(welcomeMessage);
 
         TextView tv2 = (TextView) findViewById(R.id.txtViewCalories);
-        String caloriesString = "Target Calories: " + String.valueOf(manager.getTargetCalories());
+        String caloriesString = "Target Calories: " + manager.getTargetCalories();
         tv2.setText(caloriesString);
 
         TextView tv3 = (TextView) findViewById(R.id.txtViewCalories);
