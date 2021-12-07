@@ -17,22 +17,22 @@ public class MyDBHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "NutritionApp.db";
 
-    public static final String TABLE_USERS = "users";
-    public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_FULL_NAME = "name";
-    public static final String COLUMN_USERNAME = "username";
-    public static final String COLUMN_PASSWORD = "password";
-    public static final String COLUMN_GENDER = "gender";
-    public static final String COLUMN_HEIGHT = "height";
-    public static final String COLUMN_WEIGHT = "weight";
-    public static final String COLUMN_AGE = "age";
-    public static final String COLUMN_GOAL = "goal";
+    protected static final String TABLE_USERS = "users";
+    protected static final String COLUMN_ID = "_id";
+    protected static final String COLUMN_FULL_NAME = "name";
+    protected static final String COLUMN_USERNAME = "username";
+    protected static final String COLUMN_PASSWORD = "password";
+    protected static final String COLUMN_GENDER = "gender";
+    protected static final String COLUMN_HEIGHT = "height";
+    protected static final String COLUMN_WEIGHT = "weight";
+    protected static final String COLUMN_AGE = "age";
+    protected static final String COLUMN_GOAL = "goal";
 
-    public static final String TABLE_FOODITEMS = "fooditems";
-    public static final String COLUMN_FOOD_NAME = "Name";
-    public static final String COLUMN_CALORIES = "Calories";
-    public static final String COLUMN_TYPES = "Types";
-    public static final String COLUMN_NUTRITION = "Nutrition";
+    protected static final String TABLE_FOODITEMS = "fooditems";
+    protected static final String COLUMN_FOOD_NAME = "Name";
+    protected static final String COLUMN_CALORIES = "Calories";
+    protected static final String COLUMN_TYPES = "Types";
+    protected static final String COLUMN_NUTRITION = "Nutrition";
 
     public MyDBHandler(Context context, SQLiteDatabase.CursorFactory factory){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
