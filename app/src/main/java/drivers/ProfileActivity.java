@@ -16,6 +16,7 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import entities.User;
+import usecases.MyDBHandler;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     LoginSystem system;
     String username, newGender, newGoal, newHeightString, newWeightString, newAgeString;
     int newHeight, newWeight, newAge;
+    MyDBHandler dbHandler;
 
     private EditText edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
@@ -32,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if(v.getId() == R.id.updateBtn) {
             // Set private variables as per user inputted details.
+            dbHandler = new MyDBHandler(this, null, null, 1);
             newHeightString = edtTxtHeight.getText().toString().trim();
             newWeightString = edtTxtWeight.getText().toString().trim();
             newAgeString = edtTxtAge.getText().toString().trim();
@@ -64,8 +67,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         System.out.println(newAge);
 
-        // newHeight, newWeight, newAge, newGender, newGoal
-        // TODO: update information in database
+        dbHandler.UpdateDetails(user.getUsername(), newHeight, newWeight, newAge, newGender, newGoal);
 
     }
 
