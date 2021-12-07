@@ -13,15 +13,16 @@ import usecases.MyDBHandler;
     information. Gives access to a particular user.
  */
 
-/*
-    A system to store usernames and corresponding passwords of the users of the app.
- */
-
 public class LoginSystem {
 
     private HashMap<String, User> loginData;
-    MyDBHandler dbHandler;
+    private MyDBHandler dbHandler;
 
+    /**
+     * Create a new LoginSystem instance.
+     *
+     * @param context the instance of the driver activity
+     */
     public LoginSystem(Context context){
         dbHandler = new MyDBHandler(context, null, null, 1);
         // dbHandler.resetDatabase();
@@ -53,6 +54,13 @@ public class LoginSystem {
         return false;
     }
 
+    /**
+     * Get a User instance from a username. Assumes method is being called
+     * with correct permissions to access this user.
+     *
+     * @param username the username of the User in loginData
+     * @return the User instance associated with username
+     */
     public User getUser(String username) {
         return loginData.get(username);
     }
