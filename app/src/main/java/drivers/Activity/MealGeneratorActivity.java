@@ -11,6 +11,7 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import controllers.MealManager;
+import entities.FoodItem;
 import entities.User;
 
 public class MealGeneratorActivity extends AppCompatActivity {
@@ -30,13 +31,20 @@ public class MealGeneratorActivity extends AppCompatActivity {
         user = system.getUser(username);
         manager = new MealManager(user, -1, null, this);
 
-        TextView tv1 = (TextView)findViewById(R.id.textViewTitle);
+        // TEST CODE:
+        for (FoodItem foodItem : manager.getFoodItemList()) {
+            System.out.println(foodItem.toString());
+        }
+
+        TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
         String welcomeMessage = "Meal Plan for " + user.getName();
         tv1.setText(welcomeMessage);
 
-        TextView tv2 = (TextView)findViewById(R.id.txtViewCalories);
+        TextView tv2 = (TextView) findViewById(R.id.txtViewCalories);
         String caloriesString = "Target Calories: " + String.valueOf(manager.getTargetCalories());
         tv2.setText(caloriesString);
+
+        TextView tv3 = (TextView) findViewById(R.id.txtViewCalories);
     }
 
     public void openHomePage(View view) {

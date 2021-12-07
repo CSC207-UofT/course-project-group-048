@@ -14,7 +14,7 @@ import entities.User;
 public class MyDBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "logininfo.db";
+    private static final String DATABASE_NAME = "logindata.db";
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
@@ -28,6 +28,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+        System.out.println("Worrk!!");
     }
 
     @Override
