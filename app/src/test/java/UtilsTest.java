@@ -2,7 +2,7 @@ import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
 
-import nutrition.Utils;
+import entities.Utils;
 
 public class UtilsTest {
 
