@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,10 @@ import com.example.loginpage.R;
 import java.util.ArrayList;
 
 import controllers.LoginSystem;
+import drivers.Adapter.CategoryAdapter;
+import drivers.Adapter.PopularMealAdapter;
+import drivers.Domain.CategoryDomain;
+import drivers.Domain.PopularMealDomain;
 import entities.User;
 
 public class HomePageActivity extends AppCompatActivity {

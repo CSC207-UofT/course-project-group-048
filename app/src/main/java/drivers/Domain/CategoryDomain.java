@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Domain;
 
 public class CategoryDomain {
     private String title;

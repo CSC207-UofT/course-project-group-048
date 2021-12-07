@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.loginpage.R;
 
 import controllers.LoginSystem;
+import drivers.Activity.MainActivity;
 import entities.User;
 import entities.Utils;
 

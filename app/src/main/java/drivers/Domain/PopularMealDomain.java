@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Domain;
 
 import java.io.Serializable;
 

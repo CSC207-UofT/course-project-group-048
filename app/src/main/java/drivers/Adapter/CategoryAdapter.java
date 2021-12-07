@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import drivers.CategoryDomain;
+import drivers.Domain.CategoryDomain;
 import com.example.loginpage.R;
 
 import java.util.ArrayList;
