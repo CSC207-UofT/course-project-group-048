@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context="drivers.Activity.ProfileActivity">
 
     <EditText
@@ -11,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Height(cm)"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/height_cm"
         android:inputType="numberDecimal"
@@ -25,9 +26,9 @@
         android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupWeight2" />
 
@@ -37,16 +38,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/currentGenderText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentGenderText">
 
         <RadioButton
             android:id="@+id/radioBtnMale2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male"
             android:layout_marginEnd="15dp"
+            android:text="@string/male"
             android:textSize="16sp" />
 
         <RadioButton
@@ -63,9 +64,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Weight(kg)"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/weight_kg"
         android:inputType="numberDecimal"
@@ -78,9 +79,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Age"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
@@ -92,9 +93,9 @@
         android:id="@+id/radioGroupWeight2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentGoalText">
 
@@ -124,25 +125,25 @@
         android:text="Current Gender:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtTxtAge2"/>
+        app:layout_constraintTop_toBottomOf="@id/edtTxtAge2" />
 
     <TextView
         android:id="@+id/currentHeightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="200dp"
         android:text="Current Height:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/currentWeightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="200dp"
         android:text="Current Weight:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,10 +153,10 @@
         android:id="@+id/currentAgeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
         android:text="Current Age:"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight2" />
 
@@ -163,8 +164,8 @@
         android:id="@+id/currentGoalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="200dp"
         android:text="Current Goal:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,9 +204,9 @@
                     <ImageButton
                         android:id="@+id/imageViewHome"
                         android:layout_width="match_parent"
-                        android:onClick="openHomePage"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="openHomePage"
                         app:srcCompat="@drawable/bottom_btn1g" />
 
                     <TextView
@@ -253,7 +254,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5g"/>
+                        app:srcCompat="@drawable/bottom_btn5g" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
