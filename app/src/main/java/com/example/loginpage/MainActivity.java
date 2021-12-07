@@ -15,6 +15,7 @@ import nutrition.User;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTxtUsername, edtTxtPassword;
+    LoginSystem loginSystem;
     String username, password;
     User user;
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void handleLogin() {
         // Check whether inputted username and password exist in the database of existing
         // users. If yes, then log in the user. If not, then display "incorrect details" message.
-        LoginSystem loginSystem = new LoginSystem(this);
+        loginSystem = new LoginSystem(this);
         if (loginSystem.checkUsernamePassword(username, password)){
             Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show();
             user = loginSystem.getUser(username);
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void openHomePage() {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("user", user);
+        openTheHomePage.putExtra("username", username);
         startActivity(openTheHomePage);
     }
 
