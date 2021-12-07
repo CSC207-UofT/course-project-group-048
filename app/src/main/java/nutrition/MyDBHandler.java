@@ -1,4 +1,4 @@
-package nutrition;
+package usecases;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -8,6 +8,8 @@ import android.content.ContentValues;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import entities.User;
 
 public class MyDBHandler extends SQLiteOpenHelper {
 
