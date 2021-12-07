@@ -13,7 +13,7 @@ import entities.FoodItem;
 
 public class MealDBHandler extends SQLiteOpenHelper{
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "foodinfo.db";
     public static final String TABLE_FOODITEMS = "fooditems";
     public static final String COLUMN_NAME = "Name";
@@ -34,7 +34,9 @@ public class MealDBHandler extends SQLiteOpenHelper{
                 COLUMN_NUTRITION + " TEXT " +
                 ");";
         db.execSQL(query);
-        addStandardFoods();
+        if (!isEmpty(db)){
+            addStandardFoods();
+        }
     }
 
     @Override
@@ -59,6 +61,13 @@ public class MealDBHandler extends SQLiteOpenHelper{
     public void deleteFood(String name){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_FOODITEMS + " WHERE " + COLUMN_NAME + "=\"" + name + "\";");
+    }
+
+    public boolean isEmpty(SQLiteDatabase db){
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FOODITEMS, null);
+
+        return cursor.getCount() == 0;
+
     }
 
     public List<FoodItem> getAll() {
