@@ -1,6 +1,8 @@
 package drivers;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +11,16 @@ import android.widget.TextView;
 
 import com.example.loginpage.R;
 
+import java.util.ArrayList;
+
 import controllers.LoginSystem;
 import entities.User;
 
 public class HomePageActivity extends AppCompatActivity {
+
+private RecyclerView.Adapter adapter, adapter2;
+private RecyclerView recyclerViewCategories, recyclerViewPopular;
+
     LoginSystem system;
     String username;
     User user;
@@ -29,6 +37,37 @@ public class HomePageActivity extends AppCompatActivity {
         user = system.getUser(username);
         String welcomeMessage = "Welcome, " + user.getName();
         tv1.setText(welcomeMessage);
+
+        recyclerViewCategory();
+        recyclerViewPopularMeals();
+    }
+
+    private void recyclerViewPopularMeals() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewPopular = findViewById(R.id.view2);
+        recyclerViewPopular.setLayoutManager(linearLayoutManager);
+
+        ArrayList<PopularMealDomain> popularMeal = new ArrayList<>();
+        popularMeal.add(new PopularMealDomain("Pepperoni Pizza", "pizza1", 1500));
+        popularMeal.add(new PopularMealDomain("Double Cheeseburger", "burger", 1100));
+        popularMeal.add(new PopularMealDomain("Vegan Pizza", "pizza3", 800));
+
+        adapter2 = new PopularMealAdapter(popularMeal);
+        recyclerViewPopular.setAdapter(adapter2);
+    }
+
+    private void recyclerViewCategory() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewCategories = findViewById(R.id.recyclerView);
+        recyclerViewCategories.setLayoutManager(linearLayoutManager);
+
+        ArrayList<CategoryDomain> categories = new ArrayList<>();
+        categories.add(new CategoryDomain("Breakfast", "cat_1"));
+        categories.add(new CategoryDomain("Lunch", "cat_2"));
+        categories.add(new CategoryDomain("Dinner", "cat_3"));
+
+        adapter = new CategoryAdapter(categories);
+        recyclerViewCategories.setAdapter(adapter);
     }
 
     public void openProfilePage(View view) {
