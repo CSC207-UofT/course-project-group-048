@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import entities.User;
 import entities.Utils;
+import usecases.LoginDataHandler;
 import usecases.MyDBHandler;
 
 /*
@@ -16,7 +17,7 @@ import usecases.MyDBHandler;
 public class LoginSystem {
 
     private HashMap<String, User> loginData;
-    private MyDBHandler dbHandler;
+    private LoginDataHandler loginDatabase;
 
     /**
      * Create a new LoginSystem instance.
@@ -24,9 +25,8 @@ public class LoginSystem {
      * @param context the instance of the driver activity
      */
     public LoginSystem(Context context){
-        dbHandler = new MyDBHandler(context, null, null, 1);
-        // dbHandler.resetDatabase();
-        this.loginData = this.dbHandler.getLoginData();
+        loginDatabase = new LoginDataHandler(context, null);
+        this.loginData = loginDatabase.getLoginData();
     }
 
     /**
@@ -66,7 +66,7 @@ public class LoginSystem {
     }
 
     public void registerUser(User user){
-        dbHandler.addUser(user);
+        loginDatabase.addUser(user);
     }
 
 

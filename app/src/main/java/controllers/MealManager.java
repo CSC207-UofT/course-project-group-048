@@ -4,22 +4,23 @@ import android.content.Context;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 import entities.FoodItem;
+import entities.Meal;
 import entities.User;
 import usecases.FoodItems;
-import usecases.MealDBHandler;
+import usecases.MealCourse;
+import usecases.MealDataHandler;
 
 public class MealManager {
 
-    private final int targetCalories;
+    private int targetCalories;
 
     // we do not use this in our program, but it has been left for future development
     private String dietaryInfo;
-
+    private MealCourse mealCourse;
     private User user;
-    public MealDBHandler dbHandler;
-    public List<FoodItem> foodItemList;
 
     /**
      * A goal set for a given User.
@@ -40,13 +41,16 @@ public class MealManager {
         }
 
         this.dietaryInfo = dietaryInfo;
-
-        this.dbHandler = new MealDBHandler(context, null, null, 2);
-        this.foodItemList = this.dbHandler.getAll();
+        this.mealCourse = new MealCourse(targetCalories, context);
     }
 
-    public List<FoodItem> getFoodItemList() {
-        return foodItemList;
+    public MealManager(User user) {
+        this.user = user;
+        this.targetCalories = this.calculateTargetCalories();
+    }
+
+    public MealCourse getMealCourse() {
+        return mealCourse;
     }
 
     private int calculateTargetCalories() {
@@ -57,44 +61,6 @@ public class MealManager {
         } else {
             return target - 500;
         }
-    }
-
-    private FoodItem generateRandomFoodItem() {
-        return FoodItems.CHICKEN_CURRY;
-    }
-
-    public List<FoodItem> generateBreakfastFoodItems() {
-        return generateFoodItems();
-    }
-
-    public List<FoodItem> generateFoodItems() {
-        List<FoodItem> items = new ArrayList<FoodItem>();
-        FoodItem item;
-        int caloriesSoFar = 0;
-
-        while (caloriesSoFar < targetCalories) {
-            item = generateRandomFoodItem();
-            items.add(item);
-            caloriesSoFar += item.getCalories();
-        }
-
-        return items;
-    }
-
-    public ArrayList<FoodItem> customMeals() {
-            String hashKey = targetCalories + dietaryInfo;
-            // find a random meal from the hashmap, and return it
-            return FoodItems.meals.get(hashKey);
-        }
-
-    public void refreshMeal() {
-        // here, if its vegan we only have 1 option as of now, 2 for vegetarian and 3 for all
-        // need to store closest
-    }
-
-    public void changeItem() {
-        // still working on it, THIS IS WHERE FOODITEM LIST IS USED
-        // returns void anyways if it takes in a ArrayList of fooditems, OR returns the modified list - decide on either
     }
 
 

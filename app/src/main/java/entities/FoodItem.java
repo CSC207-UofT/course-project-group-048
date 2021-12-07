@@ -10,7 +10,7 @@ public class FoodItem {
     public String name;
     public int calories;
     public String[] types;
-    public Integer[] nutrients;
+    public int[] nutrients;
 
     /**
      * A class representing a FoodItem object.
@@ -21,7 +21,7 @@ public class FoodItem {
      * @param nutrients nutrients of the food item
      */
 
-    public FoodItem(String name, int cals, String[] types, Integer[] nutrients) {
+    public FoodItem(String name, int cals, String[] types, int[] nutrients) {
         this.name = name;
         this.calories = cals;
         this.types = types;
@@ -54,20 +54,6 @@ public class FoodItem {
         return s.toString().trim();
     }
 
-
-    public static String[] getTypesFromString(String s) {
-        return s.split(",");
-    }
-
-    public static Integer[] getNutsFromString(String s) {
-        String[] n = s.split(",");
-        Integer[] nutrients = new Integer[n.length];
-        for (int i = 0; i < n.length; i++) {
-            nutrients[i] = Integer.valueOf(n[i]);
-        }
-        return nutrients;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -80,11 +66,11 @@ public class FoodItem {
         this.types = types;
     }
 
-    public Integer[] getNutrients() {
+    public int[] getNutrients() {
         return nutrients;
     }
 
-    public void setNutrients(Integer[] nutrients) {
+    public void setNutrients(int[] nutrients) {
         this.nutrients = nutrients;
     }
 

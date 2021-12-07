@@ -18,6 +18,7 @@ import controllers.LoginSystem;
 import drivers.Activity.HomePageActivity;
 import drivers.Activity.MealGeneratorActivity;
 import entities.User;
+import usecases.LoginDataHandler;
 import usecases.MyDBHandler;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     LoginSystem system;
     String username, newGender, newGoal, newHeightString, newWeightString, newAgeString;
     int newHeight, newWeight, newAge;
-    MyDBHandler dbHandler;
+    LoginDataHandler loginDatabase;
 
     private EditText edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
@@ -36,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if(v.getId() == R.id.updateBtn) {
             // Set private variables as per user inputted details.
-            dbHandler = new MyDBHandler(this, null, null, 1);
+            loginDatabase = new LoginDataHandler(this, null);
             newHeightString = edtTxtHeight.getText().toString().trim();
             newWeightString = edtTxtWeight.getText().toString().trim();
             newAgeString = edtTxtAge.getText().toString().trim();
@@ -69,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         System.out.println(newAge);
 
-        dbHandler.UpdateDetails(user.getUsername(), newHeight, newWeight, newAge, newGender, newGoal);
+        loginDatabase.UpdateDetails(user.getUsername(), newHeight, newWeight, newAge, newGender, newGoal);
 
     }
 
