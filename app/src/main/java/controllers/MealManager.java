@@ -41,8 +41,8 @@ public class MealManager {
 
         this.dietaryInfo = dietaryInfo;
 
-        this.dbHandler = new MealDBHandler(context, null, null, 2);
-        this.foodItemList = this.dbHandler.getAll();
+        // this.dbHandler = new MealDBHandler(context, null, null, 2);
+        // this.foodItemList = this.dbHandler.getAll();
     }
 
     private int calculateTargetCalories() {
