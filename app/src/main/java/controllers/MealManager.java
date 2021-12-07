@@ -4,21 +4,24 @@ import android.content.Context;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 import entities.FoodItem;
+import entities.Meal;
 import entities.User;
 import usecases.FoodItems;
-import usecases.MealDBHandler;
+import usecases.MealDataHandler;
 
 public class MealManager {
 
-    private final int targetCalories;
+    private int targetCalories;
 
     // we do not use this in our program, but it has been left for future development
     private String dietaryInfo;
 
+    private Random randomGenerator;
     private User user;
-    public MealDBHandler dbHandler;
+    public MealDataHandler mealDatabase;
     public List<FoodItem> foodItemList;
 
     /**
@@ -40,9 +43,21 @@ public class MealManager {
         }
 
         this.dietaryInfo = dietaryInfo;
+        this.randomGenerator = new Random();
+        this.mealDatabase = new MealDataHandler(context, null);
 
-        this.dbHandler = new MealDBHandler(context, null, null, 2);
-        this.foodItemList = this.dbHandler.getAll();
+        this.foodItemList = mealDatabase.getAll();
+
+        // FoodItems foodItems = new FoodItems();
+        // this.foodItemList = foodItems.foodList;
+    }
+
+    public MealManager(User user) {
+        this.user = user;
+        this.targetCalories = this.calculateTargetCalories();
+        this.randomGenerator = new Random();
+        FoodItems foodItems = new FoodItems();
+        this.foodItemList = foodItems.foodList;
     }
 
     public List<FoodItem> getFoodItemList() {
@@ -59,26 +74,45 @@ public class MealManager {
         }
     }
 
-    private FoodItem generateRandomFoodItem() {
-        return FoodItems.CHICKEN_CURRY;
+    private FoodItem generateRandomFoodItem(String mealType) {
+        int index;
+        FoodItem randomFoodItem;
+        do {
+            index = randomGenerator.nextInt(foodItemList.size());
+            randomFoodItem = foodItemList.get(index);
+        } while (!randomFoodItem.getTypes()[1].equals(mealType));
+
+        return randomFoodItem;
     }
 
-    public List<FoodItem> generateBreakfastFoodItems() {
-        return generateFoodItems();
-    }
+    public List<Meal> generateAllMeals() {
+        int caloriesAllowed = targetCalories;
+        String[] mealTypes = new String[]{"breakfast", "lunch", "dinner"};
+        List<Meal> meals = new ArrayList<Meal>(mealTypes.length);
+        Meal meal;
 
-    public List<FoodItem> generateFoodItems() {
-        List<FoodItem> items = new ArrayList<FoodItem>();
-        FoodItem item;
-        int caloriesSoFar = 0;
-
-        while (caloriesSoFar < targetCalories) {
-            item = generateRandomFoodItem();
-            items.add(item);
-            caloriesSoFar += item.getCalories();
+        for (String mealType : mealTypes) {
+            meal = generateMeal(2, mealType, caloriesAllowed);
+            meals.add(meal);
+            caloriesAllowed -= meal.getCalories();
         }
 
-        return items;
+        return meals;
+    }
+
+    public Meal generateMeal(int numItems, String mealType, int caloriesRestriction) {
+        List<FoodItem> items = new ArrayList<FoodItem>();
+        FoodItem item;
+        int caloriesSoFar = 0, addedItems = 0;
+
+        while (caloriesSoFar < caloriesRestriction && addedItems < numItems) {
+            item = generateRandomFoodItem(mealType);
+            items.add(item);
+            caloriesSoFar += item.getCalories();
+            addedItems += 1;
+        }
+
+        return new Meal(mealType, items);
     }
 
     public ArrayList<FoodItem> customMeals() {
