@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,12 +13,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import nutrition.LoginSystem;
 import nutrition.User;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     User user;
-    String newGender, newGoal, newHeightString, newWeightString, newAgeString;
+    LoginSystem system;
+    String username, newGender, newGoal, newHeightString, newWeightString, newAgeString;
     int newHeight, newWeight, newAge;
 
     private EditText edtTxtHeight, edtTxtWeight, edtTxtAge;
@@ -70,7 +73,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Bundle extras = getIntent().getExtras();
-        user = (User) extras.get("user");
+        system = new LoginSystem(this);
+        username = (String) extras.get("username");
+        user = system.getUser(username);
         Button updateBtn = findViewById(R.id.updateBtn);
         updateBtn.setOnClickListener(this);
         setRadioButtons();
@@ -143,13 +148,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public void openHomePage() {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("user", user);
+        openTheHomePage.putExtra("username", username);
         startActivity(openTheHomePage);
     }
 
     public void openHomePage(View view) {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("user", user);
+        openTheHomePage.putExtra("username", username);
         startActivity(openTheHomePage);
     }
 
@@ -161,7 +166,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
-        openTheMealGeneratorPage.putExtra("user", user);
+        openTheMealGeneratorPage.putExtra("username", username);
         startActivity(openTheMealGeneratorPage);
     }
 }

@@ -2,6 +2,7 @@ package nutrition;
 
 import android.content.Context;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /*
