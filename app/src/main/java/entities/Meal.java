@@ -31,6 +31,18 @@ public class Meal implements Iterable<FoodItem> {
         return calories;
     }
 
+    public List<FoodItem> getFoodItems() {
+        return foodItems;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getSize() {
+        return foodItems.size();
+    }
+
     @Override
     public Iterator<FoodItem> iterator() {
         return mealIterator;
