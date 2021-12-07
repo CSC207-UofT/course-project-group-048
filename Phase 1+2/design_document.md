@@ -20,6 +20,9 @@ Originally, this entire process was done, without delegating tasks to other clas
 
 The ``RegisterActivity`` class is dependent on both the ``LoginSystem`` and ``MyDBHandler`` classes. This meant that the ``RegisterActivity`` class would be responsible to the actor that manages the database **and** the actor that manages login security, a violation of the **Single-Responsibility Principle**. It also meant our code was more closed to future change, as other members of our team that were not familiar with how ``MyDBHandler`` worked could not modify code in the ``RegisterActivity.onClick`` method. In order to refactor this, we made ``LoginSystem`` dependent on ``MyDBHandler``, which will be discussed in a later section. We then created methods  ``RegisterActivity.checkAllFieldsAndSignUp`` and ``RegisterActivity.performSignUp`` to fix the code smell, which we resolved in issue [#12](https://github.com/CSC207-UofT/course-project-group-048/issues/12).
 
+### ``ProfileActivity``
+
+When creating the Profile page, it became apparent that we would need to access the SQL database to view information about a specific ``User`` instance. Our current code had violated the **Open/Closed Principle** by only reading in a username and password pair in ``LoginSystem``. In order to access this information, the ``LoginSystem``, ``MyDBHandler``, ``MainActivity``, as well as this class needed many modifications. This resulted in a ``Shotgun Surgery`` in pull request [#26](https://github.com/CSC207-UofT/course-project-group-048/pull/26). This was the only major **Change Preventer** code smell in our program.
 
 ### ``LoginSystem`` and ``MyDBHandler``
 
