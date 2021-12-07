@@ -76,10 +76,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     public void UpdateDetails(String username, Integer newHeight, Integer newWeight, Integer newAge,
                               String newGender, String newGoal){
-        String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " = " + newHeight +", " +
-                COLUMN_WEIGHT + " = " + newWeight +", " + COLUMN_AGE + " = " + newAge +", " +
-                COLUMN_GENDER + " = " + newGender + ", " + COLUMN_GENDER + " = " + newGender +
-                " WHERE " + COLUMN_USERNAME + " = " + username + ";";
+        String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " =\"" + newHeight +"\", " +
+                COLUMN_WEIGHT + " =\"" + newWeight +"\", " + COLUMN_AGE + " =\"" + newAge +"\", " +
+                COLUMN_GENDER + " =\"" + newGender + "\", " + COLUMN_GOAL + " =\"" + newGoal + "\"" +
+                " WHERE " + COLUMN_USERNAME + " =\"" + username + "\";";
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(query);
 
