@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,24 +12,26 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import nutrition.LoginSystem;
+import nutrition.MyDBHandler;
 import nutrition.User;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     User user;
-    LoginSystem system;
-    String username, newGender, newGoal, newHeightString, newWeightString, newAgeString;
+    String newGender, newGoal, newHeightString, newWeightString, newAgeString;
     int newHeight, newWeight, newAge;
 
     private EditText edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
     private RadioButton radioBtnMale, radioBtnFemale, radioBtnGain, radioBtnLose;
 
+    MyDBHandler dbHandler;
+
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.updateBtn) {
             // Set private variables as per user inputted details.
+            dbHandler = new MyDBHandler(this, null, null, 1);
             newHeightString = edtTxtHeight.getText().toString().trim();
             newWeightString = edtTxtWeight.getText().toString().trim();
             newAgeString = edtTxtAge.getText().toString().trim();
@@ -63,6 +64,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         System.out.println(newAge);
 
+        dbHandler.UpdateDetails(user.getUsername(), newHeight, newWeight, newAge, newGender, newGoal);
+
         // newHeight, newWeight, newAge, newGender, newGoal
         // TODO: update information in database
 
@@ -73,9 +76,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Bundle extras = getIntent().getExtras();
-        system = new LoginSystem(this);
-        username = (String) extras.get("username");
-        user = system.getUser(username);
+        user = (User) extras.get("user");
         Button updateBtn = findViewById(R.id.updateBtn);
         updateBtn.setOnClickListener(this);
         setRadioButtons();
@@ -148,13 +149,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public void openHomePage() {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("username", username);
+        openTheHomePage.putExtra("user", user);
         startActivity(openTheHomePage);
     }
 
     public void openHomePage(View view) {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
-        openTheHomePage.putExtra("username", username);
+        openTheHomePage.putExtra("user", user);
         startActivity(openTheHomePage);
     }
 
@@ -166,7 +167,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
-        openTheMealGeneratorPage.putExtra("username", username);
+        openTheMealGeneratorPage.putExtra("user", user);
         startActivity(openTheMealGeneratorPage);
     }
 }

@@ -72,6 +72,17 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
     }
 
+    public void UpdateDetails(String username, Integer newHeight, Integer newWeight, Integer newAge,
+                              String newGender, String newGoal){
+        String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " = " + newHeight +", " +
+                COLUMN_WEIGHT + " = " + newWeight +", " + COLUMN_AGE + " = " + newAge +", " +
+                COLUMN_GENDER + " = " + newGender + ", " + COLUMN_GENDER + " = " + newGender +
+                " WHERE " + COLUMN_USERNAME + " = " + username + ";";
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
+    }
+
     //Delete user from database.
     public void deleteUser(String username){
         SQLiteDatabase db = getWritableDatabase();
