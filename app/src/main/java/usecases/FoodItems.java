@@ -10,63 +10,27 @@ public class FoodItems {
     public static final ArrayList<FoodItem> foodList = new ArrayList<>();
     public static HashMap<String, ArrayList<FoodItem>> meals = new HashMap<>();
 
-    final static FoodItem ORANGE = new FoodItem("orange", 50,
+    final static FoodItem FRUITS = new FoodItem("fruits", 300,
             new String[]{"fruit", "snack", "vegan"}, new Integer[]{23, 4, 0, 0});
-    final static FoodItem APPLE = new FoodItem("apple", 182,
-            new String[]{"fruit", "snack", "vegan"}, new Integer[]{95, 25, 0, 0});
-    final static FoodItem BANANA = new FoodItem("banana", 118,
-            new String[]{"fruit", "snack", "vegan"}, new Integer[]{105, 27, 0, 1});
-    final static FoodItem EGG = new FoodItem("egg", 70,
-            new String[]{"dairy", "breakfast", "vegetarian"}, new Integer[]{70, 0, 5, 6});
-    final static FoodItem BROCCOLI = new FoodItem("broccoli", 100,
-            new String[]{"vegetable", "lunch", "vegan"}, new Integer[]{34, 7, 0, 3});
-    final static FoodItem WHITEBREAD = new FoodItem("white bread",
-            40, new String[]{"grain", "vegetarian", "breakfast"}, new Integer[]{50, 9, 1, 2});
-    final static FoodItem CEREAL = new FoodItem("cereal", 30,
+    final static FoodItem CEREAL = new FoodItem("cereal", 250,
             new String[]{"grain", "breakfast", "vegetarian"}, new Integer[]{113, 23, 1, 2});
-    final static FoodItem CHICKENBREAST = new FoodItem("chicken breast",
-            85, new String[]{"poultry", "dinner", "none"}, new Integer[]{110, 2, 3, 20});
-    final static FoodItem WHITERICE = new FoodItem("white rice",
-            45, new String[]{"grain", "dinner", "vegan"}, new Integer[]{160, 38, 0, 3});
-    final static FoodItem PASTA = new FoodItem("pasta", 72,
+    final static FoodItem CHICKEN_BREAST = new FoodItem("chicken breast",
+            750, new String[]{"poultry", "dinner", "none"}, new Integer[]{110, 2, 3, 20});
+    final static FoodItem BIG_MAC_MEAL = new FoodItem("big mac meal", 1080
+            , new String[]{"grain", "dinner", "vegan"}, new Integer[]{160, 38, 0, 3});
+    final static FoodItem PASTA = new FoodItem("pasta", 280,
             new String[]{"grain", "dinner", "vegetarian"}, new Integer[]{265, 54, 1, 9});
-    final static FoodItem ICECREAM = new FoodItem("ice cream",
-            100, new String[]{"dessert", "snack", "vegetarian"}, new Integer[]{250, 25, 10, 4});
-    final static FoodItem CHOCOLATE = new FoodItem("chocolate",
-            20, new String[]{"dessert", "snack", "vegetarian"}, new Integer[]{22, 2, 1, 1});
-    final static FoodItem FRENCHFRIES = new FoodItem("french fries",
-            84, new String[]{"vegetable", "lunch", "vegan"}, new Integer[]{120, 20, 4, 2});
-    final static FoodItem CHICKPEAS = new FoodItem("chickpeas",
-            100, new String[]{"legume", "snack", "vegan"}, new Integer[]{46, 8, 1, 2});
-    final static FoodItem OATS = new FoodItem("oats",
-            100, new String[]{"grain", "breakfast", "vegan"}, new Integer[]{371, 59, 8, 12});
-    final static FoodItem STEAK = new FoodItem("steak", 113,
+    final static FoodItem STEAK = new FoodItem("steak", 340,
             new String[]{"meat", "dinner", "none"}, new Integer[]{170, 0, 9, 23});
-    final static FoodItem TOMATO = new FoodItem("tomato", 60,
-            new String[]{"vegetable", "lunch", "vegan"}, new Integer[]{11, 2, 0, 1});
-    public final static FoodItem PEANUTS = new FoodItem("peanuts", 30,
-            new String[]{"legume", "snack", "vegan"}, new Integer[]{161, 5, 14, 7});
-    final static FoodItem COOKIES = new FoodItem("cookies", 20,
-            new String[]{"dessert", "snack", "vegetarian"}, new Integer[]{220, 30, 10, 2});
-    final static FoodItem NOODLES = new FoodItem("noodle", 60,
-            new String[]{"grain", "dinner", "vegetarian"}, new Integer[]{200, 41, 1, 7});
-    final static FoodItem LETTUCE = new FoodItem("lettuce", 50,
-            new String[]{"vegetable", "lunch", "vegan"}, new Integer[]{4, 2, 0, 0});
     final static FoodItem YOGURT = new FoodItem("yogurt", 170,
             new String[]{"dairy", "breakfast", "vegetarian"}, new Integer[]{100, 20, 0, 5});
-    final static FoodItem STRAWBERRIES = new FoodItem("strawberries", 100,
-            new String[]{"fruit", "breakfast", "vegan"}, new Integer[]{33, 8, 0, 1});
-    final static FoodItem AVOCADO = new FoodItem("avocado", 100,
-            new String[]{"fruit", "breakfast", "vegan"}, new Integer[]{160, 2, 15, 2});
-    final static FoodItem CHEESE = new FoodItem("cheese", 30,
-            new String[]{"dairy", "snack", "vegetarian"}, new Integer[]{110, 1, 9, 7});
-    final static FoodItem SALMON = new FoodItem("salmon", 115,
-            new String[]{"fish", "dinner", "vegetarian"}, new Integer[]{100, 0, 1, 24});
-    final static FoodItem COD = new FoodItem("cod", 115,
+    final static FoodItem SMOKED_SALMON = new FoodItem("smoked salmon", 115,
+            new String[]{"fish", "breakfast", "vegetarian"}, new Integer[]{100, 0, 1, 24});
+    final static FoodItem COD = new FoodItem("cod", 350,
             new String[]{"fish", "dinner", "vegetarian"}, new Integer[]{138, 0, 4, 24});
-    final static FoodItem TUNA = new FoodItem("tuna", 56,
+    final static FoodItem TUNA = new FoodItem("tuna", 256,
             new String[]{"fish", "lunch", "vegetarian"}, new Integer[]{50, 1, 1, 10});
-    final static FoodItem HAM = new FoodItem("ham", 56,
+    final static FoodItem HAM_SANDWICH = new FoodItem("ham sandwich", 235,
             new String[]{"poultry", "lunch", "gluten"}, new Integer[]{60, 2, 3, 8});
     final static FoodItem KALE = new FoodItem("kale", 70,
             new String[]{"vegetable", "dinner", "vegan"}, new Integer[]{25, 4, 0, 2});
@@ -88,7 +52,7 @@ public class FoodItems {
             new String[]{"poultry", "dinner", "none"}, new Integer[]{160, 1, 8, 2, 22});
     final static FoodItem PEANUT_BUTTER = new FoodItem("peanut butter", 15,
             new String[]{"legume", "breakfast", "vegan"}, new Integer[]{85, 1, 7, 4});
-    final static FoodItem CHICKEN_CURRY = new FoodItem("chicken curry", 230,
+    public final static FoodItem CHICKEN_CURRY = new FoodItem("chicken curry", 230,
             new String[]{"poultry", "dinner", "none"}, new Integer[]{243, 3, 11, 28});
     final static FoodItem WHEY_PROTEIN = new FoodItem("whey protein", 30,
             new String[]{"dairy", "snack", "none"}, new Integer[]{117, 2, 1, 24});
@@ -111,35 +75,17 @@ public class FoodItems {
 
 
     public FoodItems() {
-        foodList.add(ORANGE);
-        foodList.add(APPLE);
-        foodList.add(BANANA);
-        foodList.add(EGG);
-        foodList.add(BROCCOLI);
-        foodList.add(WHITEBREAD);
+        foodList.add(FRUITS);
         foodList.add(CEREAL);
-        foodList.add(CHICKENBREAST);
-        foodList.add(WHITERICE);
+        foodList.add(CHICKEN_BREAST);
         foodList.add(PASTA);
-        foodList.add(ICECREAM);
-        foodList.add(CHOCOLATE);
-        foodList.add(FRENCHFRIES);
-        foodList.add(CHICKPEAS);
-        foodList.add(OATS);
         foodList.add(STEAK);
-        foodList.add(TOMATO);
-        foodList.add(PEANUTS);
-        foodList.add(COOKIES);
-        foodList.add(LETTUCE);
-        foodList.add(NOODLES);
         foodList.add(YOGURT);
-        foodList.add(STRAWBERRIES);
-        foodList.add(AVOCADO);
-        foodList.add(CHEESE);
-        foodList.add(SALMON);
+        foodList.add(SMOKED_SALMON);
         foodList.add(COD);
+        foodList.add(BIG_MAC_MEAL);
         foodList.add(TUNA);
-        foodList.add(HAM);
+        foodList.add(HAM_SANDWICH);
         foodList.add(KALE);
         foodList.add(TORTILLA_CHIPS);
         foodList.add(CHILLI);
@@ -164,13 +110,7 @@ public class FoodItems {
         // put values of meals in the hashmap, vegan 1, vegetarian (1 + 1 vegan), none: (1+2 veg),
         // naming convention 1500veg, 2000vegan, and 2500all examples
         ArrayList<FoodItem> meal1 = new ArrayList<>();
-        meal1.add(BANANA);
-        meal1.add(CHICKENBREAST);
-        meal1.add(EGG);
-        meal1.add(TOMATO);
         meal1.add(STEAK);
-        meal1.add(PEANUTS);
-        meal1.add(COOKIES);
         meals.put("1500all", meal1);
 
     }

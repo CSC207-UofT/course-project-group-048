@@ -3,6 +3,8 @@ package entities;/*
    and its amount in grams and its corresponding nutritional values(carbohydrates, protein and fat)
  */
 
+import androidx.annotation.NonNull;
+
 public class FoodItem {
 
     public String name;
@@ -94,5 +96,10 @@ public class FoodItem {
         }
         return s.toString().trim();
 
+    }
+
+    @NonNull
+    public String toString() {
+        return name + ": " + calories + " calories";
     }
 }
