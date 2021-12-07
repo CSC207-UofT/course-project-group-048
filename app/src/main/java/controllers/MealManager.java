@@ -41,8 +41,12 @@ public class MealManager {
 
         this.dietaryInfo = dietaryInfo;
 
-        // this.dbHandler = new MealDBHandler(context, null, null, 2);
-        // this.foodItemList = this.dbHandler.getAll();
+        this.dbHandler = new MealDBHandler(context, null, null, 2);
+        this.foodItemList = this.dbHandler.getAll();
+    }
+
+    public List<FoodItem> getFoodItemList() {
+        return foodItemList;
     }
 
     private int calculateTargetCalories() {
@@ -57,6 +61,10 @@ public class MealManager {
 
     private FoodItem generateRandomFoodItem() {
         return FoodItems.CHICKEN_CURRY;
+    }
+
+    public List<FoodItem> generateBreakfastFoodItems() {
+        return generateFoodItems();
     }
 
     public List<FoodItem> generateFoodItems() {
