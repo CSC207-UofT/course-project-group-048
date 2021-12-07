@@ -109,12 +109,6 @@ public class MealDBHandler extends SQLiteOpenHelper{
         db.close();
     }
 
-    public FoodItem oneFood(String mt) {
-        // SQL QUERY BASE ON MT
-        return FoodItems.PEANUTS;
-
-
-    }
 
 
 }

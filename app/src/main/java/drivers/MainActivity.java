@@ -14,12 +14,15 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import entities.User;
+import usecases.MealDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTxtUsername, edtTxtPassword;
     LoginSystem loginSystem;
     String username, password;
     User user;
+
+    MealDBHandler mealDBHandler;
 
     @Override
     public void onClick(View v) {
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
+
+        mealDBHandler = new MealDBHandler(this,null,null,1);
 
     }
 
