@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.loginpage.R;
 
 import controllers.LoginSystem;
+import controllers.MealManager;
+import entities.FoodItem;
 import entities.User;
 
 public class MealGeneratorActivity extends AppCompatActivity {
@@ -17,6 +19,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     User user;
     String username;
     LoginSystem system;
+    MealManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,22 @@ public class MealGeneratorActivity extends AppCompatActivity {
         system = new LoginSystem(this);
         username = (String) extras.get("username");
         user = system.getUser(username);
+        manager = new MealManager(user, -1, null, this);
 
-        TextView tv1 = (TextView)findViewById(R.id.textViewTitle);
+        // TEST CODE:
+        for (FoodItem foodItem : manager.getFoodItemList()) {
+            System.out.println(foodItem.toString());
+        }
+
+        TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
         String welcomeMessage = "Meal Plan for " + user.getName();
         tv1.setText(welcomeMessage);
+
+        TextView tv2 = (TextView) findViewById(R.id.txtViewCalories);
+        String caloriesString = "Target Calories: " + String.valueOf(manager.getTargetCalories());
+        tv2.setText(caloriesString);
+
+        TextView tv3 = (TextView) findViewById(R.id.txtViewCalories);
     }
 
     public void openHomePage(View view) {

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CAC9C3">
+    android:background="#ECEBE6">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="@+id/constraintLayout"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 

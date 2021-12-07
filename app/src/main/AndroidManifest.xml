@@ -11,19 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage">
         <activity
-            android:name="drivers.ProfileActivity"
+            android:name="drivers.Activity.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name="drivers.MealGeneratorActivity"
+            android:name="drivers.Activity.MealGeneratorActivity"
             android:exported="false" />
         <activity
-            android:name="drivers.HomePageActivity"
+            android:name="drivers.Activity.HomePageActivity"
             android:exported="false" />
         <activity
-            android:name="drivers.RegisterActivity"
+            android:name="drivers.Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="drivers.MainActivity"
+            android:name="drivers.Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

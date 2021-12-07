@@ -1,4 +1,4 @@
-package drivers;
+package drivers.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import entities.User;
+import usecases.MealDBHandler;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTxtUsername, edtTxtPassword;
@@ -21,12 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String username, password;
     User user;
 
+    MealDBHandler mealDBHandler;
+
     @Override
     public void onClick(View v) {
         username = edtTxtUsername.getText().toString();
         password = edtTxtPassword.getText().toString();
 
         if (v.getId() == R.id.loginButton) {
+            mealDBHandler = new MealDBHandler(this,null,null,1);
             checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",
@@ -78,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
+
 
     }
 

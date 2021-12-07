@@ -41,6 +41,11 @@ public class User implements Serializable {
         this.goal = goal;
     }
 
+    public int calculateBMR() {
+        double bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        return (int) Math.round(bmr);
+    }
+
     public String getName() {
         return name;
     }
