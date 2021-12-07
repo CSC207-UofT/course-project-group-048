@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password = edtTxtPassword.getText().toString();
 
         if (v.getId() == R.id.loginButton) {
+            mealDBHandler = new MealDBHandler(this,null,null,1);
             checkFields();
         } else if (v.getId() == R.id.buttonCreateAcc) {
             Toast.makeText(this, "Please Enter All Information",
@@ -82,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
 
-        mealDBHandler = new MealDBHandler(this,null,null,1);
 
     }
 

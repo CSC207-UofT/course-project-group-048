@@ -14,7 +14,7 @@ import entities.FoodItem;
 public class MealDBHandler extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "foodinfo.db";
+    private static final String DATABASE_NAME = "fooditems.db";
     public static final String TABLE_FOODITEMS = "fooditems";
     public static final String COLUMN_NAME = "Name";
     public static final String COLUMN_CALORIES = "Calories";
@@ -23,6 +23,10 @@ public class MealDBHandler extends SQLiteOpenHelper{
 
     public MealDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+        SQLiteDatabase db = getWritableDatabase();
+        if (isEmpty(db)){
+            addStandardFoods();
+        }
     }
 
     @Override
@@ -34,9 +38,6 @@ public class MealDBHandler extends SQLiteOpenHelper{
                 COLUMN_NUTRITION + " TEXT " +
                 ");";
         db.execSQL(query);
-        if (!isEmpty(db)){
-            addStandardFoods();
-        }
     }
 
     @Override
@@ -65,7 +66,6 @@ public class MealDBHandler extends SQLiteOpenHelper{
 
     public boolean isEmpty(SQLiteDatabase db){
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FOODITEMS, null);
-
         return cursor.getCount() == 0;
 
     }
@@ -98,7 +98,8 @@ public class MealDBHandler extends SQLiteOpenHelper{
 
     public void addStandardFoods() {
         SQLiteDatabase db = getWritableDatabase();
-        for (FoodItem food : FoodItems.foodList) {
+        FoodItems foodItems = new FoodItems();
+        for (FoodItem food : foodItems.foodList) {
             ContentValues values = new ContentValues();
             values.put(COLUMN_NAME, food.getName());
             values.put(COLUMN_CALORIES, food.getCalories());
