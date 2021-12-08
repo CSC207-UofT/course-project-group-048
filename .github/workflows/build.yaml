@@ -11,7 +11,7 @@ jobs:
 
       - name: Unit Tests
         working-directory: './'
-        run: gradlew test
+        run: ./gradlew test
   android_tests:
     runs-on: [ macos-latest ]
     steps:
