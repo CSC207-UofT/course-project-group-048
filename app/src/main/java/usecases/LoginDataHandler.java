@@ -12,7 +12,7 @@ import entities.User;
 public class LoginDataHandler extends MyDBHandler {
 
     /**
-     * A constructor for the LoginDataHandler object.
+     * Creates an instance of the LoginDataHandler object.
      * @param context the current state of the application representing the context in which the
      *                database exists
      * @param factory allows returning subclasses of Cursor when calling a query in our database

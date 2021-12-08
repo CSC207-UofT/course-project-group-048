@@ -34,6 +34,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
+    /**
+     * Overrides the onCreate method, which is ran upon creation of a database, helping create
+     * the initial columns and rows of data that are standard and required to all databases.
+     * @param db the database that this method is being ran on (when it is created)
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query1 = " CREATE TABLE " + TABLE_USERS + "(" +
@@ -61,6 +66,13 @@ public class MyDBHandler extends SQLiteOpenHelper {
         addStandardFoods(db);
     }
 
+    /**
+     * Upgrades the version of a database from its current version (oldVersion) to the new inputted
+     * version (newVersion).
+     * @param db the database which is to be upgraded.
+     * @param oldVersion the oldVersion (or current version) of the database db.
+     * @param newVersion the new version of the database to be upgraded to.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
@@ -68,6 +80,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Resets the current database, removing all changes, additions and deletions, restoring its
+     * format to that which is seen when it is initially created.
+     */
     public void resetDatabase() {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
@@ -75,7 +91,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
+    /**
+     * Adds the standard food items to the database, used to generate the standard meals provided
+     * by the application.
+     * @param db the database to which the standard food items are being added.
+     */
     private void addStandardFoods(SQLiteDatabase db) {
         FoodItems foodItems = new FoodItems();
         for (FoodItem food : foodItems.foodList) {

@@ -20,7 +20,8 @@ public class MealCourse implements Iterable<Meal> {
     private int calories;
 
     /**
-     * A constructor for the MealCourse class, using a list of Meal objects, one for each type.
+     * Creates an instance of the MealCourse object, using a list of Meal objects,
+     * one for each type.
      * @param meals a List of Meal objects
      * @param context the current state of the application representing the context in which the
      *                database exists
@@ -109,6 +110,12 @@ public class MealCourse implements Iterable<Meal> {
         this.foodItemList = mealDatabase.getAll();
     }
 
+    /**
+     * Generates a random FoodItem object from the foodItemList attribute
+     * @param mealType the meal type (breakfast, lunch, etc) for which the random foodItem being
+     *                 generated is for
+     * @return the randomly generated foodItem
+     */
     private FoodItem generateRandomFoodItem(String mealType) {
         Random randomGenerator = new Random();
         int index;
@@ -121,6 +128,14 @@ public class MealCourse implements Iterable<Meal> {
         return randomFoodItem;
     }
 
+    /**
+     * Generates a meal based on the information provided regarding the number of items,
+     * meal type and calories restriction.
+     * @param numItems the number of items required in the meal
+     * @param mealType the type of meal to be generated
+     * @param caloriesRestriction the maximum number of calories the meal can have
+     * @return the meal generated based on the input parameters
+     */
     public Meal generateMeal(int numItems, String mealType, int caloriesRestriction) {
         List<FoodItem> items = new ArrayList<>();
         FoodItem item;
@@ -140,6 +155,12 @@ public class MealCourse implements Iterable<Meal> {
         return new Meal(mealType, items);
     }
 
+    /**
+     * A getter function meant to return a meal from the meals attribute, selected depending on
+     * the meal type (breakfast, lunch, etc)
+     * @param mealType the type of meal to be returned
+     * @return a meal of type mealType from the meals attribute
+     */
     public Meal getMeal(String mealType) {
         // prompted to change to switch statement but avoided as we were ins
         if (mealType.equals("breakfast")) {
@@ -154,10 +175,19 @@ public class MealCourse implements Iterable<Meal> {
         }
     }
 
+    /**
+     * A getter method for the foodItemList attribute.
+     * @return the foodItemList attribute (a list of FoodItem objects)
+     */
     public List<FoodItem> getFoodItemList() {
         return foodItemList;
     }
 
+    /**
+     * An overridden iterator method to provide additional functionality when iterating over meals
+     * in the MealCourse.
+     * @return the mealCourseIterator attribute, a custom iterator designed for this class
+     */
     @NonNull
     @Override
     public Iterator<Meal> iterator() {

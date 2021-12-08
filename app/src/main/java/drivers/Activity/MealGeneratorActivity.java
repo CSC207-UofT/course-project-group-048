@@ -109,18 +109,17 @@ public class MealGeneratorActivity extends AppCompatActivity {
         String mealString = "";
         String newImageIdString;
         FoodItem foodItem;
-        int newImageId;
+        int newImageId = Utils.getResId("nothing", R.drawable.class);
 
         if (itemNumber < meal.getSize()) {
             foodItem = meal.getFoodItems().get(itemNumber);
             mealString = foodItem.toString();
             newImageIdString = foodItem.getName().replace(" ", "_");
             newImageId = Utils.getResId(newImageIdString, R.drawable.class);
-            System.out.println(newImageIdString + " " + newImageId);
-            iv.setImageResource(newImageId);
         }
 
         tv.setText(mealString);
+        iv.setImageResource(newImageId);
     }
 
     public void setup() {
