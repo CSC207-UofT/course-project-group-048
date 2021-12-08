@@ -2,6 +2,8 @@ package usecases;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +13,7 @@ import entities.FoodItem;
 import entities.Meal;
 
 public class MealCourse implements Iterable<Meal> {
-    private final MealCourseIterator mealCourseIterator;
+    private final MealCourseIterator<Meal> mealCourseIterator;
     private List<Meal> meals;
     private List<FoodItem> foodItemList;
     private int targetCalories;
@@ -26,7 +28,7 @@ public class MealCourse implements Iterable<Meal> {
     public MealCourse(List<Meal> meals, Context context) {
         this.meals = meals;
         loadFoodList(context);
-        mealCourseIterator = new MealCourseIterator(meals);
+        mealCourseIterator = new MealCourseIterator<>(meals);
     }
 
     /**
@@ -41,7 +43,7 @@ public class MealCourse implements Iterable<Meal> {
         this.targetCalories = targetCalories;
         loadFoodList(context);
         refreshAllMeals();
-        mealCourseIterator = new MealCourseIterator(meals);
+        mealCourseIterator = new MealCourseIterator<>(meals);
     }
 
     /**
@@ -51,7 +53,7 @@ public class MealCourse implements Iterable<Meal> {
         calories = 0;
         int caloriesAllowed = targetCalories;
         String[] mealTypes = new String[]{"breakfast", "lunch", "dinner"};
-        meals = new ArrayList<Meal>(mealTypes.length);
+        meals = new ArrayList<>(mealTypes.length);
         Meal meal;
 
         for (String mealType : mealTypes) {
@@ -120,7 +122,7 @@ public class MealCourse implements Iterable<Meal> {
     }
 
     public Meal generateMeal(int numItems, String mealType, int caloriesRestriction) {
-        List<FoodItem> items = new ArrayList<FoodItem>();
+        List<FoodItem> items = new ArrayList<>();
         FoodItem item;
         int caloriesSoFar = 0, addedItems = 0;
 
@@ -135,6 +137,7 @@ public class MealCourse implements Iterable<Meal> {
     }
 
     public Meal getMeal(String mealType) {
+        // prompted to change to switch statement but avoided as we were ins
         if (mealType.equals("breakfast")) {
             return meals.get(0);
         } else if (mealType.equals("lunch")) {
@@ -151,6 +154,7 @@ public class MealCourse implements Iterable<Meal> {
         return foodItemList;
     }
 
+    @NonNull
     @Override
     public Iterator<Meal> iterator() {
         return mealCourseIterator;

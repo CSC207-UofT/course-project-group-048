@@ -8,6 +8,7 @@ import java.io.Serializable;
     accessed by LoginSystem.
  */
 public class User implements Serializable {
+
     private String name;
     private String username;
     private String passwordHash;
@@ -112,5 +113,37 @@ public class User implements Serializable {
      * @return a String representing the goal of the user.
      */
     public String getGoal() {return goal;}
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
 
 }

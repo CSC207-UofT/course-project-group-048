@@ -7,7 +7,6 @@ import java.util.HashMap;
 import entities.User;
 import entities.Utils;
 import usecases.LoginDataHandler;
-import usecases.MyDBHandler;
 
 /*
     A system to store users of the app and their
@@ -16,8 +15,8 @@ import usecases.MyDBHandler;
 
 public class LoginSystem {
 
-    private HashMap<String, User> loginData;
-    private LoginDataHandler loginDatabase;
+    private final HashMap<String, User> loginData;
+    private final LoginDataHandler loginDatabase;
 
     /**
      * Create a new LoginSystem instance.
