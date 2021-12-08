@@ -129,7 +129,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="UsingOnClickInXml" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -212,7 +213,7 @@
                         android:onClick="openHomePage"
                         app:srcCompat="@drawable/bottom_btn1o"
                         android:contentDescription="@string/btmhomebtn"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewHome"
@@ -236,7 +237,8 @@
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
                         app:srcCompat="@drawable/bottom_btn2g"
-                        android:contentDescription="@string/btmprofilebtn" />
+                        android:contentDescription="@string/btmprofilebtn"
+                        tools:ignore="UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
@@ -262,7 +264,7 @@
                         android:onClick="openMealGeneratorPage"
                         app:srcCompat="@drawable/bottom_btn5g"
                         android:contentDescription="@string/mealgeneratorbtn_1"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
