@@ -117,7 +117,7 @@ public class ProfileActivityTest implements TestLoginSystem {
 
         // verify that current goal has changed
         openProfilePage();
-        onView(withId(R.id.currentGoalText)).check(matches(withText("Current Goal: lose")));
+        onView(withId(R.id.currentGoalText)).check(matches(withText("Current Goal: lose Weight")));
     }
 
     private void openProfilePage() {
