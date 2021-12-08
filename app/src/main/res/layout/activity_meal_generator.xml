@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Breakfast"
+        android:text="@string/breakfast_str"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/txtViewCalories"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="Lunch"
+        android:text="@string/lunch_str"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:text="Dinner"
+        android:text="@string/dinner_str"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
-        android:text="Refresh"
+        android:text="@string/refresh_str"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/txtViewCalories"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:text="Target Calories: "
+        android:text="@string/target_calories_str"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meal Plan for "
+        android:text="@string/meal_plan_for_str"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +96,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -108,16 +109,18 @@
                     <ImageButton
                         android:id="@+id/imageViewHome"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openHomePage"
-                        app:srcCompat="@drawable/bottom_btn1g" />
+                        app:srcCompat="@drawable/bottom_btn1g"
+                        android:contentDescription="@string/homebtmbtn"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="@string/home_str1"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -134,13 +137,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
-                        app:srcCompat="@drawable/bottom_btn2g" />
+                        app:srcCompat="@drawable/bottom_btn2g"
+                        android:contentDescription="@string/profilebtmbtn" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
+                        android:text="@string/profile_str1"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -155,16 +159,18 @@
                     <ImageButton
                         android:id="@+id/imageViewSupport"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5o" />
+                        app:srcCompat="@drawable/bottom_btn5o"
+                        android:contentDescription="@string/mealplan_str1"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Meal Plan"
+                        android:text="@string/meal_plan_str"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -183,7 +189,8 @@
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toEndOf="@+id/txtViewRefresh"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        app:srcCompat="@drawable/refresh" />
+        app:srcCompat="@drawable/refresh"
+        android:contentDescription="@string/refreshbtnmain" />
 
     <ImageView
         android:id="@+id/imageBtnRefresh2"
@@ -193,7 +200,8 @@
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toEndOf="@id/textViewBreakfast"
         app:layout_constraintTop_toBottomOf="@id/txtViewCalories"
-        app:srcCompat="@drawable/refresh" />
+        app:srcCompat="@drawable/refresh"
+        android:contentDescription="@string/refreshbtnbreakfast" />
 
     <ImageView
         android:id="@+id/imageBtnRefresh3"
@@ -203,7 +211,8 @@
         android:layout_marginTop="155dp"
         app:layout_constraintStart_toEndOf="@id/textViewLunch"
         app:layout_constraintTop_toBottomOf="@+id/textViewBreakfast"
-        app:srcCompat="@drawable/refresh" />
+        app:srcCompat="@drawable/refresh"
+        android:contentDescription="@string/refreshbtnlunch" />
 
     <ImageView
         android:id="@+id/imageBtnRefresh4"
@@ -213,14 +222,15 @@
         android:layout_marginTop="155dp"
         app:layout_constraintStart_toEndOf="@id/textViewDinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunch"
-        app:srcCompat="@drawable/refresh" />
+        app:srcCompat="@drawable/refresh"
+        android:contentDescription="@string/refreshbtndinner" />
 
     <TextView
         android:id="@+id/textViewBreakfastCalories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Calories: "
+        android:text="@string/calories_breakfast"
         android:textSize="14sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
@@ -231,7 +241,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Calories: "
+        android:text="@string/calories_lunch"
         android:textSize="14sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
@@ -242,7 +252,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Calories: "
+        android:text="@string/calories_dinner"
         android:textSize="14sp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="@+id/textViewDinner"
@@ -254,7 +264,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Breakfast Meal 1"
+        android:text="@string/breakfast_meal_1"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/imageViewBM1"
@@ -266,7 +276,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Breakfast Meal 2"
+        android:text="@string/breakfast_meal_2"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@id/imageViewBM2"
@@ -278,7 +288,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Lunch Meal 1"
+        android:text="@string/lunch_meal_1"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@id/imageViewLM1"
@@ -290,7 +300,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Lunch Meal 2"
+        android:text="@string/lunch_meal_2"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/imageViewLM2"
@@ -302,7 +312,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Dinner Meal 1"
+        android:text="@string/dinner_meal_1"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@id/imageViewDM1"
@@ -314,7 +324,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Dinner Meal 2"
+        android:text="@string/dinner_meal_2"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/imageViewDM2"
@@ -327,7 +337,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
         app:layout_constraintTop_toBottomOf="@+id/textViewBreakfastCalories"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/bm1_btn" />
 
     <ImageView
         android:id="@+id/imageViewBM2"
@@ -336,7 +347,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
         app:layout_constraintTop_toBottomOf="@+id/textViewBreakfastMeal1"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/bm2_btn" />
 
     <ImageView
         android:id="@+id/imageViewLM1"
@@ -345,7 +357,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunchCalories"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/lm1_btn" />
 
     <ImageView
         android:id="@+id/imageViewLM2"
@@ -354,7 +367,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunch1"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/lm2" />
 
     <ImageView
         android:id="@+id/imageViewDM1"
@@ -363,7 +377,8 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewDinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewDinnerCalories"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/dm1_btn" />
 
     <ImageView
         android:id="@+id/imageViewDM2"
@@ -372,6 +387,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewDinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewDinner1"
-        app:srcCompat="@drawable/bottom_btn1o" />
+        app:srcCompat="@drawable/bottom_btn1o"
+        android:contentDescription="@string/dm2_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

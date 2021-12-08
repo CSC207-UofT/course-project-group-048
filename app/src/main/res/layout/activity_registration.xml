@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
-
-    <ImageView
-        android:id="@+id/imageAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="142dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/edtTxtFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
-        android:layout_marginTop="45dp"
         android:layout_marginEnd="98dp"
+        android:autofillHints="Full Name"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageAvatar" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
 
     <EditText
         android:id="@+id/edtTxtUser"
@@ -40,11 +28,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtFullName" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtFullName"
+        android:autofillHints="Username" />
 
     <EditText
         android:id="@+id/edtTxtPass"
@@ -54,11 +43,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtUser" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtUser"
+        android:autofillHints="Password" />
 
     <EditText
         android:id="@+id/edtTxtHeight"
@@ -68,21 +58,22 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:ems="10"
-        android:hint="Height(cm)"
+        android:hint="@string/height_cm"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupGender" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupGender"
+        android:autofillHints="Height(cm)" />
 
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Register"
+        android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtAge" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupWeight" />
 
     <RadioGroup
         android:id="@+id/radioGroupGender"
@@ -91,22 +82,23 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtPass">
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtPass"
+        android:layout_marginTop="20dp">
 
         <RadioButton
             android:id="@+id/radioBtnMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:text="Male"
-            android:textSize="16dp" />
+            android:text="@string/male"
+            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radioBtnFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:textSize="16dp" />
+            android:text="@string/female"
+            android:textSize="16sp" />
 
     </RadioGroup>
 
@@ -118,11 +110,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:ems="10"
-        android:hint="Weight(kg)"
+        android:hint="@string/weight_kg"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtHeight" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtHeight"
+        android:autofillHints="Weight(kg)" />
 
     <EditText
         android:id="@+id/edtTxtAge"
@@ -132,10 +125,36 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:ems="10"
-        android:hint="Age"
+        android:hint="@string/age"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight"
+        android:autofillHints="Age" />
+    <RadioGroup
+        android:id="@+id/radioGroupWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtAge"
+        android:layout_marginTop="20dp">
 
+        <RadioButton
+            android:id="@+id/radioBtnGain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/gain_weight_7"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radioBtnLose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lose_weight_3"
+            android:textSize="16sp" />
+
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

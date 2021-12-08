@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Update"
+        android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupWeight2" />
@@ -104,14 +104,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="Gain Weight"
+            android:text="@string/gain_weight"
             android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radioBtnLose2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lose Weight"
+            android:text="@string/lose_weight"
             android:textSize="16sp" />
 
     </RadioGroup>
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Gender:"
+        android:text="@string/current_gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edtTxtAge2" />
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Height:"
+        android:text="@string/current_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Weight:"
+        android:text="@string/current_weight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtHeight2" />
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Age:"
+        android:text="@string/current_age"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight2" />
@@ -166,7 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Goal:"
+        android:text="@string/current_goal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupGender2" />
@@ -192,7 +192,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -204,16 +205,18 @@
                     <ImageButton
                         android:id="@+id/imageViewHome"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openHomePage"
-                        app:srcCompat="@drawable/bottom_btn1g" />
+                        app:srcCompat="@drawable/bottom_btn1g"
+                        android:contentDescription="@string/homeBtnBtm"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="@string/home_5"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -230,13 +233,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
-                        app:srcCompat="@drawable/bottom_btn2o" />
+                        app:srcCompat="@drawable/bottom_btn2o"
+                        android:contentDescription="@string/profilebtnbtm" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
+                        android:text="@string/profile_6"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -251,16 +255,18 @@
                     <ImageButton
                         android:id="@+id/imageViewSupport"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5g" />
+                        app:srcCompat="@drawable/bottom_btn5g"
+                        android:contentDescription="@string/mealplan_btn"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Meal Plan"
+                        android:text="@string/meal_plan_5"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
