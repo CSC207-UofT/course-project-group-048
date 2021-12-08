@@ -1,8 +1,8 @@
+package entities;
+
 import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
-
-import entities.Utils;
 
 public class UtilsTest {
 

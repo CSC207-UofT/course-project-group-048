@@ -12,7 +12,7 @@ class MealIterator<FoodItem> implements Iterator<FoodItem> {
      * @param foodItems A list of FoodItem objects in the meal.
      */
 
-    public MealIterator(List<FoodItem>  foodItems) {
+    public MealIterator(List<FoodItem> foodItems) {
         this.foodItems = foodItems;
         this.position = 0;
     }

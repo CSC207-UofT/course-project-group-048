@@ -45,7 +45,7 @@ public class LoginSystem {
      * Also returns false if username does not exist.
      */
     public boolean checkUsernamePassword(String username, String password){
-        if (loginData.containsKey(username)){
+        if (loginData.containsKey(username)) {
             String actualPassword = loginData.get(username).getPasswordHash();
             String enteredPassword = Utils.getHash(password);
             return actualPassword.equals(enteredPassword);
@@ -64,6 +64,10 @@ public class LoginSystem {
         return loginData.get(username);
     }
 
+    /**
+     * Adds a user to the login database.
+     * @param user the user information to add.
+     */
     public void registerUser(User user){
         loginDatabase.addUser(user);
     }

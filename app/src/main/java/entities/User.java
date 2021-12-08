@@ -13,8 +13,8 @@ public class User implements Serializable {
     private String username;
     private String passwordHash;
     private String gender;
-    private double weight;
-    private double height;
+    private int weight;
+    private int height;
     private int age;
     private String goal;
 
@@ -27,9 +27,6 @@ public class User implements Serializable {
      * @param height the height of the new user.
      * @param age the age of the new user.
      */
-
-    //I have removed "activity levels" and "goals" variable from this constructor because we have
-    //not decided on their exact use yet. We can add them later.
     public User(String name, String username, String passwordHash, String gender, int weight,
                 int height, int age, String goal) {
         this.name = name;
@@ -114,34 +111,66 @@ public class User implements Serializable {
      */
     public String getGoal() {return goal;}
 
+    /**
+     * A setter method for the name attribute.
+     * @param name the new name of the user
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * A setter method for the username attribute.
+     * @param username the new username of the user
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * A setter method for the password hash.
+     * @param passwordHash the new hash of the password
+     */
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
+    /**
+     * A setter method for the gender attribute.
+     * @param gender the new gender of the user
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public void setWeight(double weight) {
+    /**
+     * A setter method for the weight attribute.
+     * @param weight the new weight of the user.
+     */
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
-    public void setHeight(double height) {
+    /**
+     * A setter method for the height attribute.
+     * @param height the new height of the user.
+     */
+    public void setHeight(int height) {
         this.height = height;
     }
 
+    /**
+     * A setter method for the age attribute.
+     * @param age the new age of the user.
+     */
     public void setAge(int age) {
         this.age = age;
     }
 
+    /**
+     * A setter method for the goal attribute.
+     * @param goal the new goal of the user.
+     */
     public void setGoal(String goal) {
         this.goal = goal;
     }
