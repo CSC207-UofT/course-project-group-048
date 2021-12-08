@@ -61,12 +61,5 @@ public class FoodItems {
         foodList.add(TURKEY);
         foodList.add(CHICKEN_CURRY);
         foodList.add(SHRIMP_BOWL);
-
-        // put values of meals in the hashmap, vegan 1, vegetarian (1 + 1 vegan), none: (1+2 veg),
-        // naming convention 1500veg, 2000vegan, and 2500all examples
-        ArrayList<FoodItem> meal1 = new ArrayList<>();
-        meal1.add(STEAK);
-        meals.put("1500all", meal1);
-
     }
 }

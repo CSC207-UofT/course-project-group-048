@@ -23,7 +23,7 @@ public class MealManager {
     private User user;
 
     /**
-     * A goal set for a given User.
+     * A MealManager for a given user incorporating their nutritional and dietary requirements.
      *
      * @param user the user that we are generating meals for
      * @param calories the target calories to be gained for the goal to be achieved, set using a setter
@@ -44,15 +44,28 @@ public class MealManager {
         this.mealCourse = new MealCourse(targetCalories, context);
     }
 
+    /**
+     * A MealManager for a user incorporating their targeted calories.
+     * @param user the user that we are generating meals for
+     */
     public MealManager(User user) {
         this.user = user;
         this.targetCalories = this.calculateTargetCalories();
     }
 
+    /**
+     * A getter method for the mealCourse attribute.
+     * @return the mealCourse attribute of a user.
+     */
     public MealCourse getMealCourse() {
         return mealCourse;
     }
 
+    /**
+     * A method that calculates the target calories for a user based on their selected goals.
+     * @return an integer with the target calories a user is trying to achieve calculated from
+     * their goal
+     */
     private int calculateTargetCalories() {
         int target = user.calculateBMR();
 
@@ -63,7 +76,10 @@ public class MealManager {
         }
     }
 
-
+    /**
+     * A getter method for the targetCalories attribute.
+     * @return the integer representing the targetCalories the user is trying to achieve.
+     */
     public int getTargetCalories() {
         return targetCalories;
     }

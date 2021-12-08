@@ -25,6 +25,9 @@ public class Goal {
         this.achieved = false;
     }
 
+    /**
+     * Changes the achieved attribute of the instance to true.
+     */
     public void markAchieved() {
         this.achieved = true;
     }

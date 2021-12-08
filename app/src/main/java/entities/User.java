@@ -41,39 +41,76 @@ public class User implements Serializable {
         this.goal = goal;
     }
 
+    /**
+     * Calulates and returns the rounded BMR of the user using the relevant attributes (weight,
+     * height and age) as an integer.
+     * @return an integer representing the BMR value of the user.
+     */
     public int calculateBMR() {
         double bmr = 10 * weight + 6.25 * height - 5 * age + 5;
         return (int) Math.round(bmr);
     }
 
+    /**
+     * A getter method for the name attribute.
+     * @return a String representing the name of the user.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * A getter method for the username attribute.
+     * @return a String representing the username of the user.
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * A getter method for the passwordHash attribute.
+     * @return a String representing the passwordHash of the user.
+     */
     public String getPasswordHash() {
         return passwordHash;
     }
 
+    /**
+     * A getter method for the gender attribute.
+     * @return a String representing the gender of the user.
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     * A getter method for the weight attribute.
+     * @return a double representing the weight of the user.
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * A getter method for the height attribute.
+     * @return a double representing the height of the user.
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * A getter method for the age attribute.
+     * @return an integer representing the age of the user.
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * A getter method for the goal attribute.
+     * @return a String representing the goal of the user.
+     */
     public String getGoal() {return goal;}
 
 }
