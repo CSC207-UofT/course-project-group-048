@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#ECEBE6">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,7 +23,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Popular"
+                    android:text="@string/popular"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -53,7 +52,8 @@
                     app:layout_constraintBottom_toBottomOf="@+id/txtViewHi"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/txtViewHi"
-                    app:srcCompat="@drawable/profile" />
+                    app:srcCompat="@drawable/profile"
+                    android:contentDescription="@string/profileavatar" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
@@ -77,13 +77,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/banner" />
+                        app:srcCompat="@drawable/banner"
+                        android:contentDescription="@string/foodbanner" />
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Start Today!"
+                        android:text="@string/start_today"
                         android:textColor="#ffffff"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -97,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="28dp"
                         android:layout_marginEnd="40dp"
-                        android:text="Create Custom Plan"
+                        android:text="@string/create_custom_plan"
                         android:textColor="#ffffff"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -122,8 +123,9 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="16dp"
                             android:layout_marginBottom="8dp"
-                            android:text="Order Now"
+                            android:text="@string/order_now"
                             android:textColor="#ffffff"
+                            android:onClick="openMealGeneratorPage"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +139,7 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Categories"
+                    android:text="@string/categories"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -192,7 +194,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -204,16 +207,18 @@
                     <ImageButton
                         android:id="@+id/imageViewHome"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openHomePage"
-                        app:srcCompat="@drawable/bottom_btn1o" />
+                        app:srcCompat="@drawable/bottom_btn1o"
+                        android:contentDescription="@string/btmhomebtn"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="@string/home_2"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -230,13 +235,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
-                        app:srcCompat="@drawable/bottom_btn2g" />
+                        app:srcCompat="@drawable/bottom_btn2g"
+                        android:contentDescription="@string/btmprofilebtn" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
+                        android:text="@string/profile_2"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -251,16 +257,18 @@
                     <ImageButton
                         android:id="@+id/imageViewSupport"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5g"/>
+                        app:srcCompat="@drawable/bottom_btn5g"
+                        android:contentDescription="@string/mealgeneratorbtn_1"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Meal Plan"
+                        android:text="@string/meal_plan"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />

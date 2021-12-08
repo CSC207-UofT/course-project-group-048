@@ -14,43 +14,45 @@ import android.widget.Toast;
 import com.example.loginpage.R;
 
 import controllers.LoginSystem;
-import drivers.Activity.MainActivity;
 import entities.User;
 import entities.Utils;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String fullname, username, password, gender, goal, heightString, weightString, ageString;
+    String fullName, username, password, gender, goal, heightString, weightString, ageString;
     int height, weight;
     int age;
 
     private EditText edtTxtFullName, edtTxtUser, edtTxtPass, edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
-    private RadioButton radioBtnMale, radioBtnFemale, radioBtnGain, radioBtnLose;
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.registerBtn) {
-            //Set private variables as per user inputted details.
-            fullname = edtTxtFullName.getText().toString().trim();
-            username = edtTxtUser.getText().toString().trim();
-            password = edtTxtPass.getText().toString().trim();
-            heightString = edtTxtHeight.getText().toString().trim();
-            weightString = edtTxtWeight.getText().toString().trim();
-            ageString = edtTxtAge.getText().toString().trim();
-
-            checkAllFieldsAndSignUp();
-        }
-    }
-
+    /**
+     * Actions to do when the activity begins. Creates
+     * buttons and edit text objects.
+     *
+     * @param savedInstanceState the state of the application
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration2);
+        setContentView(R.layout.activity_registration);
+        setAllButtons();
+        setEditTexts();
+    }
+
+    /**
+     * Set up register button and radio buttons.
+     */
+    private void setAllButtons() {
         Button registerBtn = findViewById(R.id.registerBtn);
         registerBtn.setOnClickListener(this);
         setRadioButtons();
+    }
 
+    /**
+     * Set up EditText objects to take in input from user.
+     */
+    public void setEditTexts() {
         edtTxtFullName = findViewById(R.id.edtTxtFullName);
         edtTxtUser = findViewById(R.id.edtTxtUser);
         edtTxtPass = findViewById(R.id.edtTxtPass);
@@ -61,61 +63,92 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         radioGroupWeight = findViewById(R.id.radioGroupWeight);
     }
 
-    public void setRadioButtons() {
+    /**
+     * Finds which part of the View was clicked. If this part is the register
+     * button, then the user information is entered into the database.
+     *
+     * @param v the current View object
+     */
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.registerBtn) {
+            //Set private variables as per user inputted details.
+            fullName = edtTxtFullName.getText().toString().trim();
+            username = edtTxtUser.getText().toString().trim();
+            password = edtTxtPass.getText().toString().trim();
+            heightString = edtTxtHeight.getText().toString().trim();
+            weightString = edtTxtWeight.getText().toString().trim();
+            ageString = edtTxtAge.getText().toString().trim();
+
+            checkAllFieldsAndSignUp();
+        }
+    }
+
+    private void setRadioButtons() {
         setMaleButton();
         setFemaleButton();
         setGainWeightButton();
         setLoseWeightButton();
     }
 
-    public void setMaleButton() {
-        radioBtnMale = findViewById(R.id.radioBtnMale);
-        radioBtnMale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gender = "male"; //Sets gender to male if male button is clicked.
-            }
+    /**
+     * Set up the gender select male radio button to set gender
+     * String to male.
+     */
+    private void setMaleButton() {
+        RadioButton radioBtnMale = findViewById(R.id.radioBtnMale);
+        radioBtnMale.setOnClickListener(v -> {
+            gender = "male"; //Sets gender to male if male button is clicked.
         });
     }
 
-    public void setFemaleButton() {
-        radioBtnFemale = findViewById(R.id.radioBtnFemale);
-        radioBtnFemale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gender = "female"; //Sets gender to female if female button is clicked.
-            }
+    /**
+     * Set up the gender select female radio button to set gender
+     * String to female.
+     */
+    private void setFemaleButton() {
+        RadioButton radioBtnFemale = findViewById(R.id.radioBtnFemale);
+        radioBtnFemale.setOnClickListener(v -> {
+            gender = "female"; //Sets gender to female if female button is clicked.
         });
     }
 
-    public void setGainWeightButton() {
-        radioBtnGain = findViewById(R.id.radioBtnGain);
-        radioBtnGain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goal = "gain"; // set goal to gain weight when gain weight button is clicked
-            }
+    /**
+     * Set up the goal select gain weight radio button to set goal
+     * String to gain.
+     */
+    private void setGainWeightButton() {
+        RadioButton radioBtnGain = findViewById(R.id.radioBtnGain);
+        radioBtnGain.setOnClickListener(v -> {
+            goal = "gain"; // set goal to gain weight when gain weight button is clicked
         });
     }
 
+    /**
+     * Set up the lose select gain weight radio button to set goal
+     * String to lose.
+     */
     public void setLoseWeightButton() {
-        radioBtnLose = findViewById(R.id.radioBtnLose);
-        radioBtnLose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goal = "lose"; // set goal to lose weight when lose weight button is clicked
-            }
+        RadioButton radioBtnLose = findViewById(R.id.radioBtnLose);
+        radioBtnLose.setOnClickListener(v -> {
+            goal = "lose"; // set goal to lose weight when lose weight button is clicked
         });
     }
 
 
+    /**
+     * Open the login page
+     */
     public void openLoginPage(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Check all registration fields and create new user in the database.
+     */
     public void checkAllFieldsAndSignUp(){
-        if (fullname.length() == 0){
+        if (fullName.length() == 0){
             Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
         } else if (username.length() == 0) {
             Toast.makeText(this, "Please Enter a Username", Toast.LENGTH_SHORT).show();
@@ -137,6 +170,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    /**
+     * Create a new user in the database.
+     */
     public void performSignUp(){
         LoginSystem loginSystem = new LoginSystem(this);
 
@@ -151,7 +187,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             weight = Integer.parseInt(weightString);
             height = Integer.parseInt(heightString);
             age = Integer.parseInt(ageString);
-            User user = new User(fullname, username, password, gender, weight, height, age, goal);
+            User user = new User(fullName, username, password, gender, weight, height, age, goal);
 
             // Inserts user into database and open login page.
             loginSystem.registerUser(user);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context="drivers.Activity.ProfileActivity">
 
     <EditText
@@ -11,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Height(cm)"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/height_cm"
         android:inputType="numberDecimal"
@@ -25,9 +26,9 @@
         android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
+        android:text="@string/update"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupWeight2" />
 
@@ -37,16 +38,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/currentGenderText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentGenderText">
 
         <RadioButton
             android:id="@+id/radioBtnMale2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male"
             android:layout_marginEnd="15dp"
+            android:text="@string/male"
             android:textSize="16sp" />
 
         <RadioButton
@@ -63,9 +64,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Weight(kg)"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/weight_kg"
         android:inputType="numberDecimal"
@@ -78,9 +79,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
         android:autofillHints="Age"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
@@ -92,9 +93,9 @@
         android:id="@+id/radioGroupWeight2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentGoalText">
 
@@ -103,14 +104,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
-            android:text="Gain Weight"
+            android:text="@string/gain_weight"
             android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/radioBtnLose2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lose Weight"
+            android:text="@string/lose_weight"
             android:textSize="16sp" />
 
     </RadioGroup>
@@ -121,29 +122,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Gender:"
+        android:text="@string/current_gender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtTxtAge2"/>
+        app:layout_constraintTop_toBottomOf="@id/edtTxtAge2" />
 
     <TextView
         android:id="@+id/currentHeightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="200dp"
-        android:text="Current Height:"
+        android:text="@string/current_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/currentWeightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
         android:layout_marginTop="20dp"
-        android:text="Current Weight:"
+        android:layout_marginEnd="200dp"
+        android:text="@string/current_weight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtHeight2" />
@@ -152,10 +153,10 @@
         android:id="@+id/currentAgeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
-        android:text="Current Age:"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="200dp"
+        android:text="@string/current_age"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtWeight2" />
 
@@ -163,9 +164,9 @@
         android:id="@+id/currentGoalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
         android:layout_marginTop="20dp"
-        android:text="Current Goal:"
+        android:layout_marginEnd="200dp"
+        android:text="@string/current_goal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupGender2" />
@@ -191,7 +192,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -203,16 +205,18 @@
                     <ImageButton
                         android:id="@+id/imageViewHome"
                         android:layout_width="match_parent"
-                        android:onClick="openHomePage"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/bottom_btn1g" />
+                        android:onClick="openHomePage"
+                        app:srcCompat="@drawable/bottom_btn1g"
+                        android:contentDescription="@string/homeBtnBtm"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewHome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="@string/home_5"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -229,13 +233,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="openProfilePage"
-                        app:srcCompat="@drawable/bottom_btn2o" />
+                        app:srcCompat="@drawable/bottom_btn2o"
+                        android:contentDescription="@string/profilebtnbtm" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
+                        android:text="@string/profile_6"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -250,16 +255,18 @@
                     <ImageButton
                         android:id="@+id/imageViewSupport"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:onClick="openMealGeneratorPage"
-                        app:srcCompat="@drawable/bottom_btn5g"/>
+                        app:srcCompat="@drawable/bottom_btn5g"
+                        android:contentDescription="@string/mealplan_btn"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/textViewSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Meal Plan"
+                        android:text="@string/meal_plan_5"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />

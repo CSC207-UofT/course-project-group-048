@@ -51,7 +51,7 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
         return popularMealDomains.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title, calorie;
         ImageView picture;
         ImageView addBtn;

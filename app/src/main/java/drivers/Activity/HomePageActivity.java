@@ -20,25 +20,26 @@ import drivers.Domain.CategoryDomain;
 import drivers.Domain.PopularMealDomain;
 import entities.User;
 
-public class HomePageActivity extends AppCompatActivity {
-
-private RecyclerView.Adapter adapter, adapter2;
-private RecyclerView recyclerViewCategories, recyclerViewPopular;
+public class HomePageActivity extends AppCompatActivity implements LoggedInActivity {
 
     LoginSystem system;
     String username;
     User user;
 
+    /**
+     * Actions to do when the activity begins. Sets the
+     * text to welcome the user.
+     *
+     * @param savedInstanceState the state of the application
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        Bundle extras = getIntent().getExtras();
 
-        TextView tv1 = (TextView)findViewById(R.id.txtViewHi);
-        system = new LoginSystem(this);
-        username = (String) extras.get("username");
-        user = system.getUser(username);
+        loadUserInformation();
+
+        TextView tv1 = findViewById(R.id.txtViewHi);
         String welcomeMessage = "Welcome, " + user.getName();
         tv1.setText(welcomeMessage);
 
@@ -46,9 +47,24 @@ private RecyclerView recyclerViewCategories, recyclerViewPopular;
         recyclerViewPopularMeals();
     }
 
+    /**
+     * Loads the current user information from the username
+     * passed from another activity in a Bundle object.
+     */
+    @Override
+    public void loadUserInformation() {
+        Bundle extras = getIntent().getExtras();
+        system = new LoginSystem(this);
+        username = (String) extras.get("username");
+        user = system.getUser(username);
+    }
+
+    /**
+     * Create a recycle view for the Popular Meals tab on the home page.
+     */
     private void recyclerViewPopularMeals() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewPopular = findViewById(R.id.view2);
+        RecyclerView recyclerViewPopular = findViewById(R.id.view2);
         recyclerViewPopular.setLayoutManager(linearLayoutManager);
 
         ArrayList<PopularMealDomain> popularMeal = new ArrayList<>();
@@ -56,36 +72,54 @@ private RecyclerView recyclerViewCategories, recyclerViewPopular;
         popularMeal.add(new PopularMealDomain("Double Cheeseburger", "burger", 1100));
         popularMeal.add(new PopularMealDomain("Vegan Pizza", "pizza3", 800));
 
-        adapter2 = new PopularMealAdapter(popularMeal);
+        RecyclerView.Adapter<PopularMealAdapter.ViewHolder> adapter2 = new PopularMealAdapter(popularMeal);
         recyclerViewPopular.setAdapter(adapter2);
     }
 
+    /**
+     * Create a recycle view for the Categories tab on the home page.
+     */
     private void recyclerViewCategory() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewCategories = findViewById(R.id.recyclerView);
+        RecyclerView recyclerViewCategories = findViewById(R.id.recyclerView);
         recyclerViewCategories.setLayoutManager(linearLayoutManager);
 
         ArrayList<CategoryDomain> categories = new ArrayList<>();
-        categories.add(new CategoryDomain("Breakfast", "cat_1"));
-        categories.add(new CategoryDomain("Lunch", "cat_2"));
-        categories.add(new CategoryDomain("Dinner", "cat_3"));
+        categories.add(new CategoryDomain("Breakfast"));
+        categories.add(new CategoryDomain("Lunch"));
+        categories.add(new CategoryDomain("Dinner"));
 
-        adapter = new CategoryAdapter(categories);
+        RecyclerView.Adapter<CategoryAdapter.ViewHolder> adapter = new CategoryAdapter(categories);
         recyclerViewCategories.setAdapter(adapter);
     }
 
+    /**
+     * Open the profile page and start ProfileActivity with provided username.
+     * @param view the view object
+     */
+    @Override
     public void openProfilePage(View view) {
         Intent openTheProfilePage = new Intent(this, ProfileActivity.class);
         openTheProfilePage.putExtra("username", username);
         startActivity(openTheProfilePage);
     }
 
+    /**
+     * Reopen the home page and restart the activity
+     * @param view the view object
+     */
+    @Override
     public void openHomePage(View view) {
         // refresh the page
         finish();
         startActivity(getIntent());
     }
 
+    /**
+     * Open the Meal Generator page and start MealGeneratorActivity with provided username.
+     * @param view the view object
+     */
+    @Override
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
         openTheMealGeneratorPage.putExtra("username", username);

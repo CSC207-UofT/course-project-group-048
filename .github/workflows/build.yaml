@@ -1,0 +1,26 @@
+name: NutritionApp Test Workthrough
+
+on:
+  push:
+
+jobs:
+  unit_tests:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - uses: actions/checkout@v2
+
+      - name: Unit Tests
+        run: ./gradlew test
+  android_tests:
+    runs-on: [ macos-latest ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Anroid Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedAndroidTest

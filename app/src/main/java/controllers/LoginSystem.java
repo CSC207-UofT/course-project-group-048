@@ -7,7 +7,6 @@ import java.util.HashMap;
 import entities.User;
 import entities.Utils;
 import usecases.LoginDataHandler;
-import usecases.MyDBHandler;
 
 /*
     A system to store users of the app and their
@@ -16,8 +15,8 @@ import usecases.MyDBHandler;
 
 public class LoginSystem {
 
-    private HashMap<String, User> loginData;
-    private LoginDataHandler loginDatabase;
+    private final HashMap<String, User> loginData;
+    private final LoginDataHandler loginDatabase;
 
     /**
      * Create a new LoginSystem instance.
@@ -46,7 +45,7 @@ public class LoginSystem {
      * Also returns false if username does not exist.
      */
     public boolean checkUsernamePassword(String username, String password){
-        if (loginData.containsKey(username)){
+        if (loginData.containsKey(username)) {
             String actualPassword = loginData.get(username).getPasswordHash();
             String enteredPassword = Utils.getHash(password);
             return actualPassword.equals(enteredPassword);
@@ -65,6 +64,10 @@ public class LoginSystem {
         return loginData.get(username);
     }
 
+    /**
+     * Adds a user to the login database.
+     * @param user the user information to add.
+     */
     public void registerUser(User user){
         loginDatabase.addUser(user);
     }

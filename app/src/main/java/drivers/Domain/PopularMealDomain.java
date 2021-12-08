@@ -3,9 +3,9 @@ package drivers.Domain;
 import java.io.Serializable;
 
 public class PopularMealDomain implements Serializable {
-    private String title;
-    private String picture;
-    private int calories;
+    private final String title;
+    private final String picture;
+    private final int calories;
 
     public PopularMealDomain(String title, String picture, int calories) {
         this.title = title;
@@ -17,23 +17,12 @@ public class PopularMealDomain implements Serializable {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getPicture() {
         return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
     }
 
     public int getCalories() {
         return calories;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
-    }
 }
