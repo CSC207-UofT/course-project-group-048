@@ -20,6 +20,9 @@ Originally, this entire process was done, without delegating tasks to other clas
 
 The ``RegisterActivity`` class is dependent on both the ``LoginSystem`` and ``MyDBHandler`` classes. This meant that the ``RegisterActivity`` class would be responsible to the actor that manages the database **and** the actor that manages login security, a violation of the **Single-Responsibility Principle**. It also meant our code was more closed to future change, as other members of our team that were not familiar with how ``MyDBHandler`` worked could not modify code in the ``RegisterActivity.onClick`` method. In order to refactor this, we made ``LoginSystem`` dependent on ``MyDBHandler``, which will be discussed in a later section. We then created methods  ``RegisterActivity.checkAllFieldsAndSignUp`` and ``RegisterActivity.performSignUp`` to fix the code smell, which we resolved in issue [#12](https://github.com/CSC207-UofT/course-project-group-048/issues/12).
 
+### ``ProfileActivity``
+
+When creating the Profile page, it became apparent that we would need to access the SQL database to view information about a specific ``User`` instance. Our current code had violated the **Open/Closed Principle** by only reading in a username and password pair in ``LoginSystem``. In order to access this information, the ``LoginSystem``, ``MyDBHandler``, ``MainActivity``, as well as this class needed many modifications. This resulted in a ``Shotgun Surgery`` in pull request [#26](https://github.com/CSC207-UofT/course-project-group-048/pull/26). This was the only major **Change Preventer** code smell in our program.
 
 ### ``LoginSystem`` and ``MyDBHandler``
 
@@ -27,4 +30,16 @@ An **Inappropriate Intimacy** code smell became apparent when trying to refactor
 
 ``LoginSystem loginSystem = new LoginSystem(dbHandler.GetLoginData());``
 
-This code smell violated Clean Architecture as a Framework & Driver class needed to instantiate a Use Case class (``MyDBHandler``) and then call one of its methods to instantiate a Controller class (``LoginSystem``). 
+This code smell violated Clean Architecture as a Framework & Driver class needed to instantiate a Use Case class (``MyDBHandler``) and then call one of its methods to instantiate a Controller class (``LoginSystem``). This was then fixed by refactoring the code such that the ''Main Activity'' class now only depends on the Controller Class (``LoginSystem``) which in turn retrieves the user data from the Use Case (``MyDBHandler``) when an instance of it is created. Therefore we don't have to create a seperate dbHandler object to pass on the user information to ``LoginSystem``. Thus the above code snippet was be replaced by,
+
+``LoginSystem loginSystem = new LoginSystem(this);``
+
+where ''this'' refers to the Activity Class the code was called in which is required by ``LoginSystem`` to access the database via (``MyDBHandler``). 
+
+Another code smell that was apparent in our program was a **Dispensable Duplicate Code** which was seen in the way the storage system for the users login data and the meal nutritional data was accessed. We initially had two Use Case classes ``MyDBHandler`` and ``MealDBHandler`` which had very similar methods to deal with two different databases which stored the user and meal information respectively. The only difference in the methods of these two Use Cases were the difference in the structures of the tables that stored the different types of data.
+
+Refactoring this code was a bit challenging but we managed to fix it by having one parent class named ``MyDBHandler`` which handles the creation of one database which stores both the user login info and the meal nutritional info. These are stored in two different tables which are seperately accessed by the child classes of ``MyDBHandler`` namely ``LoginDataHandler`` and ``MealDataHandler``. Hence now we do not have to write duplicate code involved with creating two seperate databases when the same information could be stored in a single database.
+
+This also resulted in the change in dependency of the ``LoginSystem`` class from ``MyDBHandler`` to its child class ``LoginDataHandler`` which was responsible for parsing and retrieving the login information from the database.
+
+We have also ensured that the code for in accordance with the **Open/Closed Design Principle** for ``MealDataHandler`` such that no user of the app is able to change the data regarding the food items in the database. Therefore unlike ``LoginDataHandler``, the class ``MealDataHandler`` will be unable to edit any information present in the meal data once the database has been created. This wasn't what we had envisioned at the beginning of the term but due to a lack of time we weren't able to add features that would allow the user to add more options to their meal plan.

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Login page</string>
     <string name="johndoe123">JohnDoe123</string>
     <string name="login_image">login image</string>
@@ -22,4 +22,71 @@
     <string name="age">Age</string>
     <string name="title_activity_home2">activity_home2</string>
     <string name="hello_welcome_string">Hello, Welcome!</string>
+    <string name="popular">Popular</string>
+    <string name="profileavatar">ProfileAvatar</string>
+    <string name="foodbanner">foodBanner</string>
+    <string name="start_today">Start Today!</string>
+    <string name="create_custom_plan">Create Custom Plan</string>
+    <string name="order_now">Order Now</string>
+    <string name="categories">Categories</string>
+    <string name="btmhomebtn">btmHomeBtn</string>
+    <string name="home_2">Home</string>
+    <string name="btmprofilebtn">btmProfileBtn</string>
+    <string name="profile_2">Profile</string>
+    <string name="mealgeneratorbtn_1">mealGeneratorBtn</string>
+    <string name="meal_plan">Meal Plan</string>
+    <string name="loginpage_logo">loginPageLogo</string>
+    <string name="breakfast_str">Breakfast</string>
+    <string name="lunch_str">Lunch</string>
+    <string name="dinner_str">Dinner</string>
+    <string name="refresh_str">Refresh</string>
+    <string name="target_calories_str">Target Calories:</string>
+    <string name="meal_plan_for_str">Meal Plan for</string>
+    <string name="homebtmbtn">homebtmbtn</string>
+    <string name="home_str1">Home</string>
+    <string name="profilebtmbtn">profilebtmbtn</string>
+    <string name="profile_str1">Profile</string>
+    <string name="mealplan_str1">MealPlan_str</string>
+    <string name="meal_plan_str">Meal Plan</string>
+    <string name="refreshbtnmain">RefreshBtnMain</string>
+    <string name="refreshbtnbreakfast">refreshbtnBreakfast</string>
+    <string name="refreshbtnlunch">refreshBtnLunch</string>
+    <string name="refreshbtndinner">refreshBtnDinner</string>
+    <string name="calories_breakfast">Calories:</string>
+    <string name="calories_lunch">Calories:</string>
+    <string name="calories_dinner">Calories:</string>
+    <string name="breakfast_meal_1">Breakfast Meal 1</string>
+    <string name="breakfast_meal_2">Breakfast Meal 2</string>
+    <string name="lunch_meal_1">Lunch Meal 1</string>
+    <string name="lunch_meal_2">Lunch Meal 2</string>
+    <string name="dinner_meal_1">Dinner Meal 1</string>
+    <string name="dinner_meal_2">Dinner Meal 2</string>
+    <string name="bm1_btn" tools:ignore="Typos">BM1_btn</string>
+    <string name="bm2_btn">BM2_btn</string>
+    <string name="lm1_btn" tools:ignore="Typos">LM1_btn</string>
+    <string name="lm2">LM2</string>
+    <string name="dm1_btn" tools:ignore="Typos">DM1_btn</string>
+    <string name="dm2_btn">DM2_btn</string>
+    <string name="update">Update</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="current_gender">Current Gender:</string>
+    <string name="current_height">Current Height:</string>
+    <string name="current_weight">Current Weight:</string>
+    <string name="current_age">Current Age:</string>
+    <string name="current_goal">Current Goal:</string>
+    <string name="homeBtnBtm">homebtnbtm</string>
+    <string name="home_5">Home</string>
+    <string name="profilebtnbtm">profilebtnbtm</string>
+    <string name="profile_6">Profile</string>
+    <string name="mealplan_btn">mealplan_btn</string>
+    <string name="meal_plan_5">Meal Plan</string>
+    <string name="gain_weight_7">Gain Weight</string>
+    <string name="lose_weight_3">Lose Weight</string>
+    <string name="category_pic_8">category_pic_8</string>
+    <string name="textview_9">TextView</string>
+    <string name="blank_space" />
+    <string name="pic_popular">pic_popular</string>
+    <string name="title_9">title</string>
+    <string name="addbtn_7">addbtn_7</string>
 </resources>
