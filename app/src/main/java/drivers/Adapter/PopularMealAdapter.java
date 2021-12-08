@@ -10,16 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import drivers.Domain.PopularMealDomain;
 import com.example.loginpage.R;
 
 import java.util.ArrayList;
+
+import drivers.Domain.PopularMealDomain;
 
 public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.ViewHolder> {
     ArrayList<PopularMealDomain> popularMealDomains;
 
     /**
      * Creates a new popularMealDomains object.
+     *
      * @param popularMealDomains a list of popular meal domains
      */
     public PopularMealAdapter(ArrayList<PopularMealDomain> popularMealDomains) {
@@ -29,7 +31,8 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
     /**
      * On creation of a new view with parent as its view group, this method instantiates the
      * corresponding XML file and generating the required new view, returned as a ViewHolder object.
-     * @param parent the parent view group which contains the corresponding popular meal domain
+     *
+     * @param parent   the parent view group which contains the corresponding popular meal domain
      * @param viewType an integer representing the viewType of the view holder
      * @return the new inflate view object is returned as a view holder object.
      */
@@ -45,7 +48,8 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
      * Once the view holder is set using the adapter, this method is called with the view holder
      * and the required positions of a category, inserting one in its position using
      * recycler view.
-     * @param holder the view holder that contains information about the categories
+     *
+     * @param holder   the view holder that contains information about the categories
      * @param position the category that the position integer is linked with is set and placed
      *                 using the recycler view
      */
@@ -66,6 +70,7 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
 
     /**
      * A getter method for the size of the popularMealDomains attribute.
+     *
      * @return the size of the popularMealDomains attribute.
      */
     @Override
@@ -81,6 +86,7 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
         /**
          * Creates an instance of the ViewHolder object, with its three important attributes
          * extracted from the itemView parameter.
+         *
          * @param itemView This contains information about the name, picture, layout and button of
          *                 each category.
          */

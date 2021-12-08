@@ -1,10 +1,9 @@
 package usecases;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.content.Context;
-import android.content.ContentValues;
-
 
 import entities.FoodItem;
 
@@ -30,13 +29,14 @@ public class MyDBHandler extends SQLiteOpenHelper {
     protected static final String COLUMN_TYPES = "Types";
     protected static final String COLUMN_NUTRITION = "Nutrition";
 
-    public MyDBHandler(Context context, SQLiteDatabase.CursorFactory factory){
+    public MyDBHandler(Context context, SQLiteDatabase.CursorFactory factory) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
     /**
      * Overrides the onCreate method, which is ran upon creation of a database, helping create
      * the initial columns and rows of data that are standard and required to all databases.
+     *
      * @param db the database that this method is being ran on (when it is created)
      */
     @Override
@@ -69,7 +69,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
     /**
      * Upgrades the version of a database from its current version (oldVersion) to the new inputted
      * version (newVersion).
-     * @param db the database which is to be upgraded.
+     *
+     * @param db         the database which is to be upgraded.
      * @param oldVersion the oldVersion (or current version) of the database db.
      * @param newVersion the new version of the database to be upgraded to.
      */
@@ -94,6 +95,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     /**
      * Adds the standard food items to the database, used to generate the standard meals provided
      * by the application.
+     *
      * @param db the database to which the standard food items are being added.
      */
     private void addStandardFoods(SQLiteDatabase db) {

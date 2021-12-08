@@ -72,6 +72,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Refresh a specific meal and display new information.
+     *
      * @param mealType the type of the meal needing to be refreshed
      */
     private void refreshMeal(String mealType) {
@@ -183,6 +184,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Open the home page and start HomePageActivity with provided username.
+     *
      * @param view the current View object.
      */
     @Override
@@ -194,6 +196,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Open the profile page and start ProfileActivity with provided username.
+     *
      * @param view the current View object.
      */
     @Override
@@ -205,6 +208,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Refresh the meal generator page and restart activity.
+     *
      * @param view the current View object.
      */
     @Override

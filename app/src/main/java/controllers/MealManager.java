@@ -2,7 +2,6 @@ package controllers;
 
 import android.content.Context;
 
-
 import entities.User;
 import usecases.MealCourse;
 
@@ -19,10 +18,10 @@ public class MealManager {
     /**
      * A MealManager for a given user incorporating their nutritional and dietary requirements.
      *
-     * @param user the user that we are generating meals for
-     * @param calories the target calories to be gained for the goal to be achieved, set using a setter
+     * @param user        the user that we are generating meals for
+     * @param calories    the target calories to be gained for the goal to be achieved, set using a setter
      * @param dietaryInfo dietary requirements (vegan, veg, or all ONLY)
-     * @param context the activity class generating meals
+     * @param context     the activity class generating meals
      */
 
     public MealManager(User user, int calories, String dietaryInfo, Context context) {
@@ -40,6 +39,7 @@ public class MealManager {
 
     /**
      * A MealManager for a user incorporating their targeted calories.
+     *
      * @param user the user that we are generating meals for
      */
     public MealManager(User user) {
@@ -49,6 +49,7 @@ public class MealManager {
 
     /**
      * A getter method for the mealCourse attribute.
+     *
      * @return the mealCourse attribute of a user.
      */
     public MealCourse getMealCourse() {
@@ -57,6 +58,7 @@ public class MealManager {
 
     /**
      * A method that calculates the target calories for a user based on their selected goals.
+     *
      * @return an integer with the target calories a user is trying to achieve calculated from
      * their goal
      */
@@ -72,6 +74,7 @@ public class MealManager {
 
     /**
      * A getter method for the targetCalories attribute.
+     *
      * @return the integer representing the targetCalories the user is trying to achieve.
      */
     public int getTargetCalories() {

@@ -192,8 +192,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -207,10 +207,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:contentDescription="@string/homeBtnBtm"
                         android:onClick="openHomePage"
                         app:srcCompat="@drawable/bottom_btn1g"
-                        android:contentDescription="@string/homeBtnBtm"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewHome"
@@ -232,9 +232,10 @@
                         android:id="@+id/imageViewProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/profilebtnbtm"
                         android:onClick="openProfilePage"
                         app:srcCompat="@drawable/bottom_btn2o"
-                        android:contentDescription="@string/profilebtnbtm" />
+                        tools:ignore="UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewProfile"
@@ -257,10 +258,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:contentDescription="@string/mealplan_btn"
                         android:onClick="openMealGeneratorPage"
                         app:srcCompat="@drawable/bottom_btn5g"
-                        android:contentDescription="@string/mealplan_btn"
-                        tools:ignore="NestedWeights" />
+                        tools:ignore="NestedWeights,UsingOnClickInXml" />
 
                     <TextView
                         android:id="@+id/textViewSupport"

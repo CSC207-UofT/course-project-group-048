@@ -1,13 +1,13 @@
 package drivers.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginpage.R;
 
@@ -99,6 +99,7 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
 
     /**
      * Open the profile page and start ProfileActivity with provided username.
+     *
      * @param view the view object
      */
     @Override
@@ -110,6 +111,7 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
 
     /**
      * Reopen the home page and restart the activity
+     *
      * @param view the view object
      */
     @Override
@@ -121,6 +123,7 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
 
     /**
      * Open the Meal Generator page and start MealGeneratorActivity with provided username.
+     *
      * @param view the view object
      */
     @Override
