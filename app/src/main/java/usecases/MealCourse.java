@@ -140,7 +140,7 @@ public class MealCourse implements Iterable<Meal> {
         List<FoodItem> items = new ArrayList<>();
         FoodItem item;
         int caloriesSoFar = 0, addedItems = 0;
-        System.out.println(caloriesRestriction);
+        System.out.println("Calorie Restriction:" + caloriesRestriction);
 
         while (addedItems < numItems) {
             item = generateRandomFoodItem(mealType);
