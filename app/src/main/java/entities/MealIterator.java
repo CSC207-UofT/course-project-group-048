@@ -9,6 +9,7 @@ class MealIterator<FoodItem> implements Iterator<FoodItem> {
 
     /**
      * An Iterator for the Meal objects.
+     *
      * @param foodItems A list of FoodItem objects in the meal.
      */
 
@@ -19,6 +20,7 @@ class MealIterator<FoodItem> implements Iterator<FoodItem> {
 
     /**
      * Checks if the foodItems attribute has a next item.
+     *
      * @return true if the position in the foodItems of the iterator is not the last,
      * or false if it is.
      */
@@ -28,6 +30,7 @@ class MealIterator<FoodItem> implements Iterator<FoodItem> {
 
     /**
      * Returns the next FoodItem in the foodItems attribute, using the position attribute.
+     *
      * @return the next FoodItem object in foodItems.
      */
     public FoodItem next() {

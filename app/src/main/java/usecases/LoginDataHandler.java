@@ -13,6 +13,7 @@ public class LoginDataHandler extends MyDBHandler {
 
     /**
      * Creates an instance of the LoginDataHandler object.
+     *
      * @param context the current state of the application representing the context in which the
      *                database exists
      * @param factory allows returning subclasses of Cursor when calling a query in our database
@@ -23,10 +24,11 @@ public class LoginDataHandler extends MyDBHandler {
 
     /**
      * Adds a user to the database.
+     *
      * @param user this object is used to retrieve information about the user and
      */
     // Add new user to database.
-    public void addUser(User user){
+    public void addUser(User user) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_FULL_NAME, user.getName());
         values.put(COLUMN_USERNAME, user.getUsername());
@@ -42,17 +44,18 @@ public class LoginDataHandler extends MyDBHandler {
 
     /**
      * Updates the details of a user in the database.
-     * @param username the username of the user who's information is being updates
+     *
+     * @param username  the username of the user who's information is being updates
      * @param newHeight an integer representing the new height of the user
      * @param newWeight an integer representing the new weight of the user
-     * @param newAge an integer representing the new age of the user
+     * @param newAge    an integer representing the new age of the user
      * @param newGender an integer representing the new gender of the user
-     * @param newGoal an integer representing the new goal set by the user
+     * @param newGoal   an integer representing the new goal set by the user
      */
     public void UpdateDetails(String username, Integer newHeight, Integer newWeight, Integer newAge,
-                              String newGender, String newGoal){
-        String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " =\"" + newHeight +"\", " +
-                COLUMN_WEIGHT + " =\"" + newWeight +"\", " + COLUMN_AGE + " =\"" + newAge +"\", " +
+                              String newGender, String newGoal) {
+        String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " =\"" + newHeight + "\", " +
+                COLUMN_WEIGHT + " =\"" + newWeight + "\", " + COLUMN_AGE + " =\"" + newAge + "\", " +
                 COLUMN_GENDER + " =\"" + newGender + "\", " + COLUMN_GOAL + " =\"" + newGoal + "\"" +
                 " WHERE " + COLUMN_USERNAME + " =\"" + username + "\";";
         SQLiteDatabase db = getWritableDatabase();
@@ -62,9 +65,10 @@ public class LoginDataHandler extends MyDBHandler {
 
     /**
      * Delete user from database.
+     *
      * @param username the username of the user we are trying to delete
      */
-    public void deleteUser(String username){
+    public void deleteUser(String username) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + "=\"" + username + "\";");
     }
@@ -73,10 +77,11 @@ public class LoginDataHandler extends MyDBHandler {
     /**
      * Returns a hashmap containing login information (username and user object) for each user.
      * Each username key maps to its corresponding password value.
+     *
      * @return a hashmap of usernames and user objects (containing passwords
      * stored in the database.
      */
-    public HashMap<String, User> getLoginData(){
+    public HashMap<String, User> getLoginData() {
         HashMap<String, User> loginData = new HashMap<>();
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";
@@ -88,7 +93,7 @@ public class LoginDataHandler extends MyDBHandler {
         User user;
 
         // Read the database for usernames and their corresponding passwords.
-        while (!c.isAfterLast()){
+        while (!c.isAfterLast()) {
             String name = c.getString(c.getColumnIndexOrThrow("name"));
             String username = c.getString(c.getColumnIndexOrThrow("username"));
             String password = c.getString(c.getColumnIndexOrThrow("password"));
@@ -99,7 +104,7 @@ public class LoginDataHandler extends MyDBHandler {
             String goal = c.getString(c.getColumnIndexOrThrow("goal"));
             user = new User(name, username, password, gender, weight, height, age, goal);
 
-            if(username!=null && password != null){
+            if (username != null && password != null) {
                 loginData.put(username, user);
             }
             c.moveToNext();
@@ -110,9 +115,10 @@ public class LoginDataHandler extends MyDBHandler {
 
     /**
      * Returns a string representing all of the information in the database
+     *
      * @return a string representation of the information in the database.
      */
-    public String databaseToString(){
+    public String databaseToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";
@@ -122,8 +128,8 @@ public class LoginDataHandler extends MyDBHandler {
         //Move to first row in results.
         c.moveToFirst();
 
-        while (!c.isAfterLast()){
-            if(c.getString(c.getColumnIndexOrThrow("username"))!=null){
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndexOrThrow("username")) != null) {
                 dbString += c.getString(c.getColumnIndexOrThrow("username"));
                 dbString += "  ";
                 dbString += c.getString(c.getColumnIndexOrThrow("password"));

@@ -16,9 +16,9 @@ public class FoodItem {
     /**
      * A class representing a FoodItem object.
      *
-     * @param name name of the food
-     * @param cals amount of the food
-     * @param types type of the food (food category, diet and meal type)
+     * @param name      name of the food
+     * @param cals      amount of the food
+     * @param types     type of the food (food category, diet and meal type)
      * @param nutrients nutrients of the food item
      */
 
@@ -31,6 +31,7 @@ public class FoodItem {
 
     /**
      * A getter method for the types parameter.
+     *
      * @return the types parameter (an array of strings) that contains information about the food.
      */
 
@@ -40,6 +41,7 @@ public class FoodItem {
 
     /**
      * A getter method for the name parameter.
+     *
      * @return the name of the food.
      */
     public String getName() {
@@ -48,6 +50,7 @@ public class FoodItem {
 
     /**
      * A getter method for the calories
+     *
      * @return the calories of the food.
      */
     public int getCalories() {
@@ -56,6 +59,7 @@ public class FoodItem {
 
     /**
      * A getter method for types, returning a string instead of an array.
+     *
      * @return a parsed string containing the information of the types instance attribute.
      */
     public String getStringTypes() {
@@ -74,7 +78,8 @@ public class FoodItem {
     }
 
     /**
-     *  A setter method for the name attribute.
+     * A setter method for the name attribute.
+     *
      * @param name is the name we want to set the name parameter to.
      */
     public void setName(String name) {
@@ -83,6 +88,7 @@ public class FoodItem {
 
     /**
      * A setter method for the calories attribute.
+     *
      * @param calories is the integer we want to set the calories attribute to.
      */
     public void setCalories(int calories) {
@@ -91,6 +97,7 @@ public class FoodItem {
 
     /**
      * A setter method for the types attribute.
+     *
      * @param types is an array of string containing information about the food.
      */
     public void setTypes(String[] types) {
@@ -99,6 +106,7 @@ public class FoodItem {
 
     /**
      * A getter method for the nutrients attribute.
+     *
      * @return the nutrients attribute, an array of ints.
      */
     public int[] getNutrients() {
@@ -107,6 +115,7 @@ public class FoodItem {
 
     /**
      * A setter method for the nutrients attribute.
+     *
      * @param nutrients is an array of ints that represent the nutrients of the food.
      */
     public void setNutrients(int[] nutrients) {
@@ -115,9 +124,10 @@ public class FoodItem {
 
     /**
      * A getter method for the nutrition parameter.
+     *
      * @return a parsed string instead of an array, representing the nutrition attribute.
      */
-    public String getStringNutrition () {
+    public String getStringNutrition() {
         StringBuilder s = new StringBuilder();
         for (int value : nutrients) {
             String amount = String.valueOf(value);
@@ -129,6 +139,7 @@ public class FoodItem {
 
     /**
      * A method to return the string representation of the food.
+     *
      * @return a string representation of the food, containing its name and calories.
      */
     @NonNull

@@ -9,6 +9,7 @@ class MealCourseIterator<Meal> implements Iterator<Meal> {
 
     /**
      * The constructor for the MealCourseIterator
+     *
      * @param meals this parameter is a list of Meal objects, the primary object the iterator
      *              iterates through.
      */
@@ -20,6 +21,7 @@ class MealCourseIterator<Meal> implements Iterator<Meal> {
     /**
      * Checks whether the meals attribute has another meal object in it, where the reference point
      * for the current meal object is set using the position attributee.
+     *
      * @return true if the meals attribute has additional meal objects, and false otherwise.
      */
     public boolean hasNext() {
@@ -28,6 +30,7 @@ class MealCourseIterator<Meal> implements Iterator<Meal> {
 
     /**
      * Uses the position attribute to find and return the next Meal object in the meals attribute.
+     *
      * @return the next meal object in the meals attribute (using the position attribute as
      * the reference for the current meal object).
      */

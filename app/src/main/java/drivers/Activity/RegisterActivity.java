@@ -1,7 +1,5 @@
 package drivers.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginpage.R;
 
@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      */
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.registerBtn) {
+        if (v.getId() == R.id.registerBtn) {
             //Set private variables as per user inputted details.
             fullName = edtTxtFullName.getText().toString().trim();
             username = edtTxtUser.getText().toString().trim();
@@ -139,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     /**
      * Open the login page
      */
-    public void openLoginPage(){
+    public void openLoginPage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
@@ -147,14 +147,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     /**
      * Check all registration fields and create new user in the database.
      */
-    public void checkAllFieldsAndSignUp(){
-        if (fullName.length() == 0){
+    public void checkAllFieldsAndSignUp() {
+        // display appropriate Toast message based on corresponding missing information
+        if (fullName.length() == 0) {
             Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
         } else if (username.length() == 0) {
             Toast.makeText(this, "Please Enter a Username", Toast.LENGTH_SHORT).show();
         } else if (password.length() == 0) {
             Toast.makeText(this, "Please Enter a Password", Toast.LENGTH_SHORT).show();
-        } else if (radioGroupGender.getCheckedRadioButtonId() == -1){ // no buttons are checked
+        } else if (radioGroupGender.getCheckedRadioButtonId() == -1) { // no buttons are checked
             Toast.makeText(this, "Please Select Your Gender", Toast.LENGTH_SHORT).show();
         } else if (heightString.length() == 0) {
             Toast.makeText(this, "Please Enter Your Height in cm", Toast.LENGTH_SHORT).show();
@@ -173,15 +174,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     /**
      * Create a new user in the database.
      */
-    public void performSignUp(){
+    public void performSignUp() {
         LoginSystem loginSystem = new LoginSystem(this);
 
-        if(loginSystem.checkUsernameExists(username)){
+        if (loginSystem.checkUsernameExists(username)) {
             Toast.makeText(this, "This username is taken. Please try another one.",
                     Toast.LENGTH_SHORT).show();
             edtTxtUser.setText("");
-        }
-        else {
+        } else {
             //Creates new user with the given details.
             password = Utils.getHash(password);
             weight = Integer.parseInt(weightString);

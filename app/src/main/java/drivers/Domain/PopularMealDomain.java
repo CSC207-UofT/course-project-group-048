@@ -10,9 +10,10 @@ public class PopularMealDomain implements Serializable {
     /**
      * Creates an instance of the PopularMealDomain object, used in the PopularMealAdapter class
      * providing information about each popular meal that the adapter processes.
-     * @param title the title of the meal
-     * @param picture a picture of the meal (contained as a string containing information about the
-     *                file)
+     *
+     * @param title    the title of the meal
+     * @param picture  a picture of the meal (contained as a string containing information about the
+     *                 file)
      * @param calories an integer representing the calories contained in the meal
      */
     public PopularMealDomain(String title, String picture, int calories) {
@@ -23,6 +24,7 @@ public class PopularMealDomain implements Serializable {
 
     /**
      * A getter method for the title attribute.
+     *
      * @return the title attribute (a string)
      */
     public String getTitle() {
@@ -31,6 +33,7 @@ public class PopularMealDomain implements Serializable {
 
     /**
      * A getter method for the picture attribute.
+     *
      * @return the picture attribute (a string containing file information)
      */
     public String getPicture() {
@@ -39,6 +42,7 @@ public class PopularMealDomain implements Serializable {
 
     /**
      * A getter method for the calories attribute.
+     *
      * @return the calories attribute (an integer)
      */
     public int getCalories() {

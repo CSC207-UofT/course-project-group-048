@@ -1,7 +1,5 @@
 package drivers.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginpage.R;
 
@@ -39,8 +39,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile); // set the XML page to open
 
+        // load information and instantiate
         loadUserInformation();
         setAllButtons();
         setEditTexts();
@@ -95,7 +96,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * Sets a TextView object to display text.
      *
      * @param textViewId the ID of the text view to edit text
-     * @param text the new text to display
+     * @param text       the new text to display
      */
     private void setTextView(int textViewId, String text) {
         TextView tv = findViewById(textViewId);
@@ -110,7 +111,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      */
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.updateBtn) {
+        if (v.getId() == R.id.updateBtn) {
             // Set private variables as per user inputted details.
             loginDatabase = new LoginDataHandler(this, null);
             newHeightString = edtTxtHeight.getText().toString().trim();
@@ -126,13 +127,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * If not, display Toast message to warn the user.
      */
     public void checkAllFields() {
+        /* showcase appropriate Toast message based on missing information
+           else update information */
         if (newHeightString.length() == 0) {
             Toast.makeText(this, "Please Enter New Height", Toast.LENGTH_SHORT).show();
         } else if (newWeightString.length() == 0) {
             Toast.makeText(this, "Please Enter New Weight", Toast.LENGTH_SHORT).show();
         } else if (newAgeString.length() == 0) {
             Toast.makeText(this, "Please Enter New Age", Toast.LENGTH_SHORT).show();
-        } else if (radioGroupGender.getCheckedRadioButtonId() == -1){
+        } else if (radioGroupGender.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "Please Select New Gender", Toast.LENGTH_SHORT).show();
         } else if (radioGroupWeight.getCheckedRadioButtonId() == -1) {
             Toast.makeText(this, "Please Select New Goal", Toast.LENGTH_SHORT).show();
@@ -224,6 +227,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Open the home page and start HomePageActivity with provided username.
+     *
      * @param view the current View object.
      */
     @Override
@@ -235,7 +239,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Refresh the profile page and restart ProfileActivity.
-     * @param view
+     *
+     * @param view the current View object.
      */
     @Override
     public void openProfilePage(View view) {
@@ -246,6 +251,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Open the meal generator page and start MealGeneratorActivity with provided username.
+     *
      * @param view the current View object.
      */
     @Override
