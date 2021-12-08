@@ -26,6 +26,12 @@ public class MealGeneratorActivity extends AppCompatActivity {
     MealManager manager;
     MealCourse mealCourse;
 
+    /**
+     * Actions to do when the activity begins. Creates
+     * buttons and generates a meal course for the user.
+     *
+     * @param savedInstanceState the state of the application
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -26,6 +26,12 @@ public class HomePageActivity extends AppCompatActivity {
     String username;
     User user;
 
+    /**
+     * Actions to do when the activity begins. Sets the
+     * text to welcome the user.
+     *
+     * @param savedInstanceState the state of the application
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,9 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewPopularMeals();
     }
 
+    /**
+     * Create a recycle view for the Popular Meals tab on the home page.
+     */
     private void recyclerViewPopularMeals() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerViewPopular = findViewById(R.id.view2);
@@ -57,6 +66,9 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewPopular.setAdapter(adapter2);
     }
 
+    /**
+     * Create a recycle view for the Categories tab on the home page.
+     */
     private void recyclerViewCategory() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerViewCategories = findViewById(R.id.recyclerView);
@@ -71,18 +83,30 @@ public class HomePageActivity extends AppCompatActivity {
         recyclerViewCategories.setAdapter(adapter);
     }
 
+    /**
+     * Open the profile page and start ProfileActivity with provided username.
+     * @param view the view object
+     */
     public void openProfilePage(View view) {
         Intent openTheProfilePage = new Intent(this, ProfileActivity.class);
         openTheProfilePage.putExtra("username", username);
         startActivity(openTheProfilePage);
     }
 
+    /**
+     * Reopen the home page and restart the activity
+     * @param view the view object
+     */
     public void openHomePage(View view) {
         // refresh the page
         finish();
         startActivity(getIntent());
     }
 
+    /**
+     * Open the Meal Generator page and start MealGeneratorActivity with provided username.
+     * @param view the view object
+     */
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
         openTheMealGeneratorPage.putExtra("username", username);
