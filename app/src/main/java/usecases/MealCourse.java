@@ -72,6 +72,10 @@ public class MealCourse implements Iterable<Meal> {
      */
     public void refreshMeal(String mealType) {
         int allowedMealCalories = calculateAllowedMealCalories(mealType);
+        refreshMeal(allowedMealCalories, mealType);
+    }
+
+    public void refreshMeal(int allowedMealCalories, String mealType) {
         Meal newMeal = generateMeal(2, mealType, allowedMealCalories);
         int index = -1;
 

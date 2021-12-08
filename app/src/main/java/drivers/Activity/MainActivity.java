@@ -82,8 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
-
-
     }
 
     public void openRegistrationForm() {
