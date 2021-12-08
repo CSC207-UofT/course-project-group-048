@@ -14,7 +14,8 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * The constructor for the Meal class.
-     * @param type is the type of the meal (vegan, vegetarian, etc.)
+     *
+     * @param type      is the type of the meal (vegan, vegetarian, etc.)
      * @param foodItems is the a list of FoodItem objects that are contained in the meal
      */
     public Meal(String type, List<FoodItem> foodItems) {
@@ -26,6 +27,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * Setter method for the type attribute
+     *
      * @param type the new type
      */
     public void setType(String type) {
@@ -34,6 +36,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * Setter method for foodItems attribute
+     *
      * @param foodItems the new food items list
      */
     public void setFoodItems(List<FoodItem> foodItems) {
@@ -42,6 +45,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * Setter method for calories attribute
+     *
      * @param calories the new calories
      */
     public void setCalories(int calories) {
@@ -50,6 +54,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * Calculates the calories for the meal.
+     *
      * @return the sum of the calories of each FoodItem in the meal.
      */
     private int calculateMealCalories() {
@@ -64,6 +69,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * A getter method for the calories attribute.
+     *
      * @return the calories of the meal.
      */
     public int getCalories() {
@@ -72,6 +78,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * A getter method for the foodItems attribute.
+     *
      * @return a list of the FoodItem contained in the meal.
      */
     public List<FoodItem> getFoodItems() {
@@ -80,6 +87,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * A getter method for the type attribute.
+     *
      * @return the type of the meal (vegan, vegetarian, etc.)
      */
     public String getType() {
@@ -88,6 +96,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * A getter method for the size of the meal.
+     *
      * @return the size of the meal, using the size method in the foodItems attribute
      */
     public int getSize() {
@@ -96,6 +105,7 @@ public class Meal implements Iterable<FoodItem> {
 
     /**
      * Returns an iterator for the meal.
+     *
      * @return the iterator (MealCourseIterator) object for the meal, implemented using the
      * iterator design pattern.
      */

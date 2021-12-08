@@ -1,7 +1,6 @@
 package usecases;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import entities.FoodItem;
 

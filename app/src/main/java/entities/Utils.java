@@ -36,7 +36,7 @@ public class Utils {
     /**
      * Get the ID of a string in the application
      *
-     * @param idString the string of the ID to get
+     * @param idString      the string of the ID to get
      * @param resourceClass the class containing the ID
      * @return the integer ID
      */

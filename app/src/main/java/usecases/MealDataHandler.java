@@ -14,6 +14,7 @@ public class MealDataHandler extends MyDBHandler {
 
     /**
      * Creates an instance of the MealDataHandler object.
+     *
      * @param context the current state of the application representing the context in which the
      *                database exists.
      * @param factory allows returning subclasses of Cursor when calling a query in our database.
@@ -24,10 +25,11 @@ public class MealDataHandler extends MyDBHandler {
 
     /**
      * Adds a new foodItem to the database.
+     *
      * @param foodItem the foodItem object to be added to the database, used to retrieve
      *                 information about itself.
      */
-    public void addFood(FoodItem foodItem){
+    public void addFood(FoodItem foodItem) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_FOOD_NAME, foodItem.getName());
         values.put(COLUMN_CALORIES, foodItem.getCalories());
@@ -39,19 +41,21 @@ public class MealDataHandler extends MyDBHandler {
 
     /**
      * Deletes a food item from the database.
+     *
      * @param name the name of the food item to be deleted.
      */
-    public void deleteFood(String name){
+    public void deleteFood(String name) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_FOODITEMS + " WHERE " + COLUMN_FOOD_NAME + "=\"" + name + "\";");
     }
 
     /**
      * Checks whether the given database is empty or not.
+     *
      * @param db is the database that is checked (for emptiness) in the method.
      * @return true if the database db is empty, false otherwise.
      */
-    public boolean isEmpty(SQLiteDatabase db){
+    public boolean isEmpty(SQLiteDatabase db) {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FOODITEMS, null);
         return cursor.getCount() == 0;
 
@@ -59,6 +63,7 @@ public class MealDataHandler extends MyDBHandler {
 
     /**
      * Returns all of the foodItem objects that have their data in the database.
+     *
      * @return a list of FoodItem objects contained in the database.
      */
     public List<FoodItem> getAll() {
@@ -69,14 +74,14 @@ public class MealDataHandler extends MyDBHandler {
         Cursor c = db.rawQuery(query, null);
 
         if (c.moveToFirst()) {
-             do {
-                 String foodItem = c.getString(0);
-                 int calories = c.getInt(1);
-                 String[] types = processCommaList(c.getString(2));
-                 int[] nutrition = processNutrientsArray(c.getString(3));
+            do {
+                String foodItem = c.getString(0);
+                int calories = c.getInt(1);
+                String[] types = processCommaList(c.getString(2));
+                int[] nutrition = processNutrientsArray(c.getString(3));
 
-                 FoodItem newItem = new FoodItem(foodItem, calories, types, nutrition);
-                 finalList.add(newItem);
+                FoodItem newItem = new FoodItem(foodItem, calories, types, nutrition);
+                finalList.add(newItem);
             }
             while (c.moveToNext());
         }
@@ -87,6 +92,7 @@ public class MealDataHandler extends MyDBHandler {
 
     /**
      * A helper method intended to process comma separated list as required.
+     *
      * @param string a string, which is the comma separated list to be parsed.
      * @return an array of strings, each one being a string from the comma separated list in the
      * string parameter
@@ -100,6 +106,7 @@ public class MealDataHandler extends MyDBHandler {
     /**
      * Processes the string representation of the nutrients attribute of a foodItem back into
      * its original format as an array of integers.
+     *
      * @param numericCommaString the string that contains comma separated numeric substrings
      *                           representing the nutritional information of a food item in our
      *                           database.

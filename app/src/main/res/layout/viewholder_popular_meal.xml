@@ -28,11 +28,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/pic_popular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/burger"
-        android:contentDescription="@string/pic_popular" />
+        app:srcCompat="@drawable/burger" />
 
     <TextView
         android:id="@+id/title"
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/addbtn_7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/picture"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@drawable/plus_circle"
-        android:contentDescription="@string/addbtn_7" />
+        app:srcCompat="@drawable/plus_circle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

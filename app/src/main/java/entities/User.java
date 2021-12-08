@@ -21,11 +21,11 @@ public class User implements Serializable {
     /**
      * Create a new User object.
      *
-     * @param username the username of the new user.
+     * @param username     the username of the new user.
      * @param passwordHash the password SHA256 of the new user.
-     * @param weight the weight of the new user.
-     * @param height the height of the new user.
-     * @param age the age of the new user.
+     * @param weight       the weight of the new user.
+     * @param height       the height of the new user.
+     * @param age          the age of the new user.
      */
     public User(String name, String username, String passwordHash, String gender, int weight,
                 int height, int age, String goal) {
@@ -42,6 +42,7 @@ public class User implements Serializable {
     /**
      * Calulates and returns the rounded BMR of the user using the relevant attributes (weight,
      * height and age) as an integer.
+     *
      * @return an integer representing the BMR value of the user.
      */
     public int calculateBMR() {
@@ -51,6 +52,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the name attribute.
+     *
      * @return a String representing the name of the user.
      */
     public String getName() {
@@ -59,6 +61,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the username attribute.
+     *
      * @return a String representing the username of the user.
      */
     public String getUsername() {
@@ -67,6 +70,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the passwordHash attribute.
+     *
      * @return a String representing the passwordHash of the user.
      */
     public String getPasswordHash() {
@@ -75,6 +79,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the gender attribute.
+     *
      * @return a String representing the gender of the user.
      */
     public String getGender() {
@@ -83,6 +88,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the weight attribute.
+     *
      * @return a double representing the weight of the user.
      */
     public double getWeight() {
@@ -91,6 +97,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the height attribute.
+     *
      * @return a double representing the height of the user.
      */
     public double getHeight() {
@@ -99,6 +106,7 @@ public class User implements Serializable {
 
     /**
      * A getter method for the age attribute.
+     *
      * @return an integer representing the age of the user.
      */
     public int getAge() {
@@ -107,12 +115,16 @@ public class User implements Serializable {
 
     /**
      * A getter method for the goal attribute.
+     *
      * @return a String representing the goal of the user.
      */
-    public String getGoal() {return goal;}
+    public String getGoal() {
+        return goal;
+    }
 
     /**
      * A setter method for the name attribute.
+     *
      * @param name the new name of the user
      */
     public void setName(String name) {
@@ -121,6 +133,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the username attribute.
+     *
      * @param username the new username of the user
      */
     public void setUsername(String username) {
@@ -129,6 +142,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the password hash.
+     *
      * @param passwordHash the new hash of the password
      */
     public void setPasswordHash(String passwordHash) {
@@ -137,6 +151,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the gender attribute.
+     *
      * @param gender the new gender of the user
      */
     public void setGender(String gender) {
@@ -145,6 +160,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the weight attribute.
+     *
      * @param weight the new weight of the user.
      */
     public void setWeight(int weight) {
@@ -153,6 +169,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the height attribute.
+     *
      * @param height the new height of the user.
      */
     public void setHeight(int height) {
@@ -161,6 +178,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the age attribute.
+     *
      * @param age the new age of the user.
      */
     public void setAge(int age) {
@@ -169,6 +187,7 @@ public class User implements Serializable {
 
     /**
      * A setter method for the goal attribute.
+     *
      * @param goal the new goal of the user.
      */
     public void setGoal(String goal) {
