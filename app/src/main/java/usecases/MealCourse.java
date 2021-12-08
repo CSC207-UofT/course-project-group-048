@@ -17,12 +17,26 @@ public class MealCourse implements Iterable<Meal> {
     private int targetCalories;
     private int calories;
 
+    /**
+     * A constructor for the MealCourse class, using a list of Meal objects, one for each type.
+     * @param meals a List of Meal objects
+     * @param context the current state of the application representing the context in which the
+     *                database exists
+     */
     public MealCourse(List<Meal> meals, Context context) {
         this.meals = meals;
         loadFoodList(context);
         mealCourseIterator = new MealCourseIterator(meals);
     }
 
+    /**
+     * A constructor for the MealCourse class, using an integer representing the target calories
+     * instead.
+     * @param targetCalories an integer representing the target calories of a Meal in this
+     *                       MealCourse object
+     * @param context the current state of the application representing the context in which the
+     *                database exists
+     */
     public MealCourse(int targetCalories, Context context) {
         this.targetCalories = targetCalories;
         loadFoodList(context);
@@ -30,6 +44,9 @@ public class MealCourse implements Iterable<Meal> {
         mealCourseIterator = new MealCourseIterator(meals);
     }
 
+    /**
+     * Refreshes all the meals in the MealCourse by replacing them with the new ones.
+     */
     public void refreshAllMeals() {
         calories = 0;
         int caloriesAllowed = targetCalories;
@@ -45,6 +62,11 @@ public class MealCourse implements Iterable<Meal> {
         }
     }
 
+    /**
+     * Refreshes one of the meals in the MealCourse, specifically the one corresponding to the
+     * mealType meal type.
+     * @param mealType the mealType of the meal that is to be refreshed.
+     */
     public void refreshMeal(String mealType) {
         int allowedMealCalories = calculateAllowedMealCalories(mealType);
         Meal newMeal = generateMeal(2, mealType, allowedMealCalories);
@@ -58,6 +80,12 @@ public class MealCourse implements Iterable<Meal> {
         }
     }
 
+    /**
+     * Returns the amount of meal calories allowed for a certain meal type (breakfast, lunch, etc)
+     * for a user.
+     * @param mealType the meal type for which the allowed meal calories are being calculated
+     * @return the calculated the allowed meal calories for the required meal type.
+     */
     private int calculateAllowedMealCalories(String mealType) {
         int otherMealCalories = 0;
         for (Meal meal : meals) {
@@ -69,6 +97,11 @@ public class MealCourse implements Iterable<Meal> {
         return calories - otherMealCalories;
     }
 
+    /**
+     * Loads the list of FoodItem objects in the database
+     * @param context the current state of the application representing the context in which the
+     *                database exists
+     */
     private void loadFoodList(Context context) {
         MealDataHandler mealDatabase = new MealDataHandler(context, null);
         this.foodItemList = mealDatabase.getAll();
