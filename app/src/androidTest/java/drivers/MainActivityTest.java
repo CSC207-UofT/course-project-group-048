@@ -7,6 +7,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import static org.hamcrest.CoreMatchers.allOf;
 import static org.junit.Assert.*;
 
 import android.view.View;
@@ -36,10 +37,10 @@ public class MainActivityTest {
     @Test
     public void testLaunch(){
         onView(withId(R.id.txtViewPassword)).check(matches(withText("Password")));
+        onView(withId(R.id.buttonCreateAcc)).check(matches(isDisplayed()));
     }
     @Test
     public void testRegistration() {
         onView(withId(R.id.buttonCreateAcc)).perform(click());
-        onView(withId(R.id.radioBtnGain)).check(matches(isDisplayed()));
     }
 }
