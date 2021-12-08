@@ -45,7 +45,6 @@
         android:layout_marginTop="75dp"
         android:backgroundTint="#3F51B5"
         android:contentDescription="@string/login_image"
-        android:rotation="180"
         app:srcCompat="@drawable/abc_vector_test" />
 
     <TextView
