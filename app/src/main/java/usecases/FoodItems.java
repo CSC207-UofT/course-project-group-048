@@ -8,7 +8,6 @@ import entities.FoodItem;
 
 public class FoodItems {
     public static final ArrayList<FoodItem> foodList = new ArrayList<>();
-    public static HashMap<String, ArrayList<FoodItem>> meals = new HashMap<>();
 
     final static FoodItem FRUITS = new FoodItem("fruits", 300,
             new String[]{"fruit", "snack", "vegan"}, new int[]{23, 4, 0, 0});
@@ -43,7 +42,10 @@ public class FoodItems {
     final static FoodItem SHRIMP_BOWL = new FoodItem("shrimp bowl", 228,
             new String[]{"fish", "dinner", "vegetarian"}, new int[]{100, 0, 2, 21});
 
-
+    /**
+     * A constructor for the FoodItems class. Adds all of the foodItem objects to the foodList
+     * attribute.
+     */
     public FoodItems() {
         foodList.add(FRUITS);
         foodList.add(CEREAL);

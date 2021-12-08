@@ -11,10 +11,20 @@ import entities.User;
 
 public class LoginDataHandler extends MyDBHandler {
 
+    /**
+     * A constructor for the LoginDataHandler object.
+     * @param context the current state of the application representing the context in which the
+     *                database exists
+     * @param factory allows returning subclasses of Cursor when calling a query in our database
+     */
     public LoginDataHandler(Context context, SQLiteDatabase.CursorFactory factory) {
         super(context, factory);
     }
 
+    /**
+     * Adds a user to the database.
+     * @param user this object is used to retrieve information about the user and
+     */
     // Add new user to database.
     public void addUser(User user){
         ContentValues values = new ContentValues();
@@ -30,6 +40,15 @@ public class LoginDataHandler extends MyDBHandler {
         db.insert(TABLE_USERS, null, values);
     }
 
+    /**
+     * Updates the details of a user in the database.
+     * @param username the username of the user who's information is being updates
+     * @param newHeight an integer representing the new height of the user
+     * @param newWeight an integer representing the new weight of the user
+     * @param newAge an integer representing the new age of the user
+     * @param newGender an integer representing the new gender of the user
+     * @param newGoal an integer representing the new goal set by the user
+     */
     public void UpdateDetails(String username, Integer newHeight, Integer newWeight, Integer newAge,
                               String newGender, String newGoal){
         String query = "UPDATE " + TABLE_USERS + " SET " + COLUMN_HEIGHT + " =\"" + newHeight +"\", " +
@@ -41,15 +60,22 @@ public class LoginDataHandler extends MyDBHandler {
 
     }
 
-    //Delete user from database.
+    /**
+     * Delete user from database.
+     * @param username the username of the user we are trying to delete
+     */
     public void deleteUser(String username){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + "=\"" + username + "\";");
     }
 
 
-    //Return a hashmap of usernames and passwords stored in the database. Each username key maps to
-    //its corresponding password value.
+    /**
+     * Returns a hashmap containing login information (username and user object) for each user.
+     * Each username key maps to its corresponding password value.
+     * @return a hashmap of usernames and user objects (containing passwords
+     * stored in the database.
+     */
     public HashMap<String, User> getLoginData(){
         HashMap<String, User> loginData = new HashMap<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -82,6 +108,10 @@ public class LoginDataHandler extends MyDBHandler {
         return loginData;
     }
 
+    /**
+     * Returns a string representing all of the information in the database
+     * @return a string representation of the information in the database.
+     */
     public String databaseToString(){
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
