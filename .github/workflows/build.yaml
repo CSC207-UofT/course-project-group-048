@@ -1,10 +1,23 @@
-name: NutritionApp Workflow
+name: NutritionApp Test Workthrough
 
-on: [push]
+on:
+  push:
 
 jobs:
-  build:
-    name: Workflow
-    runs-on: ubuntu-latest
+  unit_tests:
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
+
+      - name: Unit Tests
+        run: ./gradlew test
+  android_tests:
+    runs-on: [ macos-latest ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Anroid Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedAndroidTest
