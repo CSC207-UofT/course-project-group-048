@@ -12,8 +12,6 @@ import androidx.test.espresso.action.ViewActions;
 
 import com.example.loginpage.R;
 
-import org.junit.Before;
-
 public interface TestLoginSystem {
 
     default void registerNewUser(String username, String password) {
