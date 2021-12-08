@@ -337,7 +337,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
         app:layout_constraintTop_toBottomOf="@+id/textViewBreakfastCalories"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/bm1_btn" />
 
     <ImageView
@@ -347,7 +347,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewBreakfast"
         app:layout_constraintTop_toBottomOf="@+id/textViewBreakfastMeal1"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/bm2_btn" />
 
     <ImageView
@@ -357,7 +357,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunchCalories"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/lm1_btn" />
 
     <ImageView
@@ -367,7 +367,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewLunch"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunch1"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/lm2" />
 
     <ImageView
@@ -377,7 +377,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewDinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewDinnerCalories"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/dm1_btn" />
 
     <ImageView
@@ -387,7 +387,7 @@
         android:layout_marginTop="22dp"
         app:layout_constraintStart_toStartOf="@+id/textViewDinner"
         app:layout_constraintTop_toBottomOf="@+id/textViewDinner1"
-        app:srcCompat="@drawable/bottom_btn1o"
+        app:srcCompat="@drawable/nothing"
         android:contentDescription="@string/dm2_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
