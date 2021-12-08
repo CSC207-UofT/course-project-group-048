@@ -18,10 +18,21 @@ import java.util.ArrayList;
 public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.ViewHolder> {
     ArrayList<PopularMealDomain> popularMealDomains;
 
+    /**
+     * Creates a new popularMealDomains object.
+     * @param popularMealDomains a list of popular meal domains
+     */
     public PopularMealAdapter(ArrayList<PopularMealDomain> popularMealDomains) {
         this.popularMealDomains = popularMealDomains;
     }
 
+    /**
+     * On creation of a new view with parent as its view group, this method instantiates the
+     * corresponding XML file and generating the required new view, returned as a ViewHolder object.
+     * @param parent the parent view group which contains the corresponding popular meal domain
+     * @param viewType an integer representing the viewType of the view holder
+     * @return the new inflate view object is returned as a view holder object.
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,6 +41,14 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
         return new ViewHolder(inflate);
     }
 
+    /**
+     * Once the view holder is set using the adapter, this method is called with the view holder
+     * and the required positions of a category, inserting one in its position using
+     * recycler view.
+     * @param holder the view holder that contains information about the categories
+     * @param position the category that the position integer is linked with is set and placed
+     *                 using the recycler view
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(popularMealDomains.get(position).getTitle());
@@ -45,7 +64,10 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
 
     }
 
-
+    /**
+     * A getter method for the size of the popularMealDomains attribute.
+     * @return the size of the popularMealDomains attribute.
+     */
     @Override
     public int getItemCount() {
         return popularMealDomains.size();
@@ -56,6 +78,12 @@ public class PopularMealAdapter extends RecyclerView.Adapter<PopularMealAdapter.
         ImageView picture;
         ImageView addBtn;
 
+        /**
+         * Creates an instance of the ViewHolder object, with its three important attributes
+         * extracted from the itemView parameter.
+         * @param itemView This contains information about the name, picture, layout and button of
+         *                 each category.
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
