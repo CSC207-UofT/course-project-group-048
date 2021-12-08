@@ -22,9 +22,6 @@ import entities.User;
 
 public class HomePageActivity extends AppCompatActivity {
 
-private RecyclerView.Adapter adapter, adapter2;
-private RecyclerView recyclerViewCategories, recyclerViewPopular;
-
     LoginSystem system;
     String username;
     User user;
@@ -35,7 +32,7 @@ private RecyclerView recyclerViewCategories, recyclerViewPopular;
         setContentView(R.layout.activity_homepage);
         Bundle extras = getIntent().getExtras();
 
-        TextView tv1 = (TextView)findViewById(R.id.txtViewHi);
+        TextView tv1 = findViewById(R.id.txtViewHi);
         system = new LoginSystem(this);
         username = (String) extras.get("username");
         user = system.getUser(username);
@@ -48,7 +45,7 @@ private RecyclerView recyclerViewCategories, recyclerViewPopular;
 
     private void recyclerViewPopularMeals() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewPopular = findViewById(R.id.view2);
+        RecyclerView recyclerViewPopular = findViewById(R.id.view2);
         recyclerViewPopular.setLayoutManager(linearLayoutManager);
 
         ArrayList<PopularMealDomain> popularMeal = new ArrayList<>();
@@ -56,21 +53,21 @@ private RecyclerView recyclerViewCategories, recyclerViewPopular;
         popularMeal.add(new PopularMealDomain("Double Cheeseburger", "burger", 1100));
         popularMeal.add(new PopularMealDomain("Vegan Pizza", "pizza3", 800));
 
-        adapter2 = new PopularMealAdapter(popularMeal);
+        RecyclerView.Adapter<PopularMealAdapter.ViewHolder> adapter2 = new PopularMealAdapter(popularMeal);
         recyclerViewPopular.setAdapter(adapter2);
     }
 
     private void recyclerViewCategory() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewCategories = findViewById(R.id.recyclerView);
+        RecyclerView recyclerViewCategories = findViewById(R.id.recyclerView);
         recyclerViewCategories.setLayoutManager(linearLayoutManager);
 
         ArrayList<CategoryDomain> categories = new ArrayList<>();
-        categories.add(new CategoryDomain("Breakfast", "cat_1"));
-        categories.add(new CategoryDomain("Lunch", "cat_2"));
-        categories.add(new CategoryDomain("Dinner", "cat_3"));
+        categories.add(new CategoryDomain("Breakfast"));
+        categories.add(new CategoryDomain("Lunch"));
+        categories.add(new CategoryDomain("Dinner"));
 
-        adapter = new CategoryAdapter(categories);
+        RecyclerView.Adapter<CategoryAdapter.ViewHolder> adapter = new CategoryAdapter(categories);
         recyclerViewCategories.setAdapter(adapter);
     }
 

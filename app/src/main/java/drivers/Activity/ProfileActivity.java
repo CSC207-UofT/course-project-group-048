@@ -15,11 +15,8 @@ import android.widget.Toast;
 import com.example.loginpage.R;
 
 import controllers.LoginSystem;
-import drivers.Activity.HomePageActivity;
-import drivers.Activity.MealGeneratorActivity;
 import entities.User;
 import usecases.LoginDataHandler;
-import usecases.MyDBHandler;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,7 +28,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private EditText edtTxtHeight, edtTxtWeight, edtTxtAge;
     private RadioGroup radioGroupGender, radioGroupWeight;
-    private RadioButton radioBtnMale, radioBtnFemale, radioBtnGain, radioBtnLose;
 
     @Override
     public void onClick(View v) {
@@ -92,17 +88,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         radioGroupGender = findViewById(R.id.radioGroupGender2);
         radioGroupWeight = findViewById(R.id.radioGroupWeight2);
 
-        TextView tv1 = (TextView)findViewById(R.id.currentGenderText);
-        TextView tv2 = (TextView)findViewById(R.id.currentHeightText);
-        TextView tv3 = (TextView)findViewById(R.id.currentWeightText);
-        TextView tv4 = (TextView)findViewById(R.id.currentAgeText);
-        TextView tv5 = (TextView)findViewById(R.id.currentGoalText);
+        TextView tv1 = findViewById(R.id.currentGenderText);
+        TextView tv2 = findViewById(R.id.currentHeightText);
+        TextView tv3 = findViewById(R.id.currentWeightText);
+        TextView tv4 = findViewById(R.id.currentAgeText);
+        TextView tv5 = findViewById(R.id.currentGoalText);
 
-        tv1.setText("Current Gender: " + user.getGender());
-        tv2.setText("Current Height: " + user.getHeight() + " cm");
-        tv3.setText("Current Weight: " + user.getWeight() + " kg");
-        tv4.setText("Current Age: " + user.getAge());
-        tv5.setText("Current Goal: " + user.getGoal() + " Weight");
+        String genderString = "Current Gender: " + user.getGender();
+        String heightString = "Current Height: " + user.getHeight() + " cm";
+        String weightString = "Current Weight: " + user.getWeight() + " kg";
+        String ageString = "Current Age: " + user.getAge();
+        String goalString = "Current Goal: " + user.getGoal() + " Weight";
+
+        tv1.setText(genderString);
+        tv2.setText(heightString);
+        tv3.setText(weightString);
+        tv4.setText(ageString);
+        tv5.setText(goalString);
     }
 
     public void setRadioButtons() {
@@ -113,42 +115,30 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void setMaleButton() {
-        radioBtnMale = findViewById(R.id.radioBtnMale2);
-        radioBtnMale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newGender = "male"; //Sets gender to male if male button is clicked.
-            }
+        RadioButton radioBtnMale = findViewById(R.id.radioBtnMale2);
+        radioBtnMale.setOnClickListener(v -> {
+            newGender = "male"; //Sets gender to male if male button is clicked.
         });
     }
 
     public void setFemaleButton() {
-        radioBtnFemale = findViewById(R.id.radioBtnFemale2);
-        radioBtnFemale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newGender = "female"; //Sets gender to female if female button is clicked.
-            }
+        RadioButton radioBtnFemale = findViewById(R.id.radioBtnFemale2);
+        radioBtnFemale.setOnClickListener(v -> {
+            newGender = "female"; //Sets gender to female if female button is clicked.
         });
     }
 
     public void setGainWeightButton() {
-        radioBtnGain = findViewById(R.id.radioBtnGain2);
-        radioBtnGain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newGoal = "gain"; // set goal to gain weight when gain weight button is clicked
-            }
+        RadioButton radioBtnGain = findViewById(R.id.radioBtnGain2);
+        radioBtnGain.setOnClickListener(v -> {
+            newGoal = "gain"; // set goal to gain weight when gain weight button is clicked
         });
     }
 
     public void setLoseWeightButton() {
-        radioBtnLose = findViewById(R.id.radioBtnLose2);
-        radioBtnLose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newGoal = "lose"; // set goal to lose weight when lose weight button is clicked
-            }
+        RadioButton radioBtnLose = findViewById(R.id.radioBtnLose2);
+        radioBtnLose.setOnClickListener(v -> {
+            newGoal = "lose"; // set goal to lose weight when lose weight button is clicked
         });
     }
 

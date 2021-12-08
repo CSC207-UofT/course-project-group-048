@@ -1,12 +1,12 @@
 package drivers.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginpage.R;
 
@@ -41,12 +41,8 @@ public class MealGeneratorActivity extends AppCompatActivity {
     }
 
     private void setRefreshButton(String mealType, int buttonID) {
-        ImageView img = (ImageView) findViewById(buttonID);
-        img.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                refreshMeal(mealType);
-            }
-        });
+        ImageView img = findViewById(buttonID);
+        img.setOnClickListener(v -> refreshMeal(mealType));
     }
 
     private void refreshAllMeals() {
@@ -56,6 +52,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     }
 
     private void refreshMeal(String mealType) {
+        // prompted to change to switch statement but avoided as per advise to avoid switch statements
         if (mealType.equals("breakfast")) {
             refreshBreakfast();
         } else if (mealType.equals("lunch")) {
@@ -73,7 +70,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     private void refreshBreakfast() {
         mealCourse.refreshMeal("breakfast");
         Meal breakfast = mealCourse.getMeal("breakfast");
-        TextView tv3 = (TextView) findViewById(R.id.textViewBreakfastCalories);
+        TextView tv3 = findViewById(R.id.textViewBreakfastCalories);
         String breakfastCalories = "Calories: " + breakfast.getCalories();
         tv3.setText(breakfastCalories);
 
@@ -84,7 +81,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     private void refreshLunch() {
         mealCourse.refreshMeal("lunch");
         Meal lunch = mealCourse.getMeal("lunch");
-        TextView tv6 = (TextView) findViewById(R.id.textViewLunchCalories);
+        TextView tv6 = findViewById(R.id.textViewLunchCalories);
         String lunchCalories = "Calories: " + lunch.getCalories();
         tv6.setText(lunchCalories);
 
@@ -95,7 +92,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     private void refreshDinner() {
         mealCourse.refreshMeal("dinner");
         Meal dinner = mealCourse.getMeal("dinner");
-        TextView tv9 = (TextView) findViewById(R.id.textViewDinnerCalories);
+        TextView tv9 = findViewById(R.id.textViewDinnerCalories);
         String dinnerCalories = "Calories: " + " " + dinner.getCalories();
         tv9.setText(dinnerCalories);
 
@@ -104,7 +101,7 @@ public class MealGeneratorActivity extends AppCompatActivity {
     }
 
     private void updateMealText(Meal meal, int itemNumber, int id) {
-        TextView tv = (TextView) findViewById(id);
+        TextView tv = findViewById(id);
         String mealString = "";
 
         if (itemNumber < meal.getSize()) {
@@ -123,11 +120,11 @@ public class MealGeneratorActivity extends AppCompatActivity {
     }
 
     public void setHeaderText() {
-        TextView tv1 = (TextView) findViewById(R.id.textViewTitle);
+        TextView tv1 = findViewById(R.id.textViewTitle);
         String welcomeMessage = "Meal Plan for " + user.getName();
         tv1.setText(welcomeMessage);
 
-        TextView tv2 = (TextView) findViewById(R.id.txtViewCalories);
+        TextView tv2 = findViewById(R.id.txtViewCalories);
         String caloriesString = "Target Calories: " + manager.getTargetCalories();
         tv2.setText(caloriesString);
     }
