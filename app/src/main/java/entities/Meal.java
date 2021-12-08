@@ -1,11 +1,13 @@
 package entities;
 
+import androidx.annotation.NonNull;
+
 import java.util.Iterator;
 import java.util.List;
 
 public class Meal implements Iterable<FoodItem> {
 
-    private final MealIterator mealIterator;
+    private final MealIterator<FoodItem> mealIterator;
     private String type;
     private List<FoodItem> foodItems;
     private int calories;
@@ -19,7 +21,19 @@ public class Meal implements Iterable<FoodItem> {
         this.type = type;
         this.foodItems = foodItems;
         this.calories = calculateMealCalories();
-        mealIterator = new MealIterator(foodItems);
+        mealIterator = new MealIterator<>(foodItems);
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setFoodItems(List<FoodItem> foodItems) {
+        this.foodItems = foodItems;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 
     /**
@@ -73,6 +87,7 @@ public class Meal implements Iterable<FoodItem> {
      * @return the iterator (MealCourseIterator) object for the meal, implemented using the
      * iterator design pattern.
      */
+    @NonNull
     @Override
     public Iterator<FoodItem> iterator() {
         return mealIterator;

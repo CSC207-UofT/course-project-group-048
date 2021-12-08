@@ -2,25 +2,18 @@ package controllers;
 
 import android.content.Context;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
 
-import entities.FoodItem;
-import entities.Meal;
 import entities.User;
-import usecases.FoodItems;
 import usecases.MealCourse;
-import usecases.MealDataHandler;
 
 public class MealManager {
 
-    private int targetCalories;
+    private final int targetCalories;
 
     // we do not use this in our program, but it has been left for future development
     private String dietaryInfo;
     private MealCourse mealCourse;
-    private User user;
+    private final User user;
 
     /**
      * A MealManager for a given user incorporating their nutritional and dietary requirements.

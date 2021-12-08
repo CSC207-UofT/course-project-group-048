@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 class MealIterator<FoodItem> implements Iterator<FoodItem> {
-    private List<FoodItem> foodItems;
+    private final List<FoodItem> foodItems;
     private int position;
 
     /**
