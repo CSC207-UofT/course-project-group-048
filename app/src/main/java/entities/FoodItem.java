@@ -1,4 +1,5 @@
-package entities;/*
+package entities;
+/*
    FoodItem stores food name, type (fruit, vegetable, meat etc.)
    and its amount in grams and its corresponding nutritional values(carbohydrates, protein and fat)
  */

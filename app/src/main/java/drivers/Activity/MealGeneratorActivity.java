@@ -12,8 +12,10 @@ import com.example.loginpage.R;
 
 import controllers.LoginSystem;
 import controllers.MealManager;
+import entities.FoodItem;
 import entities.Meal;
 import entities.User;
+import entities.Utils;
 import usecases.MealCourse;
 
 public class MealGeneratorActivity extends AppCompatActivity {
@@ -74,19 +76,20 @@ public class MealGeneratorActivity extends AppCompatActivity {
         String breakfastCalories = "Calories: " + breakfast.getCalories();
         tv3.setText(breakfastCalories);
 
-        updateMealText(breakfast, 0, R.id.textViewBreakfastMeal1);
-        updateMealText(breakfast, 1, R.id.textViewBreakfastMeal2);
+        updateMealText(breakfast, 0, R.id.textViewBreakfastMeal1, R.id.imageViewBM1);
+        updateMealText(breakfast, 1, R.id.textViewBreakfastMeal2, R.id.imageViewBM2);
     }
 
     private void refreshLunch() {
         mealCourse.refreshMeal("lunch");
         Meal lunch = mealCourse.getMeal("lunch");
         TextView tv6 = findViewById(R.id.textViewLunchCalories);
+
         String lunchCalories = "Calories: " + lunch.getCalories();
         tv6.setText(lunchCalories);
 
-        updateMealText(lunch, 0, R.id.textViewLunch1);
-        updateMealText(lunch, 1, R.id.textViewLunch2);
+        updateMealText(lunch, 0, R.id.textViewLunch1, R.id.imageViewLM1);
+        updateMealText(lunch, 1, R.id.textViewLunch2, R.id.imageViewLM2);
     }
 
     private void refreshDinner() {
@@ -96,16 +99,25 @@ public class MealGeneratorActivity extends AppCompatActivity {
         String dinnerCalories = "Calories: " + " " + dinner.getCalories();
         tv9.setText(dinnerCalories);
 
-        updateMealText(dinner, 0, R.id.textViewDinner1);
-        updateMealText(dinner, 1, R.id.textViewDinner2);
+        updateMealText(dinner, 0, R.id.textViewDinner1, R.id.imageViewDM1);
+        updateMealText(dinner, 1, R.id.textViewDinner2, R.id.imageViewDM2);
     }
 
-    private void updateMealText(Meal meal, int itemNumber, int id) {
-        TextView tv = findViewById(id);
+    private void updateMealText(Meal meal, int itemNumber, int textId, int imageId) {
+        TextView tv = findViewById(textId);
+        ImageView iv = findViewById(imageId);
         String mealString = "";
+        String newImageIdString;
+        FoodItem foodItem;
+        int newImageId;
 
         if (itemNumber < meal.getSize()) {
-            mealString = meal.getFoodItems().get(itemNumber).toString();
+            foodItem = meal.getFoodItems().get(itemNumber);
+            mealString = foodItem.toString();
+            newImageIdString = foodItem.getName().replace(" ", "_");
+            newImageId = Utils.getResId(newImageIdString, R.drawable.class);
+            System.out.println(newImageIdString + " " + newImageId);
+            iv.setImageResource(newImageId);
         }
 
         tv.setText(mealString);
