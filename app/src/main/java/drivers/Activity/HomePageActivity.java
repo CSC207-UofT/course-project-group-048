@@ -35,13 +35,13 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_homepage); // set the XML file to open
 
         loadUserInformation();
 
         TextView tv1 = findViewById(R.id.txtViewHi);
         String welcomeMessage = "Welcome, " + user.getName();
-        tv1.setText(welcomeMessage);
+        tv1.setText(welcomeMessage); // display welcome message with user name
 
         recyclerViewCategory();
         recyclerViewPopularMeals();
@@ -63,10 +63,12 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
      * Create a recycle view for the Popular Meals tab on the home page.
      */
     private void recyclerViewPopularMeals() {
+        // create the format for popular meals
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerViewPopular = findViewById(R.id.view2);
         recyclerViewPopular.setLayoutManager(linearLayoutManager);
 
+        // add popular meals
         ArrayList<PopularMealDomain> popularMeal = new ArrayList<>();
         popularMeal.add(new PopularMealDomain("Pepperoni Pizza", "pizza1", 1500));
         popularMeal.add(new PopularMealDomain("Double Cheeseburger", "burger", 1100));
@@ -80,10 +82,12 @@ public class HomePageActivity extends AppCompatActivity implements LoggedInActiv
      * Create a recycle view for the Categories tab on the home page.
      */
     private void recyclerViewCategory() {
+        // creates the format for categories
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerViewCategories = findViewById(R.id.recyclerView);
         recyclerViewCategories.setLayoutManager(linearLayoutManager);
 
+        // add categories
         ArrayList<CategoryDomain> categories = new ArrayList<>();
         categories.add(new CategoryDomain("Breakfast"));
         categories.add(new CategoryDomain("Lunch"));

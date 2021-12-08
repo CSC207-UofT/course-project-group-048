@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); // assign the XML file to open
 
         ImageButton loginButton = findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(this);
+        loginButton.setOnClickListener(this); // instantiate the login button
 
         Button buttonCreateAcc = findViewById(R.id.buttonCreateAcc);
-        buttonCreateAcc.setOnClickListener(this);
+        buttonCreateAcc.setOnClickListener(this); // instantiate the register button
 
         edtTxtUsername = findViewById(R.id.edtTxtUsername);
         edtTxtPassword = findViewById(R.id.edtTxtPassword);
@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         username = edtTxtUsername.getText().toString();
         password = edtTxtPassword.getText().toString();
 
+        // check user fields if login button is clicked,
+        // else if registration button is clicked open registration form
         if (v.getId() == R.id.loginButton) {
             mealDatabase = new MealDataHandler(this,null);
             checkFields();

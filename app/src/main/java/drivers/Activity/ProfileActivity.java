@@ -39,8 +39,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile); // set the XML page to open
 
+        // load information and instantiate
         loadUserInformation();
         setAllButtons();
         setEditTexts();
@@ -126,6 +127,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * If not, display Toast message to warn the user.
      */
     public void checkAllFields() {
+        /* showcase appropriate Toast message based on missing information
+           else update information */
         if (newHeightString.length() == 0) {
             Toast.makeText(this, "Please Enter New Height", Toast.LENGTH_SHORT).show();
         } else if (newWeightString.length() == 0) {
@@ -235,7 +238,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     /**
      * Refresh the profile page and restart ProfileActivity.
-     * @param view
+     * @param view the current View object.
      */
     @Override
     public void openProfilePage(View view) {

@@ -43,6 +43,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
         mealCourse = manager.getMealCourse();
         refreshAllMeals();
 
+        // instantiate refresh buttons
         setRefreshButton("all", R.id.imageBtnRefresh1);
         setRefreshButton("breakfast", R.id.imageBtnRefresh2);
         setRefreshButton("lunch", R.id.imageBtnRefresh3);
@@ -71,7 +72,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Refresh a specific meal and display new information.
-     * @param mealType
+     * @param mealType the type of the meal needing to be refreshed
      */
     private void refreshMeal(String mealType) {
         /* prompted to change to switch statement but avoided as per
@@ -204,7 +205,7 @@ public class MealGeneratorActivity extends AppCompatActivity implements LoggedIn
 
     /**
      * Refresh the meal generator page and restart activity.
-     * @param view
+     * @param view the current View object.
      */
     @Override
     public void openMealGeneratorPage(View view) {

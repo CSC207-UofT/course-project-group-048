@@ -148,6 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      * Check all registration fields and create new user in the database.
      */
     public void checkAllFieldsAndSignUp(){
+        // display appropriate Toast message based on corresponding missing information
         if (fullName.length() == 0){
             Toast.makeText(this, "Please Enter Your Full Name", Toast.LENGTH_SHORT).show();
         } else if (username.length() == 0) {
