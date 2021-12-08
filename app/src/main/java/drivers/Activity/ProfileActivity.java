@@ -18,7 +18,7 @@ import controllers.LoginSystem;
 import entities.User;
 import usecases.LoginDataHandler;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, LoggedInActivity {
 
     User user;
     LoginSystem system;
@@ -51,7 +51,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * Loads the current user information from the username
      * passed from another activity in a Bundle object.
      */
-    private void loadUserInformation() {
+    @Override
+    public void loadUserInformation() {
         Bundle extras = getIntent().getExtras();
         system = new LoginSystem(this);
         username = (String) extras.get("username");
@@ -225,6 +226,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * Open the home page and start HomePageActivity with provided username.
      * @param view the current View object.
      */
+    @Override
     public void openHomePage(View view) {
         Intent openTheHomePage = new Intent(this, HomePageActivity.class);
         openTheHomePage.putExtra("username", username);
@@ -235,6 +237,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * Refresh the profile page and restart ProfileActivity.
      * @param view
      */
+    @Override
     public void openProfilePage(View view) {
         // refresh the page
         finish();
@@ -245,6 +248,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
      * Open the meal generator page and start MealGeneratorActivity with provided username.
      * @param view the current View object.
      */
+    @Override
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
         openTheMealGeneratorPage.putExtra("username", username);

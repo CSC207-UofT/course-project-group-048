@@ -20,7 +20,7 @@ import drivers.Domain.CategoryDomain;
 import drivers.Domain.PopularMealDomain;
 import entities.User;
 
-public class HomePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity implements LoggedInActivity {
 
     LoginSystem system;
     String username;
@@ -36,17 +36,27 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        Bundle extras = getIntent().getExtras();
+
+        loadUserInformation();
 
         TextView tv1 = findViewById(R.id.txtViewHi);
-        system = new LoginSystem(this);
-        username = (String) extras.get("username");
-        user = system.getUser(username);
         String welcomeMessage = "Welcome, " + user.getName();
         tv1.setText(welcomeMessage);
 
         recyclerViewCategory();
         recyclerViewPopularMeals();
+    }
+
+    /**
+     * Loads the current user information from the username
+     * passed from another activity in a Bundle object.
+     */
+    @Override
+    public void loadUserInformation() {
+        Bundle extras = getIntent().getExtras();
+        system = new LoginSystem(this);
+        username = (String) extras.get("username");
+        user = system.getUser(username);
     }
 
     /**
@@ -87,6 +97,7 @@ public class HomePageActivity extends AppCompatActivity {
      * Open the profile page and start ProfileActivity with provided username.
      * @param view the view object
      */
+    @Override
     public void openProfilePage(View view) {
         Intent openTheProfilePage = new Intent(this, ProfileActivity.class);
         openTheProfilePage.putExtra("username", username);
@@ -97,6 +108,7 @@ public class HomePageActivity extends AppCompatActivity {
      * Reopen the home page and restart the activity
      * @param view the view object
      */
+    @Override
     public void openHomePage(View view) {
         // refresh the page
         finish();
@@ -107,6 +119,7 @@ public class HomePageActivity extends AppCompatActivity {
      * Open the Meal Generator page and start MealGeneratorActivity with provided username.
      * @param view the view object
      */
+    @Override
     public void openMealGeneratorPage(View view) {
         Intent openTheMealGeneratorPage = new Intent(this, MealGeneratorActivity.class);
         openTheMealGeneratorPage.putExtra("username", username);

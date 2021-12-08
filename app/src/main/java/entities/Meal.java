@@ -24,14 +24,26 @@ public class Meal implements Iterable<FoodItem> {
         mealIterator = new MealIterator<>(foodItems);
     }
 
+    /**
+     * Setter method for the type attribute
+     * @param type the new type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Setter method for foodItems attribute
+     * @param foodItems the new food items list
+     */
     public void setFoodItems(List<FoodItem> foodItems) {
         this.foodItems = foodItems;
     }
 
+    /**
+     * Setter method for calories attribute
+     * @param calories the new calories
+     */
     public void setCalories(int calories) {
         this.calories = calories;
     }

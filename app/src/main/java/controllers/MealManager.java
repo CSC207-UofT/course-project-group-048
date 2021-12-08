@@ -12,6 +12,7 @@ public class MealManager {
 
     // we do not use this in our program, but it has been left for future development
     private String dietaryInfo;
+
     private MealCourse mealCourse;
     private final User user;
 
