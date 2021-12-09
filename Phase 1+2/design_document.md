@@ -1,5 +1,9 @@
 # Design Document
 
+## Functionality
+
+
+
 ## Refactoring, SOLID, and Design Patterns
 
 Our design is consistent with the SOLID design principles and minimizes code smells. For some specific examples, consider the following classes. We will indicate which SOLID deign principle, Clean Architecture layer, or code smell is being referenced either directly or in brackets.
@@ -66,9 +70,10 @@ Somewhat mentioned in the previous section, our program adheres to the rules of 
 ## GitHub Features
 In Phase 1 of our project, we decided to incorporate the Android Studio IDEA, which resulted in a conflict with our pre-existing code working in the Intelli-J IDEA. Consequently, we were unable to correctly upload our project onto GitHub - preventing us from collaborating effectively using the power of Version Control. Once we resolved this issue, we were able to create individual branches which were either working on particular features of the app, or tracking the Main branch. We also began incorporating GitHub Issues and Pull Requests to adequately communicate the issues we encountered within our code. This allowed us to be very specific with what [Issues](https://github.com/CSC207-UofT/course-project-group-048/issues?q=is%3Aissue+is%3Aclosed) the [Pull Requests](https://github.com/CSC207-UofT/course-project-group-048/pulls?q=is%3Apr+is%3Aclosed) were resolving. Further, we made an attempt to make use of [Actions](https://github.com/CSC207-UofT/course-project-group-048/actions) to run our tests automatically, however, we encountered an error when attempting to do so. With the limited time we had remaining, we were unable to troubleshoot the error and get the GitHub Actions to work correctly with out tests. This would be a good next step in continuing the project, as integrating testing with development is crucial.
 
+
 ## Code Style, Organization, and Documentation
 
-## Functionality
+Our code is organized very well. We packaged classes by their Clean Architecture layer and created a parallel hierarchy for test classes. We also named variables and methods well which made development of our code more seamless. This allowed us to document less inside of methods and more on the outside using JavaDoc. The only code warnings that were left over related to unused methods and variables, which we left for future development of the code (and in adherence to the **Open/Closed Principle**).
 
 ## Testing
 
