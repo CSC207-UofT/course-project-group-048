@@ -2,7 +2,7 @@
 
 ## Functionality
 
-Since Phase 0, we decreased our project scope to generating a meal plan for a user based on their Basal-Metabolic-Rate (BMR). This was done due to our small group size and the issues we ran into during Phase 1. We have updated the [Specification]() to reflect this and made a short [video]() demonstarting the functionality of our application.
+Since Phase 0, we decreased our project scope to generating a meal plan for a user based on their Basal-Metabolic-Rate (BMR). This was done due to our small group size and the issues we ran into during Phase 1. We have updated the [Specification](https://github.com/CSC207-UofT/course-project-group-048/blob/main/Phase%201+2/specification.md) to reflect the new project scope and made a short [video]() demonstarting the functionality of our application.
 
 ## Refactoring, SOLID, and Design Patterns
 
