@@ -1,4 +1,4 @@
-# Design
+# Design Document
 
 ## Class Breakdown
 
@@ -22,7 +22,7 @@ The ``RegisterActivity`` class is dependent on both the ``LoginSystem`` and ``My
 
 ### ``ProfileActivity``
 
-When creating the Profile page, it became apparent that we would need to access the SQL database to view information about a specific ``User`` instance. Our current code had violated the **Open/Closed Principle** by only reading in a username and password pair in ``LoginSystem``. In order to access this information, the ``LoginSystem``, ``MyDBHandler``, ``MainActivity``, as well as this class needed many modifications. This resulted in a ``Shotgun Surgery`` in pull request [#26](https://github.com/CSC207-UofT/course-project-group-048/pull/26). This was the only major **Change Preventer** code smell in our program.
+When creating the Profile page, it became apparent that we would need to access the SQL database to view information about a specific ``User`` instance. Our current code had violated the **Open/Closed Principle** by only reading in a username and password pair in ``LoginSystem``. In order to access this information, the ``LoginSystem``, ``MyDBHandler``, ``MainActivity``, as well as this class needed many modifications. This resulted in a ``Shotgun Surgery`` in pull request [#26](https://github.com/CSC207-UofT/course-project-group-048/pull/26). This was the biggest **Change Preventer** code smell in our program.
 
 ### ``LoginSystem`` and ``MyDBHandler``
 
@@ -43,3 +43,24 @@ Refactoring this code was a bit challenging but we managed to fix it by having o
 This also resulted in the change in dependency of the ``LoginSystem`` class from ``MyDBHandler`` to its child class ``LoginDataHandler`` which was responsible for parsing and retrieving the login information from the database.
 
 We have also ensured that the code for in accordance with the **Open/Closed Design Principle** for ``MealDataHandler`` such that no user of the app is able to change the data regarding the food items in the database. Therefore unlike ``LoginDataHandler``, the class ``MealDataHandler`` will be unable to edit any information present in the meal data once the database has been created. This wasn't what we had envisioned at the beginning of the term but due to a lack of time we weren't able to add features that would allow the user to add more options to their meal plan.
+
+### ``Meal Class``
+
+The Meal Class currently an attribute called "type" which denotes the type of the meal - Breakfast, Lunch, Dinner. Although we don't believe it directly violates any design principles, it contains the change preventer code smell. As a result, if we were to try and incorporate a new type, let's say "Snack", we would have change numerous components of the program; however, in comparison, if we were to make Breakfast, Lunch, and Dinner as subclasses of Meal, we could easily create a new class that extends Meal. This is something that we wanted to address, though we were bound by the deadline. We think this is something we would like to address if/when we pursue further development on this project. 
+
+### ``GitHub Features``
+In Phase 1 of our project, we decided to incorporate the Android Studio IDEA, which resulted in a conflict with our pre-existing code working in the Intelli-J IDEA. Consequently, we were unable to correctly upload our project onto GitHub - preventing us from collaborating effectively using the power of Version Control. Once we resolved this issue, we were able to create individual branches which were either working on particular features of the app, or tracking the Main branch. We also began incorporating GitHub Issues and Pull Requests to adequately communicate the issues we encountered within our code. This allowed us to be very specific with what Issues the Pull Requests were resolving. Further, we made an attempt to make use of GitHub Actions to run our tests automatically, however, we encountered an error when attempting to do so. With the limited time we had remaining, we were unable to troubleshoot the error and get the GitHub Actions to work correctly with out tests.
+
+### ``Design Pattern``
+
+### ``Code Style, Organization, and Documentation``
+
+### ``Functionality``
+
+### ``Testing``
+
+
+
+
+
+
