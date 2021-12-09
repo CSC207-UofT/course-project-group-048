@@ -48,7 +48,11 @@ The Meal Class currently contains an attribute called "type" which denotes the t
 
 ## Clean Architecture and CRC Model
 
-Somewhat mentioned in the previous section, our program adheres to the rules of Clean Architecture. This is clear in the way we have packaged our code and can be seen in the import statements. 
+Somewhat mentioned in the previous section, our program adheres to the rules of Clean Architecture. This is clear in the way we have packaged our code and can be seen in the import statements at the top of any class. To simplify the responsibilities of each class and their collaborators, we have created a CRC model which can be viewed [here](https://github.com/CSC207-UofT/course-project-group-048/blob/main/Phase%201%2B2/CRC.pdf). To give an example of the direct role each class plays, consider the examples below.
+
+1. **Registration**. A user opens up our app which runs the Driver ``MainActivity``. They then select the "Create One" button to register a new account which runs the Driver ``RegisterActivity``. Oncer the user has entered all of their information and presses the register button, assuming all fields are valid, a new account is created. This is done by a dependency on the Controller ``LoginSystem`` which delegates the task of retrieving data to the ``LoginDataHandler``Use Case. This class then creates an instance of the entity ``User`` containg all of the user information and enters it into the MySQL database.
+2. 
+
 
 
 
