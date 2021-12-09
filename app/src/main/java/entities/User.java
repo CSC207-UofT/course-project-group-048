@@ -46,7 +46,14 @@ public class User implements Serializable {
      * @return an integer representing the BMR value of the user.
      */
     public int calculateBMR() {
-        double bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        double bmr;
+
+        if (gender.equals("male")) {
+            bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        } else {
+            bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+        }
+
         return (int) Math.round(bmr);
     }
 
