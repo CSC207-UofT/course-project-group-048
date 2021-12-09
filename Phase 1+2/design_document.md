@@ -26,7 +26,7 @@ When creating the Profile page, it became apparent that we would need to access 
 
 Along with some of the other **Driver** classes, ``ProfileActivity`` implement elements of the **Façade Design Pattern**. Although there are not multiple classes to obscure the complexity of creating ``TextView``, ``EditText``, and ``Button`` objects (like the Façade Pattern suggests), we have used multiple different methods for the same purpose. This can be seen in ``ProfleActivity.onCreate`` which obscures the complexity of loading user information and setting up ``TextView``, ``EditText``, and ``Button`` objects.
 
-Along with the ``MealGeneratorActivity`` and ``HomePageActivity``, ``ProfileActivity`` implements the ``LoggedInActivity`` Interface which outlines methods for opening the other pages (the Home page and Meal Plan page) and loading the user's information.
+Along with the ``MealGeneratorActivity`` and ``HomePageActivity``, ``ProfileActivity`` implements the ``LoggedInActivity`` Interface which outlines methods for opening the other pages (the Home page and Meal Plan page) and loading the user's information. Other than the ``TestLoginSystem`` interface we wrote for android testing, this was the only interface that we wrote for the program. It thus adheres to the **Interface Segragation Principl** which stipulates that a class should not be forced to depend on methods it does not need.
 
 ### ``LoginSystem`` and ``MyDBHandler``
 
@@ -49,6 +49,10 @@ We have also ensured that the code for in accordance with the **Open/Closed Desi
 ### ``Meal Class``
 
 The Meal Class currently contains an attribute called "type" which denotes the type of the meal - breakfast, lunch, or dinner. This is a **Change Preventer** code smell that does not fully adhere to the **Open/Closed Principle** that we did not refactor. As a result, if we were to try and incorporate a new type (i.e. "Snack") we would have to change classes and bits of code. With more time, we would have improved this design by making ``Breakfast``, ``Lunch``, and ``Dinner`` subclasses of an abstract class ``Meal``. This would mean creating new Meals could be done using the **Factory Design Pattern**. Along with ``MealCourse``, this class also incorporates the **Iterator Design Pattern**. This was a good design choice given that a ``Meal`` is really just a list of ``FoodItem``. When iterating over different ``FoodItem`` instances in this list, it makes sense to encapsulate the use of ``List`` for design and simplicity. This adheres to the **Open/Closed Principle** by allowing the structure of the data storage to change and removes a hard depnendency.
+
+### Note
+
+Since the **Liskov Substitution Principle** is incorporated into Java by design, we also adhere to this design principle. The most clear examples of this in our program would be the use of ``List`` and ``ArrayList``. For example, the attribute ``foodItems`` is declared to be of type ``List<FoodItem>``, but in practice we set it equal to ``ArrayList<FoodItem>``, where ``ArrayList`` implements ``List`` in the ``java.util`` library.
 
 ## Clean Architecture and CRC Model
 
