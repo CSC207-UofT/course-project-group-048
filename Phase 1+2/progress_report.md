@@ -1,0 +1,19 @@
+### Member Contribution and Future Plans
+
+Aryamann worked on ...
+
+Harsh worked on ...
+
+Paula worked on ...
+
+Will worked on ...
+
+Ram worked on ...
+
+### What Has Worked Well
+
+Team work? Design?
+
+### Final Thoughts
+
+...
