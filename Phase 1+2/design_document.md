@@ -81,4 +81,4 @@ All the main components of the program have been tested using Android Test. It w
 
 ## Additional Comments
 
-We enjoyed working on this project very much. Although we ran into severe issues during Phase 1, we are proud of what we have accomplished since then. We look forward to forking this repository and continuing to develop this application.
+We all enjoyed working on this project. Although we ran into severe technical issues during Phase 1, we are proud of what we have accomplished since then. We look forward to forking this repository and continuing to develop the application in the future.
