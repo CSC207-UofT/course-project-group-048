@@ -6,4 +6,4 @@
 
 Select "Trust Gradle Project". If this message does not come up, click on the ``build.gradle`` file and then select "Trust Project". If there is a configuration issue at this point, select **Preferences > Build, Execution, Deployment > Build Tools > Gradle** and select a Gradle JDK (we recommend **11**).
 
-To the left of the Play button, click on the drop down menu and select **AVD Manager > Create Virtual Device > Pixel 3 > Next** and download **R**. Select **Next > Finish**. You can now run the program!
+To the left of the Play button, click on the drop down menu and select **AVD Manager > Create Virtual Device > Pixel 3 > Next** and download **R**. Select **Next > Finish**. You can now run the program! Note that it may take a few minutes to install the app on the emulator for the first time.
