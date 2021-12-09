@@ -4,7 +4,7 @@
 
 Our design is consistent with the SOLID design principles and minimizes code smells. For some specific examples, consider the following classes. We will indicate which SOLID deign principle, Clean Architecture layer, or code smell is being referenced either directly or in brackets.
 
-#### ``MainActivity``
+### ``MainActivity``
 
 This class is the main class of the program and belongs to the outermost layer of Clean Architecture (**Frameworks & Drivers**). It interacts direclty with the View and delegates the main tasks. Since it is the default activity, it launches the user login page. For that reason, it only has a hard dependency on the ``LoginSystem`` class (**Dependency Inversion Principle**). The class is responsible to only one actor, the front-end designer, since it delegates user interactions to Controller classes (**Single Responsibility Principle**). 
 
@@ -12,7 +12,7 @@ The only major code smell was a **bloated** ``MainActvity.onClick`` method. This
 
 Inside the ``MainActivity.onClick`` method, a previous implementation required a for loop to call a method with numerous parameters and iterate through a **bloated** list containing the id's for the views that we instanciated. However, this was bad design as the method was not clear or easy to understand. To resolve this issue we removed the long list of parameters and instead used the ``getViewbyId`` method.
 
-#### ``RegisterActivity``
+### ``RegisterActivity``
 
 This Activity represents the actions of the Registration Page of our application. It contains a user registration form that a first-time user fills out. This form contains fields for information about the user that will be used in the ``MealGenerator`` API, but most importantly, it contains username and password fields. The method ``RegisterActivity.onClick`` checks if all fields have been entered and displays a message to the user if this is not the case. 
 
@@ -20,13 +20,15 @@ Originally, this entire process was done, without delegating tasks to other clas
 
 The ``RegisterActivity`` class is dependent on both the ``LoginSystem`` and ``MyDBHandler`` classes. This meant that the ``RegisterActivity`` class would be responsible to the actor that manages the database **and** the actor that manages login security, a violation of the **Single-Responsibility Principle**. It also meant our code was more closed to future change, as other members of our team that were not familiar with how ``MyDBHandler`` worked could not modify code in the ``RegisterActivity.onClick`` method. In order to refactor this, we made ``LoginSystem`` dependent on ``MyDBHandler``, which will be discussed in a later section. We then created methods  ``RegisterActivity.checkAllFieldsAndSignUp`` and ``RegisterActivity.performSignUp`` to fix the code smell, which we resolved in issue [#12](https://github.com/CSC207-UofT/course-project-group-048/issues/12).
 
-#### ``ProfileActivity``
+### ``ProfileActivity``
 
 When creating the Profile page, it became apparent that we would need to access the SQL database to view information about a specific ``User`` instance. Our current code had violated the **Open/Closed Principle** by only reading in a username and password pair in ``LoginSystem``. In order to access this information, the ``LoginSystem``, ``MyDBHandler``, ``MainActivity``, as well as this class needed many modifications. This resulted in a ``Shotgun Surgery`` in pull request [#26](https://github.com/CSC207-UofT/course-project-group-048/pull/26). This was the biggest **Change Preventer** code smell in our program.
 
 Along with some of the other **Driver** classes, ``ProfileActivity`` implement elements of the **Façade Design Pattern**. Although there are not multiple classes to obscure the complexity of creating ``TextView``, ``EditText``, and ``Button`` objects (like the Façade Pattern suggests), we have used multiple different methods for the same purpose. This can be seen in ``ProfleActivity.onCreate`` which obscures the complexity of loading user information and setting up ``TextView``, ``EditText``, and ``Button`` objects.
 
-#### ``LoginSystem`` and ``MyDBHandler``
+Along with the ``MealGeneratorActivity`` and ``HomePageActivity``, ``ProfileActivity`` implements the ``LoggedInActivity`` Interface which outlines methods for opening the other pages (the Home page and Meal Plan page) and loading the user's information.
+
+### ``LoginSystem`` and ``MyDBHandler``
 
 An **Inappropriate Intimacy** code smell became apparent when trying to refactor the ``RegisterActivity.onClick`` method. The class ``LoginSystem`` required a HashMap of user information when being instantiated, which came from a method in ``MyDBHandler``:
 
@@ -44,7 +46,7 @@ Refactoring this code was a bit challenging but we ended up creating a parent cl
 
 We have also ensured that the code for in accordance with the **Open/Closed Design Principle** for ``MealDataHandler``. While no user of the app is able to change data containing food items in the database, a developer would be able to integrate such changes with the use of the ``MealDataHandler.addFood`` method. Therefore unlike ``LoginDataHandler``, the class ``MealDataHandler`` does not edit any information present in the meal data once the database has been created. This wasn't what we had planned at the beginning of the term but due to a lack of time we weren't able to add features that would allow the user to add more options to their meal plan.
 
-#### ``Meal Class``
+### ``Meal Class``
 
 The Meal Class currently contains an attribute called "type" which denotes the type of the meal - breakfast, lunch, or dinner. This is a **Change Preventer** code smell that does not fully adhere to the **Open/Closed Principle** that we did not refactor. As a result, if we were to try and incorporate a new type (i.e. "Snack") we would have to change classes and bits of code. With more time, we would have improved this design by making ``Breakfast``, ``Lunch``, and ``Dinner`` subclasses of an abstract class ``Meal``. This would mean creating new Meals could be done using the **Factory Design Pattern**. Along with ``MealCourse``, this class also incorporates the **Iterator Design Pattern**. This was a good design choice given that a ``Meal`` is really just a list of ``FoodItem``. When iterating over different ``FoodItem`` instances in this list, it makes sense to encapsulate the use of ``List`` for design and simplicity. This adheres to the **Open/Closed Principle** by allowing the structure of the data storage to change and removes a hard depnendency.
 
