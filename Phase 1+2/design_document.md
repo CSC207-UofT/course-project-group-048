@@ -2,7 +2,7 @@
 
 ## Functionality
 
-
+Since Phase 0, we decreased our project scope to generating a meal plan for a user based on their Basal-Metabolic-Rate (BMR). This was done due to our small group size and the issues we ran into during Phase 1. We have updated the [Specification]() to reflect this and made a short [video]() demonstarting the functionality of our application.
 
 ## Refactoring, SOLID, and Design Patterns
 
@@ -82,7 +82,3 @@ All the main components of the program have been tested using Android Test. It w
 ## Additional Comments
 
 We enjoyed working on this project very much. Although we ran into severe issues during Phase 1, we are proud of what we have accomplished since then. We look forward to forking this repository and continuing to develop this application.
-
-
-
-
