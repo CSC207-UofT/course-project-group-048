@@ -77,7 +77,11 @@ Our code is organized very well. We packaged classes by their Clean Architecture
 
 ## Testing
 
+All the main components of the program have been tested using Android Test. It was sufficient to test features through the drivers, but if we had more time, we could test individual methods in lower layer classes with Unit Tests. Android Test made our tests interactive as well, so it was clear at which point the code was breaking. 
 
+## Additional Comments
+
+We enjoyed working on this project very much. Although we ran into severe issues during Phase 1, we are proud of what we have accomplished since then. We look forward to forking this repository and continuing to develop this application.
 
 
 
